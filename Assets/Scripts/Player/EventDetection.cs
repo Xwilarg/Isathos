@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Triggers of the player, send to the player if there is a possible interraction in his range
+/// </summary>
 public class EventDetection : MonoBehaviour
 {
     private PlayerController _pc;

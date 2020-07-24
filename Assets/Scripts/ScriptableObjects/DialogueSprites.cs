@@ -4,6 +4,6 @@
 public class DialogueSprites : ScriptableObject
 {
     public Sprite Empty;
-    public Sprite MC;
-    public Sprite Etahnia;
+    public DialogueSpritesCharacter MC;
+    public DialogueSpritesCharacter Etahnia;
 }

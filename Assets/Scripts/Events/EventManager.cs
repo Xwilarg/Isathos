@@ -30,6 +30,13 @@ public class EventManager : MonoBehaviour
             DialoguePopup.S.Close();
             return;
         }
-        DialoguePopup.S.Display(Character.MC, c, result.Value.Text, !result.Value.IsSpeaking, result.Value.NameOverride);
+        if (result.Value.IsSpeaking)
+            _speakerTwoLastExpression = result.Value.Expression;
+        else
+            _speakerOneLastExpression = result.Value.Expression;
+        DialoguePopup.S.Display(Character.MC, c, _speakerOneLastExpression, _speakerTwoLastExpression, result.Value.Text, !result.Value.IsSpeaking, result.Value.NameOverride);
     }
+
+    private FacialExpression _speakerOneLastExpression = FacialExpression.NEUTRAL;
+    private FacialExpression _speakerTwoLastExpression = FacialExpression.SMILE;
 }
