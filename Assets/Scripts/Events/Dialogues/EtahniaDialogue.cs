@@ -33,11 +33,12 @@ public class EtahniaDialogue : ADialogue
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Who are you?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1)
+            return new NormalDialogue(true, "Eheh, I might not look like it but I'm a Celestial and my name is Etahnia!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 2)
         {
             _knownName = "Etahnia";
-            return new NormalDialogue(true, "Eheh, I might not look like it but I'm a Celestial and my name is Etahnia!", FacialExpression.SMILE, _knownName);
+            return new NormalDialogue(false, "A celestial? What is it?", FacialExpression.NEUTRAL, "Me");
         }
-        if (_currProgress == 2) return new NormalDialogue(false, "A celestial? What is it?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 3) return new NormalDialogue(true, "I guess that make sence that a human never heard of us... I think you call us \"angel\" or something?", FacialExpression.SMILE, _knownName);
         if (_currProgress == 4) return new NormalDialogue(true, "We helped your race against demons during the Great War and because of how we looks, the name sticked in.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 5) return new NormalDialogue(true, "Aa~ But that was like 6000 years ago so I don't expect you to know much about it, I wasn't even born anyway!", FacialExpression.SMILE, _knownName);
@@ -91,6 +92,45 @@ public class EtahniaDialogue : ADialogue
 
     private IDialogueResult NoQuestion(int lastChoiceId)
     {
+        if (_currProgress == 0) return new NormalDialogue(false, "I think I'm okay for now.", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "So what are you planning to do now?", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(false, "I don't know, maybe going back in my world or something...", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 3) return new NormalDialogue(true, "Since you have nothing to do, why don't you help me going out of here?", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(false, "How could I do that?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 5) return new NormalDialogue(true, "Um... Celestian dimentional magic is way too strong so as a human, even if you managed to come here, helping me going out really is something else, like you would need nearly godly powers...", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 6) return new NormalDialogue(true, "That's it! You just have to become a god!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 7)
+        {
+            QuestManager.S.UpdateQuestDescription("Become a god");
+            return new NormalDialogue(false, "Becoming a god? How could I even do that?", FacialExpression.NEUTRAL, "Me");
+        }
+        if (_currProgress == 8) return new NormalDialogue(true, "It took me 200 years to gather knowledge and understand everything, but with my help I'm sure you can do it in 2 times less!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 9) return new NormalDialogue(false, "Humans don't live that long you know.", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 10) return new NormalDialogue(true, "Ah, I forgot about that part... One quicker step to become a god would be acknowledged by another one, I don't know much about human gods but as far as I can remember, there are 4 of them.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 11) return new NormalDialogue(true, "There is Ela, the primal human deity, Nyr and Sar who took over Hβ and Sae, who is pretty much useless... Maybe we should go with this one?", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 12)
+        {
+            QuestManager.S.UpdateQuestDescription("Become a god\n- Be acknowledged by Sae");
+            return new NormalDialogue(false, "Sounds good, but how am I even supposed to meet her?", FacialExpression.NEUTRAL, "Me");
+        }
+        if (_currProgress == 13) return new NormalDialogue(true, "No idea!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 14) return new NormalDialogue(true, "Maybe you should look into her past life to understand more about her, Sae is a pretty new god, only 3000 years old.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 15) return new NormalDialogue(true, "I don't really know where such text would be kept, you should probably ask in a church.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 16)
+        {
+            QuestManager.S.UpdateQuestDescription("Become a god\n - Find more information about Sae");
+            return new NormalDialogue(false, "I'll go then, I just have to exit by that portal looking thing, right?", FacialExpression.NEUTRAL, "Me");
+        }
+        if (_currProgress == 17) return new NormalDialogue(true, "Yeah... But well, if you want to speak a bit more before going, I wouldn't mind. I've been pretty lonely here all this time.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 18) return new NormalDialogue(false, "Sure, I'll consider it.", FacialExpression.NEUTRAL, "Me");
+        _current = RandomConversation1;
+        return null;
+    }
+
+    private IDialogueResult RandomConversation1(int _)
+    {
+        //if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
+        //if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic instead of eating food", FacialExpression.NEUTRAL, _knownName);
         return null;
     }
 
