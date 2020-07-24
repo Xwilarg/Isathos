@@ -12,13 +12,24 @@ public class EventManager : MonoBehaviour
         S = this;
     }
 
+    public void Clear()
+    {
+        _etahnia.Clear();
+    }
+
     public void StartEvent(Character c)
     {
-        DialogueResult result;
+        DialogueResult? result;
         if (c == Character.ETAHNIA)
             result = _etahnia.GetDialogue();
         else
             throw new ArgumentException("Invalid character " + c.ToString());
-        DialoguePopup.S.Display(Character.MC, c, result.Text, !result.IsSpeaking, result.NameOverride);
+        if (!result.HasValue)
+        {
+            Clear();
+            DialoguePopup.S.Close();
+            return;
+        }
+        DialoguePopup.S.Display(Character.MC, c, result.Value.Text, !result.Value.IsSpeaking, result.Value.NameOverride);
     }
 }

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         _speakEventIcon.SetActive(false);
         _toSpeak = null;
+        EventManager.S.Clear();
         DialoguePopup.S.Close();
     }
 
