@@ -10,7 +10,11 @@
         _currProgress = 0;
     }
 
-    public abstract DialogueResult? GetDialogue();
+    /// <summary>
+    /// Get the next dialogue
+    /// </summary>
+    /// <param name="lastChoiceId">If the last dialogue was a choice, id the of the answer (0 to 3), else -1</param>
+    public abstract IDialogueResult GetDialogue(int lastChoiceId);
 
     protected int _currProgress;
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialoguePopup : MonoBehaviour
@@ -19,13 +20,45 @@ public class DialoguePopup : MonoBehaviour
     [SerializeField]
     private Text _textName, _textContent;
 
+    [SerializeField]
+    private Button[] _choices;
+
+    [SerializeField]
+    private Text[] _choicesText;
+
     private void Awake()
     {
         S = this;
     }
 
+    public void DisplayChoices(Character asker, string[] choices)
+    {
+        _popup.SetActive(true);
+
+        int i = 0;
+        for (; i < choices.Length; i++)
+        {
+            _choices[i].onClick.RemoveAllListeners();
+            int id = i;
+            _choices[i].onClick.AddListener(new UnityAction(() =>
+            {
+                EventManager.S.StartEvent(asker, id);
+            }));
+            _choices[i].gameObject.SetActive(true);
+            _choicesText[i].text = choices[i];
+        }
+        for (; i < 4; i++)
+        {
+            _choices[i].gameObject.SetActive(false);
+        }
+    }
+
     public void Display(Character speakerOne, Character speakerTwo, FacialExpression speakerOneExpression, FacialExpression speakerTwoExpression, string text, bool isCharacterOneSpeaking, string speakerNameOverride)
     {
+        // Make sure choice buttons are disabled
+        foreach (var choice in _choices)
+            choice.gameObject.SetActive(false);
+
         _imageSpeakerOne.sprite = GetSprite(speakerOne, speakerOneExpression);
         _imageSpeakerTwo.sprite = GetSprite(speakerTwo, speakerTwoExpression);
 

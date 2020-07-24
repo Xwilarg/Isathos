@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: DialogueSprites
   m_EditorClassIdentifier: 
   Empty: {fileID: 21300000, guid: 38107f8e13a11be42a25b32be9f4c79f, type: 3}
-  MC: {fileID: 21300000, guid: fa8c654f1edd1ff4581d759b0c03f1cc, type: 3}
-  Etahnia: {fileID: 21300000, guid: 5862d411183727344ab355fb82cd37a5, type: 3}
+  MC:
+    Neutral: {fileID: 21300000, guid: fa8c654f1edd1ff4581d759b0c03f1cc, type: 3}
+    Smile: {fileID: 21300000, guid: f82bc244bda03234babfb83c54128758, type: 3}
+  Etahnia:
+    Neutral: {fileID: 21300000, guid: 5862d411183727344ab355fb82cd37a5, type: 3}
+    Smile: {fileID: 21300000, guid: bd852d53b65d261418d7a83c22bd0174, type: 3}

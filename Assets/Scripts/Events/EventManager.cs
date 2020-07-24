@@ -17,26 +17,36 @@ public class EventManager : MonoBehaviour
         _etahnia.Clear();
     }
 
-    public void StartEvent(Character c)
+    public void StartEvent(Character c, int id = -1)
     {
-        DialogueResult? result;
+        IDialogueResult result;
         if (c == Character.ETAHNIA)
-            result = _etahnia.GetDialogue();
+            result = _etahnia.GetDialogue(id);
         else
             throw new ArgumentException("Invalid character " + c.ToString());
-        if (!result.HasValue)
+        if (result == null)
         {
             Clear();
             DialoguePopup.S.Close();
             return;
         }
-        if (result.Value.IsSpeaking)
-            _speakerTwoLastExpression = result.Value.Expression;
+        if (result is NormalDialogue nDial)
+        {
+            if (nDial.IsSpeaking)
+                _speakerTwoLastExpression = nDial.Expression;
+            else
+                _speakerOneLastExpression = nDial.Expression;
+            DialoguePopup.S.Display(Character.MC, c, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, nDial.NameOverride);
+        }
+        else if (result is ChoiceDialogue cDial)
+        {
+            DialoguePopup.S.DisplayChoices(c, cDial.Choices);
+        }
         else
-            _speakerOneLastExpression = result.Value.Expression;
-        DialoguePopup.S.Display(Character.MC, c, _speakerOneLastExpression, _speakerTwoLastExpression, result.Value.Text, !result.Value.IsSpeaking, result.Value.NameOverride);
+            throw new InvalidOperationException("GetDialogue returned an unknown type for " + c.ToString());
     }
 
+    // To keep the last expression when the other person is speaking
     private FacialExpression _speakerOneLastExpression = FacialExpression.NEUTRAL;
     private FacialExpression _speakerTwoLastExpression = FacialExpression.SMILE;
 }

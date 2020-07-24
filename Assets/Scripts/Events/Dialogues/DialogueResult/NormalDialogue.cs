@@ -1,6 +1,6 @@
-﻿public struct DialogueResult
+﻿public struct NormalDialogue : IDialogueResult
 {
-    public DialogueResult(bool isSpeaking, string text, FacialExpression exp, string nameOverride = null)
+    public NormalDialogue(bool isSpeaking, string text, FacialExpression exp, string nameOverride = null)
     {
         IsSpeaking = isSpeaking;
         Text = text;
