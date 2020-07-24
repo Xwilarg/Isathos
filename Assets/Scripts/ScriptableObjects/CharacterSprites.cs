@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 [CreateAssetMenu(menuName = "ScriptableObject/CharacterSprites", fileName = "CharacterSprites")]
 public class CharacterSprites : ScriptableObject
 {

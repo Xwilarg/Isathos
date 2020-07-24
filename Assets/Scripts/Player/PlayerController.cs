@@ -16,15 +16,19 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _sr;
 
     private Direction _dir;
+    private Character? _toSpeak;
 
-    public void EnterEventTrigger(EventTrigger _)
+    public void EnterEventTrigger(EventTrigger e)
     {
         _speakEventIcon.SetActive(true);
+        _toSpeak = e.GetCharacter();
     }
 
     public void ExitEventTrigger()
     {
         _speakEventIcon.SetActive(false);
+        _toSpeak = null;
+        DialoguePopup.S.Close();
     }
 
     private void Start()
@@ -32,6 +36,14 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _dir = Direction.UP;
+        _toSpeak = null;
+    }
+
+    private void Update()
+    {
+        // Interraction
+        if (Input.GetKeyDown(KeyCode.E) && _toSpeak.HasValue)
+            EventManager.S.StartEvent(_toSpeak.Value);
     }
 
     private void FixedUpdate()
