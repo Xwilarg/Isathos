@@ -22,7 +22,7 @@ public class EtahniaDialogue : ADialogue
         if (_currProgress == 3) return new NormalDialogue(true, "How did you even managed to come here?", FacialExpression.SMILE, _knownName);
         if (_currProgress == 4) return new NormalDialogue(false, "I'm... actually a bit lost..", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 5) return new NormalDialogue(true, "Lost? No wayy! No one get lost while traveling to alternative plans!", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 6) return new NormalDialogue(true, "...Well you indeed seams a bit lost. Okay! You can ask me any question you want.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 6) return new NormalDialogue(true, "...Well you indeed seems a bit lost. Okay! You can ask me any question you want.", FacialExpression.NEUTRAL, _knownName);
 
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
@@ -78,11 +78,11 @@ public class EtahniaDialogue : ADialogue
         if (_currProgress == 1) return new NormalDialogue(true, "Well explaining everything in detail would be far too complicated but like, the world contains alternative plans, it's like you just went to another planet.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 2) return new NormalDialogue(true, "Some of them are material, like the one where you come, probably Hβ or Hγ and some are immaterials like the divine plan, Σ0.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 3) return new NormalDialogue(true, "Most of the plans follow their world rules but some of them have additional ones, that's the role of the god Yrr.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 4) return new NormalDialogue(true, "But like, anyone can travel through the plans, you just need to find a place where one of the three gates, magic, spirit or ether is weaker, but everyone that want to keep their carnal envelope just use the magic one.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "But like, anyone can travel through the plans, you just need to find a place where the gates flow is weaker and use the spirit one, along with the elemental one if you want to keep your carnal envelope.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 5) return new NormalDialogue(true, "And... Wait... Maybe I shouldn't tell that much to a mere human, uh?", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 6) return new NormalDialogue(true, "Well just think of this place of a material world overwritten by rules to make it subsist with nothing.", FacialExpression.SMILE, _knownName);
         if (_currProgress == 7) return new NormalDialogue(false, "(I didn't understand anything... But I'm not sure I want to hear the whole thing again.)", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 8) return new NormalDialogue(true, "Anything enough with all that theorical stuff, do you have any others questions?", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 8) return new NormalDialogue(true, "Anyway enough with all that theorical stuff, do you have any others questions?", FacialExpression.SMILE, _knownName);
 
         _introChoice.Remove(WhereAmI);
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
@@ -129,8 +129,51 @@ public class EtahniaDialogue : ADialogue
 
     private IDialogueResult RandomConversation1(int _)
     {
-        //if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
-        //if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic instead of eating food", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating food, but it's tasteless so most of us would rather eat real food instead.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "But man, it's been so long since I taste something good, if you ever find something good, bring it back to me!", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(false, "Yeah sure, anything you would rather eat?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 4) return new NormalDialogue(true, "I really like sweat things but because of how our world is made we mostly do artificial sugar so it's not as good.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(false, "How is your world even like?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 6) return new NormalDialogue(true, "It's mostly made of floating islands, making our wings rather useful, but because of that we use the little land we have to grow cereals.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 7) return new NormalDialogue(false, "Sounds like a lot of hardship for people who could just magic energy...", FacialExpression.NEUTRAL, "Me");
+        return null;
+    }
+
+    private IDialogueResult RandomConversation2(int _)
+    {
+        if (_currProgress == 0) return new NormalDialogue(false, "So there is really nothing here, only white?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Nope nothing, even if I try affecting things the world with magic it's just consumed into magic bit by bit.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "But I don't think that affect the objects from the outside, I even tried to let my clothes on the ground but they didn't even disappeared, so feel free to bring me things you find during your quest!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(false, "(And what would you have done if that wasn't the case...)", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 4) return new NormalDialogue(true, "Oh but once I found a piece of bread in the middle of nowhere, I was sick for at least many days after it.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(false, "That... sound tough...", FacialExpression.NEUTRAL, "Me");
+        return null;
+    }
+
+    private IDialogueResult RandomConversation3(int _)
+    {
+        if (_currProgress == 0) return new NormalDialogue(false, "For how much time have you been here?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Well since there is no notion of day and night it's a bit hard to keep track of time but it's sure been a long time.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "At the beginning it was really hard but then I realized that there was a high amount of magic in the air, probably used to keep the worlds of this rule alive.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "So to pass time I trained myself but since I have nothing to draw magic circles I can barely move the flow of magic without doing anything with it.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "But after some time I began to be more perceptive about that kind of stuff, so it was kinda motivating to see my efforts pay off.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(false, "It's great that you found something to do.", FacialExpression.NEUTRAL, "Me");
+        return null;
+    }
+
+    private IDialogueResult RandomConversationThanks(int _)
+    {
+        if (_currProgress == 1) return new NormalDialogue(true, "You know, I've been really lonely all this time, not being able to speak to anyone was really tough.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "Back home, I wasn't really sociable neither I had a lot of friends, but it's hard to notice how important the small talks I had were important until I lost them.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "So I'm really happy that you took all that time to speak with me, it really warm my heart!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "I really hope you will be able to find lot of cool stuffs outside, and when you find them, bring them back here!", FacialExpression.SMILE, _knownName);
+        return null;
+    }
+
+    private IDialogueResult RandomConversationEnd(int _)
+    {
+        if (_currProgress == 1) return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
         return null;
     }
 
