@@ -5,6 +5,9 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager S;
 
+    [SerializeField]
+    private Reaction _reaction;
+
     private EtahniaDialogue _etahnia = new EtahniaDialogue();
 
     private void Awake()
@@ -17,11 +20,25 @@ public class EventManager : MonoBehaviour
         _etahnia.Clear();
     }
 
-    public void StartEvent(Character c, int id = -1)
+    public void DisplayReaction(EventTrigger e, ReactionType react)
     {
+        GameObject go = null;
+        if (react == ReactionType.RELATION_UP)
+            go = _reaction.relationUp;
+
+        if (go == null)
+            throw new ArgumentException("Invalid reaction " + react.ToString());
+
+        Instantiate(go, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
+    }
+
+    public void StartEvent(EventTrigger e, int id = -1)
+    {
+        Character c = e.GetCharacter();
+
         IDialogueResult result;
         if (c == Character.ETAHNIA)
-            result = _etahnia.GetDialogue(id);
+            result = _etahnia.GetDialogue(e, id);
         else
             throw new ArgumentException("Invalid character " + c.ToString());
         if (result == null)
@@ -40,7 +57,7 @@ public class EventManager : MonoBehaviour
         }
         else if (result is ChoiceDialogue cDial)
         {
-            DialoguePopup.S.DisplayChoices(c, cDial.Choices);
+            DialoguePopup.S.DisplayChoices(e, cDial.Choices);
         }
         else
             throw new InvalidOperationException("GetDialogue returned an unknown type for " + c.ToString());

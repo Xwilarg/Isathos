@@ -31,7 +31,7 @@ public class DialoguePopup : MonoBehaviour
         S = this;
     }
 
-    public void DisplayChoices(Character asker, string[] choices)
+    public void DisplayChoices(EventTrigger e, string[] choices)
     {
         _popup.SetActive(true);
 
@@ -42,7 +42,7 @@ public class DialoguePopup : MonoBehaviour
             int id = i;
             _choices[i].onClick.AddListener(new UnityAction(() =>
             {
-                EventManager.S.StartEvent(asker, id);
+                EventManager.S.StartEvent(e, id);
             }));
             _choices[i].gameObject.SetActive(true);
             _choicesText[i].text = choices[i];

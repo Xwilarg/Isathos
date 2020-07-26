@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _sr;
 
     private Direction _dir;
-    private Character? _toSpeak;
+    private EventTrigger _toSpeak;
 
     public void EnterEventTrigger(EventTrigger e)
     {
         _speakEventIcon.SetActive(true);
-        _toSpeak = e.GetCharacter();
+        _toSpeak = e;
     }
 
     public void ExitEventTrigger()
@@ -43,14 +43,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Interraction
-        if (Input.GetKeyDown(KeyCode.E) && _toSpeak.HasValue)
-            EventManager.S.StartEvent(_toSpeak.Value);
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
+            EventManager.S.StartEvent(_toSpeak);
     }
 
     private void FixedUpdate()
     {
         // Movements
-        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 10f;
+        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 5f;
 
         // Set direction depending of velocity
         if (Mathf.Abs(_rb.velocity.x) > Mathf.Abs(_rb.velocity.y))

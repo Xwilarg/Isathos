@@ -4,9 +4,9 @@ using System.Linq;
 
 public class EtahniaDialogue : ADialogue
 {
-    public override IDialogueResult GetDialogue(int lastChoiceId)
+    public override IDialogueResult GetDialogue(EventTrigger e, int lastChoiceId)
     {
-        var result = _current(lastChoiceId);
+        var result = _current(e, lastChoiceId);
         _currProgress++;
         return result;
     }
@@ -14,7 +14,7 @@ public class EtahniaDialogue : ADialogue
     /// <summary>
     /// When the player first encounter the character
     /// </summary>
-    private IDialogueResult Intro(int lastChoiceId)
+    private IDialogueResult Intro(EventTrigger e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "Hey, you!", FacialExpression.SMILE, _knownName);
         if (_currProgress == 1) return new NormalDialogue(false, "Me?", FacialExpression.NEUTRAL, "Me");
@@ -26,10 +26,10 @@ public class EtahniaDialogue : ADialogue
 
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
-        return AskQuestion(_introChoice, lastChoiceId);
+        return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhoAreYou(int lastChoiceId)
+    private IDialogueResult WhoAreYou(EventTrigger e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Who are you?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1)
@@ -54,10 +54,10 @@ public class EtahniaDialogue : ADialogue
         _introChoice.Remove(WhoAreYou);
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
-        return AskQuestion(_introChoice, lastChoiceId);
+        return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhoAmI(int lastChoiceId)
+    private IDialogueResult WhoAmI(EventTrigger e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Would you know who am I?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "You're asking me? You know, I met you less than one minute ago.", FacialExpression.SMILE, _knownName);
@@ -69,10 +69,10 @@ public class EtahniaDialogue : ADialogue
         _introChoice.Remove(WhoAmI);
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
-        return AskQuestion(_introChoice, lastChoiceId);
+        return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhereAmI(int lastChoiceId)
+    private IDialogueResult WhereAmI(EventTrigger e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Where am I? Everything is white here.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Well explaining everything in detail would be far too complicated but like, the world contains alternative plans, it's like you just went to another planet.", FacialExpression.NEUTRAL, _knownName);
@@ -87,10 +87,10 @@ public class EtahniaDialogue : ADialogue
         _introChoice.Remove(WhereAmI);
         if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
-        return AskQuestion(_introChoice, lastChoiceId);
+        return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult NoQuestion(int lastChoiceId)
+    private IDialogueResult NoQuestion(EventTrigger e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "I think I'm okay for now.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "So what are you planning to do now?", FacialExpression.NEUTRAL, _knownName);
@@ -123,81 +123,144 @@ public class EtahniaDialogue : ADialogue
         }
         if (_currProgress == 17) return new NormalDialogue(true, "Yeah... But well, if you want to speak a bit more before going, I wouldn't mind. I've been pretty lonely here all this time.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 18) return new NormalDialogue(false, "Sure, I'll consider it.", FacialExpression.NEUTRAL, "Me");
-        _current = RandomConversation1;
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult RandomConversation1(int _)
+    private IDialogueResult RandomConversation1(EventTrigger e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating food, but it's tasteless so most of us would rather eat real food instead.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 2) return new NormalDialogue(true, "But man, it's been so long since I taste something good, if you ever find something good, bring it back to me!", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating, but it's tasteless so most of us would rather eat real food instead.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "But man, it's been so long since I tasted something good, if you ever find something, bring it back to me!", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 3) return new NormalDialogue(false, "Yeah sure, anything you would rather eat?", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 4) return new NormalDialogue(true, "I really like sweat things but because of how our world is made we mostly do artificial sugar so it's not as good.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "I really like sweat things but because of how our world is made we mostly product artificial sugar so it's not as good.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 5) return new NormalDialogue(false, "How is your world even like?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 6) return new NormalDialogue(true, "It's mostly made of floating islands, making our wings rather useful, but because of that we use the little land we have to grow cereals.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 7) return new NormalDialogue(false, "Sounds like a lot of hardship for people who could just magic energy...", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 7) return new NormalDialogue(false, "(Sounds like a lot of hardship for people who could just eat magic energy...)", FacialExpression.NEUTRAL, "Me");
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult RandomConversation2(int _)
+    private IDialogueResult RandomConversation2(EventTrigger e, int _)
     {
-        if (_currProgress == 0) return new NormalDialogue(false, "So there is really nothing here, only white?", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 1) return new NormalDialogue(true, "Nope nothing, even if I try affecting things the world with magic it's just consumed into magic bit by bit.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(false, "So there is only white here?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Yeah, nothing else, even when I tried affecting the world with magic it's just consumed back after a bit.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 2) return new NormalDialogue(true, "But I don't think that affect the objects from the outside, I even tried to let my clothes on the ground but they didn't even disappeared, so feel free to bring me things you find during your quest!", FacialExpression.SMILE, _knownName);
         if (_currProgress == 3) return new NormalDialogue(false, "(And what would you have done if that wasn't the case...)", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 4) return new NormalDialogue(true, "Oh but once I found a piece of bread in the middle of nowhere, I was sick for at least many days after it.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "Oh but I once found a piece of bread in the middle of nowhere, I was so sick after eating it.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 5) return new NormalDialogue(false, "That... sound tough...", FacialExpression.NEUTRAL, "Me");
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult RandomConversation3(int _)
+    private IDialogueResult RandomConversation3(EventTrigger e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "For how much time have you been here?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Well since there is no notion of day and night it's a bit hard to keep track of time but it's sure been a long time.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 2) return new NormalDialogue(true, "At the beginning it was really hard but then I realized that there was a high amount of magic in the air, probably used to keep the worlds of this rule alive.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 3) return new NormalDialogue(true, "So to pass time I trained myself but since I have nothing to draw magic circles I can barely move the flow of magic without doing anything with it.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 4) return new NormalDialogue(true, "But after some time I began to be more perceptive about that kind of stuff, so it was kinda motivating to see my efforts pay off.", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 5) return new NormalDialogue(false, "It's great that you found something to do.", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 3) return new NormalDialogue(true, "So to pass time I trained myself but since I have nothing to draw magic circles on, I could barely move the flow of magic without doing being able to do anything with it.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "But after some time I began to be more perceptive about that kind of stuff, so it was kinda motivating to see my efforts paying off.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(false, "It's nice that you found something, despite the lack of activity to do", FacialExpression.NEUTRAL, "Me");
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult RandomConversationThanks(int _)
+    private IDialogueResult RandomConversation4(EventTrigger e, int _)
     {
-        if (_currProgress == 1) return new NormalDialogue(true, "You know, I've been really lonely all this time, not being able to speak to anyone was really tough.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 2) return new NormalDialogue(true, "Back home, I wasn't really sociable neither I had a lot of friends, but it's hard to notice how important the small talks I had were important until I lost them.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 3) return new NormalDialogue(true, "So I'm really happy that you took all that time to speak with me, it really warm my heart!", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 4) return new NormalDialogue(true, "I really hope you will be able to find lot of cool stuffs outside, and when you find them, bring them back here!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(false, "You didn't meet anyone before me while being here?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Even if it's hard to tell without any landmark, this place is really big so even if others celestials were banished here I would have a hard time finding them.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "But thinking about it, I did see some small portals so I'm probably not that alone.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(false, "Isn't this place supposed to be hard to reach?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 4) return new NormalDialogue(true, "You're here after all, aren't you? You're probably not the strongest human existing you know.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(false, "What about using these portals to escape?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 6) return new NormalDialogue(true, "Well it's a bit complicated but when I was banished here, they binded my spirit to this place so if I attemped to leave it, I would probably die.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 7) return new NormalDialogue(false, "This isn't making our task easier.", FacialExpression.NEUTRAL, "Me");
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult RandomConversationEnd(int _)
+    private IDialogueResult RandomConversation5(EventTrigger e, int _)
     {
-        if (_currProgress == 1) return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(false, "How are you able to speak the same language as me despite not being human?", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 1) return new NormalDialogue(true, "Oh actually I chosed that as a second language back in high school.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "I had the choice between this and elven, but elven is such a mess and their alphabet is awful to learn so I picked this one instead.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "My mom always told me not to choose on how easy it is, but I guess I did the good choice after all, imagine if we couldn't understand each other!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(false, "(Thinking about it, I actually recall how to speak elven, so it wouldn't have been much of an issue...)", FacialExpression.NEUTRAL, "Me");
+
+        AssignRandomConversation();
         return null;
     }
 
-    private IDialogueResult AskQuestion(Dictionary<Func<int, IDialogueResult>, string> choices, int choiceId)
+    private IDialogueResult RandomConversationThanks(EventTrigger e, int _)
     {
+        if (_currProgress == 0) return new NormalDialogue(true, "You know, I've been really lonely all this time, not being able to speak to anyone was really tough.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 1) return new NormalDialogue(true, "Back home, I wasn't really sociable, neither I had a lot of friends, but it's hard to notice how important the small talks I had were important until I lost them.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "So I'm really happy that you took all that time to speak with me, it really warm my heart!", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "I really hope you will be able to find lot of cool stuffs outside, and when you find them, bring them back here!", FacialExpression.SMILE, _knownName);
 
+        IncreaseRelation(e);
+        AssignRandomConversation();
+        return null;
+    }
+
+    private IDialogueResult RandomConversationEnd(EventTrigger e, int _)
+    {
+        if (_currProgress == 0) return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
+        return null;
+    }
+
+    private IDialogueResult AskQuestion(Dictionary<Func<EventTrigger, int, IDialogueResult>, string> choices, EventTrigger e, int choiceId)
+    {
         _currProgress = 0;
         _current = choices.ElementAt(choiceId).Key;
-        return _current(choiceId);
+        return _current(e, choiceId);
     }
 
-    private Dictionary<Func<int, IDialogueResult>, string> _introChoice;
-    private Func<int, IDialogueResult> _current;
+    private void AssignRandomConversation()
+    {
+        if (_randomConversations.Count == 0)
+        {
+            if (!_didReceiveThanks)
+            {
+                _current = RandomConversationThanks;
+                _didReceiveThanks = true;
+            }
+            else
+                _current = RandomConversationEnd;
+        }
+        else
+        {
+            var random = UnityEngine.Random.Range(0, _randomConversations.Count);
+            _current = _randomConversations[random];
+            _randomConversations.RemoveAt(random);
+        }
+    }
+
+    private Dictionary<Func<EventTrigger, int, IDialogueResult>, string> _introChoice;
+    private List<Func<EventTrigger, int, IDialogueResult>> _randomConversations;
+    private Func<EventTrigger, int, IDialogueResult> _current;
     private string _knownName;
+    private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
     public EtahniaDialogue() : base()
     {
         _current = Intro;
         _knownName = "???";
 
-        _introChoice = new Dictionary<Func<int, IDialogueResult>, string>();
+        _introChoice = new Dictionary<Func<EventTrigger, int, IDialogueResult>, string>();
         _introChoice.Add(WhoAreYou, "Who are you?");
         _introChoice.Add(WhereAmI, "Where am I?");
         _introChoice.Add(WhoAmI, "Who am I?");
         _introChoice.Add(NoQuestion, "That's okay for now");
+
+        _randomConversations = new List<Func<EventTrigger, int, IDialogueResult>>
+        {
+            RandomConversation1, RandomConversation2, RandomConversation3, RandomConversation4, RandomConversation5
+        };
     }
 }
