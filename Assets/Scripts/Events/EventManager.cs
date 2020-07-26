@@ -20,7 +20,7 @@ public class EventManager : MonoBehaviour
         _etahnia.Clear();
     }
 
-    public void DisplayReaction(EventTrigger e, ReactionType react)
+    public void DisplayReaction(EventDiscussion e, ReactionType react)
     {
         GameObject go = null;
         if (react == ReactionType.RELATION_UP)
@@ -32,7 +32,15 @@ public class EventManager : MonoBehaviour
         Instantiate(go, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
     }
 
-    public void StartEvent(EventTrigger e, int id = -1)
+    public void StartEvent(EventTrigger e)
+    {
+        if (e.Event is EventDiscussion eDisc)
+        {
+            StartDiscussion(eDisc, -1);
+        }
+    }
+
+    public void StartDiscussion(EventDiscussion e, int id = -1)
     {
         Character c = e.GetCharacter();
 

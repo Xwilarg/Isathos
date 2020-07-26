@@ -14,9 +14,9 @@
     /// Get the next dialogue
     /// </summary>
     /// <param name="lastChoiceId">If the last dialogue was a choice, id the of the answer (0 to 3), else -1</param>
-    public abstract IDialogueResult GetDialogue(EventTrigger e, int lastChoiceId);
+    public abstract IDialogueResult GetDialogue(EventDiscussion e, int lastChoiceId);
 
-    protected void IncreaseRelation(EventTrigger e)
+    protected void IncreaseRelation(EventDiscussion e)
     {
         _relation++;
         EventManager.S.DisplayReaction(e, ReactionType.RELATION_UP);

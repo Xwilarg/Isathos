@@ -4,7 +4,7 @@ using System.Linq;
 
 public class EtahniaDialogue : ADialogue
 {
-    public override IDialogueResult GetDialogue(EventTrigger e, int lastChoiceId)
+    public override IDialogueResult GetDialogue(EventDiscussion e, int lastChoiceId)
     {
         var result = _current(e, lastChoiceId);
         _currProgress++;
@@ -14,7 +14,7 @@ public class EtahniaDialogue : ADialogue
     /// <summary>
     /// When the player first encounter the character
     /// </summary>
-    private IDialogueResult Intro(EventTrigger e, int lastChoiceId)
+    private IDialogueResult Intro(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "Hey, you!", FacialExpression.SMILE, _knownName);
         if (_currProgress == 1) return new NormalDialogue(false, "Me?", FacialExpression.NEUTRAL, "Me");
@@ -29,7 +29,7 @@ public class EtahniaDialogue : ADialogue
         return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhoAreYou(EventTrigger e, int lastChoiceId)
+    private IDialogueResult WhoAreYou(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Who are you?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1)
@@ -57,7 +57,7 @@ public class EtahniaDialogue : ADialogue
         return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhoAmI(EventTrigger e, int lastChoiceId)
+    private IDialogueResult WhoAmI(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Would you know who am I?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "You're asking me? You know, I met you less than one minute ago.", FacialExpression.SMILE, _knownName);
@@ -72,7 +72,7 @@ public class EtahniaDialogue : ADialogue
         return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult WhereAmI(EventTrigger e, int lastChoiceId)
+    private IDialogueResult WhereAmI(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "Where am I? Everything is white here.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Well explaining everything in detail would be far too complicated but like, the world contains alternative plans, it's like you just went to another planet.", FacialExpression.NEUTRAL, _knownName);
@@ -90,7 +90,7 @@ public class EtahniaDialogue : ADialogue
         return AskQuestion(_introChoice, e, lastChoiceId);
     }
 
-    private IDialogueResult NoQuestion(EventTrigger e, int lastChoiceId)
+    private IDialogueResult NoQuestion(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "I think I'm okay for now.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "So what are you planning to do now?", FacialExpression.NEUTRAL, _knownName);
@@ -128,7 +128,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversation1(EventTrigger e, int _)
+    private IDialogueResult RandomConversation1(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating, but it's tasteless so most of us would rather eat real food instead.", FacialExpression.NEUTRAL, _knownName);
@@ -143,7 +143,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversation2(EventTrigger e, int _)
+    private IDialogueResult RandomConversation2(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "So there is only white here?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Yeah, nothing else, even when I tried affecting the world with magic it's just consumed back after a bit.", FacialExpression.NEUTRAL, _knownName);
@@ -156,7 +156,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversation3(EventTrigger e, int _)
+    private IDialogueResult RandomConversation3(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "For how much time have you been here?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Well since there is no notion of day and night it's a bit hard to keep track of time but it's sure been a long time.", FacialExpression.NEUTRAL, _knownName);
@@ -169,7 +169,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversation4(EventTrigger e, int _)
+    private IDialogueResult RandomConversation4(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "You didn't meet anyone before me while being here?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Even if it's hard to tell without any landmark, this place is really big so even if others celestials were banished here I would have a hard time finding them.", FacialExpression.NEUTRAL, _knownName);
@@ -184,7 +184,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversation5(EventTrigger e, int _)
+    private IDialogueResult RandomConversation5(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "How are you able to speak the same language as me despite not being human?", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "Oh actually I chosed that as a second language back in high school.", FacialExpression.SMILE, _knownName);
@@ -196,7 +196,7 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversationThanks(EventTrigger e, int _)
+    private IDialogueResult RandomConversationThanks(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "You know, I've been really lonely all this time, not being able to speak to anyone was really tough.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 1) return new NormalDialogue(true, "Back home, I wasn't really sociable, neither I had a lot of friends, but it's hard to notice how important the small talks I had were important until I lost them.", FacialExpression.NEUTRAL, _knownName);
@@ -208,13 +208,13 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversationEnd(EventTrigger e, int _)
+    private IDialogueResult RandomConversationEnd(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
         return null;
     }
 
-    private IDialogueResult AskQuestion(Dictionary<Func<EventTrigger, int, IDialogueResult>, string> choices, EventTrigger e, int choiceId)
+    private IDialogueResult AskQuestion(Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> choices, EventDiscussion e, int choiceId)
     {
         _currProgress = 0;
         _current = choices.ElementAt(choiceId).Key;
@@ -241,9 +241,9 @@ public class EtahniaDialogue : ADialogue
         }
     }
 
-    private Dictionary<Func<EventTrigger, int, IDialogueResult>, string> _introChoice;
-    private List<Func<EventTrigger, int, IDialogueResult>> _randomConversations;
-    private Func<EventTrigger, int, IDialogueResult> _current;
+    private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
+    private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
+    private Func<EventDiscussion, int, IDialogueResult> _current;
     private string _knownName;
     private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
@@ -252,13 +252,13 @@ public class EtahniaDialogue : ADialogue
         _current = Intro;
         _knownName = "???";
 
-        _introChoice = new Dictionary<Func<EventTrigger, int, IDialogueResult>, string>();
+        _introChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
         _introChoice.Add(WhoAreYou, "Who are you?");
         _introChoice.Add(WhereAmI, "Where am I?");
         _introChoice.Add(WhoAmI, "Who am I?");
         _introChoice.Add(NoQuestion, "That's okay for now");
 
-        _randomConversations = new List<Func<EventTrigger, int, IDialogueResult>>
+        _randomConversations = new List<Func<EventDiscussion, int, IDialogueResult>>
         {
             RandomConversation1, RandomConversation2, RandomConversation3, RandomConversation4, RandomConversation5
         };
