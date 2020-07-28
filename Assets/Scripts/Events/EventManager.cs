@@ -9,6 +9,8 @@ public class EventManager : MonoBehaviour
     private Reaction _reaction;
 
     private EtahniaDialogue _etahnia = new EtahniaDialogue();
+    private TutorialLook _tutorial = new TutorialLook();
+    private TutorialDialogue _tutorialD = new TutorialDialogue();
 
     private void Awake()
     {
@@ -18,6 +20,8 @@ public class EventManager : MonoBehaviour
     public void Clear()
     {
         _etahnia.Clear();
+        _tutorial.Clear();
+        _tutorialD.Clear();
     }
 
     public void DisplayReaction(EventDiscussion e, ReactionType react)
@@ -32,11 +36,58 @@ public class EventManager : MonoBehaviour
         Instantiate(go, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
     }
 
-    public void StartEvent(EventTrigger e)
+    public void StartEvent(EventTrigger e, Transform player)
     {
         if (e.Event is EventDiscussion eDisc)
         {
             StartDiscussion(eDisc, -1);
+        }
+        else if (e.Event is EventDoor eDoor)
+        {
+            if (eDoor.RequiredPhase > TutorialManager.S.GetProgression()) // We can't use that because we didn't go far enough in the tutorial
+            {
+                var result = _tutorial.GetText();
+                if (result == null)
+                {
+                    Clear();
+                    DialoguePopup.S.Close();
+                    return;
+                }
+                StartPopup(result);
+            }
+            else if (eDoor.FailureType == DoorFailureType.NONE)
+            {
+                player.position = eDoor.Destination.transform.position;
+                eDoor.transform.parent.gameObject.SetActive(false);
+                eDoor.Destination.transform.parent.gameObject.SetActive(true);
+                switch (TutorialManager.S.GetProgression())
+                {
+                    case TutorialProgression.ETAHNIA_INTRO: // The player go back to the human world for the first time
+                        PlayerController.S.SetCanMove(false);
+                        StartTutorialDiscution();
+                        break;
+                }
+            }
+        }
+        else
+            throw new ArgumentException("Invalid event " + e.name);
+    }
+
+    private void StartPopup(string text)
+    {
+        DialoguePopup.S.Display(Character.MC, Character.NONE, FacialExpression.NEUTRAL, FacialExpression.NEUTRAL, text, true, "Me");
+    }
+
+    public void StartTutorialDiscution(int id = -1)
+    {
+        IDialogueResult result;
+        result = _tutorialD.GetDialogue(null, id);
+        if (result == null)
+        {
+            PlayerController.S.SetCanMove(true);
+            Clear();
+            DialoguePopup.S.Close();
+            return;
         }
     }
 

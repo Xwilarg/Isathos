@@ -1,15 +1,7 @@
-﻿public abstract class ADialogue
+﻿using System;
+
+public abstract class ADialogue : AEventMessage
 {
-    public ADialogue()
-    {
-        _currProgress = 0;
-    }
-
-    public void Clear()
-    {
-        _currProgress = 0;
-    }
-
     /// <summary>
     /// Get the next dialogue
     /// </summary>
@@ -22,6 +14,6 @@
         EventManager.S.DisplayReaction(e, ReactionType.RELATION_UP);
     }
 
-    protected int _currProgress;
     private int _relation;
+    protected Func<EventDiscussion, int, IDialogueResult> _current;
 }

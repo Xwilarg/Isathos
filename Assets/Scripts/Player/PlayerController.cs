@@ -18,6 +18,15 @@ public class PlayerController : MonoBehaviour
     private Direction _dir;
     private EventTrigger _toSpeak;
 
+    private bool _canMove;
+
+    public void SetCanMove(bool value)
+    {
+        _canMove = value;
+    }
+
+    public static PlayerController S;
+
     public void EnterEventTrigger(EventTrigger e)
     {
         _speakEventIcon.SetActive(true);
@@ -32,25 +41,45 @@ public class PlayerController : MonoBehaviour
         DialoguePopup.S.Close();
     }
 
+    private void Awake()
+    {
+        S = this;
+    }
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();
         _dir = Direction.UP;
         _toSpeak = null;
+        _canMove = true;
     }
 
     private void Update()
     {
         // Interraction
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
-            EventManager.S.StartEvent(_toSpeak);
+        if (_canMove)
+        {
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
+                EventManager.S.StartEvent(_toSpeak, transform);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+                EventManager.S.StartTutorialDiscution();
+        }
     }
 
     private void FixedUpdate()
     {
+        if (!_canMove)
+        {
+            _rb.velocity = Vector2.zero;
+            return;
+        }
+
         // Movements
-        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * 5f;
+        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * 5f;
 
         // Set direction depending of velocity
         if (Mathf.Abs(_rb.velocity.x) > Mathf.Abs(_rb.velocity.y))
@@ -103,13 +132,5 @@ public class PlayerController : MonoBehaviour
                 _collRight.SetActive(true);
                 break;
         }
-    }
-
-    private enum Direction
-    {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
     }
 }

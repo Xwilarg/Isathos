@@ -7,7 +7,7 @@ public class EtahniaDialogue : ADialogue
     public override IDialogueResult GetDialogue(EventDiscussion e, int lastChoiceId)
     {
         var result = _current(e, lastChoiceId);
-        _currProgress++;
+        IncreaseProgress();
         return result;
     }
 
@@ -123,6 +123,8 @@ public class EtahniaDialogue : ADialogue
         }
         if (_currProgress == 17) return new NormalDialogue(true, "Yeah... But well, if you want to speak a bit more before going, I wouldn't mind. I've been pretty lonely here all this time.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 18) return new NormalDialogue(false, "Sure, I'll consider it.", FacialExpression.NEUTRAL, "Me");
+
+        TutorialManager.S.IntroduceEtahnia();
 
         AssignRandomConversation();
         return null;
@@ -243,7 +245,6 @@ public class EtahniaDialogue : ADialogue
 
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
     private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
-    private Func<EventDiscussion, int, IDialogueResult> _current;
     private string _knownName;
     private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
