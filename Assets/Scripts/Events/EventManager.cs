@@ -9,6 +9,10 @@ public class EventManager : MonoBehaviour
     private Reaction _reaction;
 
     private EtahniaDialogue _etahnia = new EtahniaDialogue(); public EtahniaDialogue GetEtahnia() => _etahnia;
+    private AnaelDialogue _anael = new AnaelDialogue();
+    private SalenaeDialogue _salenae = new SalenaeDialogue();
+    private UnarDialogue _unar = new UnarDialogue();
+    private NachiDialogue _nachi = new NachiDialogue();
     private TutorialLook _tutorial = new TutorialLook();
     private TutorialDialogue _tutorialD = new TutorialDialogue();
 
@@ -22,6 +26,16 @@ public class EventManager : MonoBehaviour
         _etahnia.Clear();
         _tutorial.Clear();
         _tutorialD.Clear();
+        _anael.Clear();
+        _salenae.Clear();
+        _nachi.Clear();
+        _unar.Clear();
+    }
+
+    public void DisplayNewItem(EventDiscussion e, ItemID id)
+    {
+        GameObject go = Instantiate(_reaction.newItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
+        ItemsManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
     }
 
     public void DisplayReaction(EventDiscussion e, ReactionType react)
@@ -29,6 +43,8 @@ public class EventManager : MonoBehaviour
         GameObject go = null;
         if (react == ReactionType.RELATION_UP)
             go = _reaction.relationUp;
+        else if (react == ReactionType.RELATION_DOWN)
+            go = _reaction.relationDown;
 
         if (go == null)
             throw new ArgumentException("Invalid reaction " + react.ToString());
@@ -118,6 +134,14 @@ public class EventManager : MonoBehaviour
         IDialogueResult result;
         if (c == Character.ETAHNIA)
             result = _etahnia.GetDialogue(e, id);
+        else if (c == Character.ANAEL)
+            result = _anael.GetDialogue(e, id);
+        else if (c == Character.SALENAE)
+            result = _salenae.GetDialogue(e, id);
+        else if (c == Character.UNAR)
+            result = _unar.GetDialogue(e, id);
+        else if (c == Character.NACHI)
+            result = _nachi.GetDialogue(e, id);
         else
             throw new ArgumentException("Invalid character " + c.ToString());
         if (result == null)

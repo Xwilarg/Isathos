@@ -20,6 +20,13 @@ public abstract class ADialogue : AEventMessage
         _relation++;
         EventManager.S.DisplayReaction(e, ReactionType.RELATION_UP);
     }
+
+    protected void DecreaseRelation(EventDiscussion e)
+    {
+        _relation--;
+        EventManager.S.DisplayReaction(e, ReactionType.RELATION_DOWN);
+    }
+
     protected IDialogueResult AskQuestion(Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> choices, EventDiscussion e, int choiceId)
     {
         _currProgress = 0;
@@ -28,7 +35,7 @@ public abstract class ADialogue : AEventMessage
     }
 
     private int _relation;
-    private string _knownName = "???";
+    protected string _knownName = "???";
     protected Func<EventDiscussion, int, IDialogueResult> _current;
 
     public bool IsNameKnown()

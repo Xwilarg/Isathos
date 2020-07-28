@@ -238,7 +238,6 @@ public class EtahniaDialogue : ADialogue
 
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
     private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
-    private string _knownName;
     private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
     public EtahniaDialogue() : base()
