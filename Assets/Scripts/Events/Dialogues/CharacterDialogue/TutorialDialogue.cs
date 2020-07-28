@@ -72,6 +72,8 @@ public class TutorialDialogue : ADialogue
         if (_currProgress == 1) return new NormalDialogue(Character.ANAEL, true, "We don't have all day so you better hurry to go back inside.", FacialExpression.NEUTRAL, "???");
         if (_currProgress == 2) return new NormalDialogue(Character.SALENAE, true, "What Anael means is that keeping the portal open is rather tiresome so it's better not to take too much time.", FacialExpression.SMILE, "???");
         if (_currProgress == 3) return new NormalDialogue(Character.MC, false, "(Whatever my decision end up being, I should go back in that portal.)", FacialExpression.NEUTRAL, "Me");
+
+        TutorialManager.S.IntroduceKillEtahnia();
         return null;
     }
 

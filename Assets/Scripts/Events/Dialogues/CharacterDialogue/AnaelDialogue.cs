@@ -24,7 +24,7 @@ public class AnaelDialogue : ADialogue
     {
         if (_currProgress == 0) return new NormalDialogue(false, "I wasn't able to find her, there is only white as far as the eye can see.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 1) return new NormalDialogue(true, "I didn't expect that part to be easy but you will have to find a way.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 2) return new NormalDialogue(true, "Since there is nothing but her, just try working with localisation spells.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "Since there is no one but her, just use localization spells.", FacialExpression.NEUTRAL, _knownName);
 
         _current = IntroEnd;
         return null;
@@ -32,7 +32,7 @@ public class AnaelDialogue : ADialogue
     private IDialogueResult IntroTooStrong(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "She was too strong, I couldn't fight her.", FacialExpression.NEUTRAL, "Me");
-        if (_currProgress == 1) return new NormalDialogue(true, "You don't really looks hurt for someone who fought and anyway, looks more like you didn't even tried.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 1) return new NormalDialogue(true, "You don't really looks hurt for someone who fought, looks more like you didn't even tried.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 2) return new NormalDialogue(true, "I don't think you would want me to tell you what happens if you fail to follow our agreement. So go back and get the job done.", FacialExpression.NEUTRAL, _knownName);
 
         DecreaseRelation(e);
@@ -42,7 +42,8 @@ public class AnaelDialogue : ADialogue
     }
     private IDialogueResult IntroEnd(EventDiscussion e, int lastChoiceId)
     {
-        return new NormalDialogue(true, "If have time to speak you would better use that time to do your job.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(true, "If have time to speak you would better use that time to do your job.", FacialExpression.NEUTRAL, _knownName);
+        return null;
     }
 
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;

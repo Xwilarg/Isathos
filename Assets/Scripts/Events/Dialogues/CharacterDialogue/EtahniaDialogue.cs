@@ -6,9 +6,16 @@ public class EtahniaDialogue : ADialogue
 {
     public override IDialogueResult GetDialogue(EventDiscussion e, int lastChoiceId)
     {
-        var result = _current(e, lastChoiceId);
+        IDialogueResult result;
+        result = _current(e, lastChoiceId);
         IncreaseProgress();
         return result;
+    }
+
+    private IDialogueResult ScenarioBack(EventDiscussion e, int lastChoiceId)
+    {
+        if (_currProgress == 0) return new NormalDialogue(true, "...", FacialExpression.NEUTRAL, _knownName);
+        return null;
     }
 
     /// <summary>
@@ -233,6 +240,19 @@ public class EtahniaDialogue : ADialogue
             var random = UnityEngine.Random.Range(0, _randomConversations.Count);
             _current = _randomConversations[random];
             _randomConversations.RemoveAt(random);
+        }
+    }
+
+    public void UpdateTutorial()
+    {
+        switch (TutorialManager.S.GetProgression())
+        {
+            case TutorialProgression.ETAHNIA_KILL_INTRO:
+                _current = ScenarioBack;
+                break;
+
+            default:
+                throw new InvalidOperationException("Invalid tutorial state " + TutorialManager.S.GetProgression());
         }
     }
 

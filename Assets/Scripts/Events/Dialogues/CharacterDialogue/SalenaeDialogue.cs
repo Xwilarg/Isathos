@@ -10,7 +10,7 @@
     private IDialogueResult IntroEnd(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "I wish we could help you more but we are not strong enough to go with you.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 1) return new NormalDialogue(true, "Take this instead, it's not much but hopefully it can help.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 1) return new NormalDialogue(true, "Oh but I can lend you this instead, may it protect you.", FacialExpression.SMILE, _knownName);
         _current = IntroEnd2;
         _currProgress = 0;
         EventManager.S.DisplayNewItem(e, ItemID.SALENAE_RING);

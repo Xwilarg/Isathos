@@ -8,13 +8,19 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     private Reaction _reaction;
 
+    // CHARACTERS
     private EtahniaDialogue _etahnia = new EtahniaDialogue(); public EtahniaDialogue GetEtahnia() => _etahnia;
     private AnaelDialogue _anael = new AnaelDialogue();
     private SalenaeDialogue _salenae = new SalenaeDialogue();
     private UnarDialogue _unar = new UnarDialogue();
     private NachiDialogue _nachi = new NachiDialogue();
+
+    // TUTORIAL
     private TutorialLook _tutorial = new TutorialLook();
     private TutorialDialogue _tutorialD = new TutorialDialogue();
+
+    // MAP
+    private InvocationHouseLook _invocationHouse = new InvocationHouseLook();
 
     private void Awake()
     {
@@ -24,12 +30,15 @@ public class EventManager : MonoBehaviour
     public void Clear()
     {
         _etahnia.Clear();
-        _tutorial.Clear();
-        _tutorialD.Clear();
         _anael.Clear();
         _salenae.Clear();
         _nachi.Clear();
         _unar.Clear();
+
+        _tutorial.Clear();
+        _tutorialD.Clear();
+
+        _invocationHouse.Clear();
     }
 
     public void DisplayNewItem(EventDiscussion e, ItemID id)
@@ -62,7 +71,7 @@ public class EventManager : MonoBehaviour
         {
             if (eDoor.RequiredPhase > TutorialManager.S.GetProgression()) // We can't use that because we didn't go far enough in the tutorial
             {
-                var result = _tutorial.GetText();
+                var result = _tutorial.GetText(null);
                 if (result == null)
                 {
                     Clear();
@@ -82,9 +91,29 @@ public class EventManager : MonoBehaviour
                         PlayerController.S.SetCanMove(false);
                         Clear();
                         StartTutorialDiscution();
+                        eDoor.RequiredPhase = TutorialProgression.ETAHNIA_DECIDE_NEXT_STEP;
+                        break;
+
+                    case TutorialProgression.ETAHNIA_KILL_INTRO:
+                        _etahnia.UpdateTutorial();
                         break;
                 }
             }
+        }
+        else if (e.Event is EventLook eLook)
+        {
+            string result;
+            if (eLook.Zone == Zone.INVOCATION_HOUSE)
+                result = _invocationHouse.GetText(eLook.ObjectId);
+            else
+                throw new ArgumentException("Invalid zone " + eLook.Zone);
+            if (result == null)
+            {
+                Clear();
+                DialoguePopup.S.Close();
+                return;
+            }
+            StartPopup(result);
         }
         else
             throw new ArgumentException("Invalid event " + e.name);

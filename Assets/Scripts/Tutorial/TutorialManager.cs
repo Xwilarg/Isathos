@@ -38,4 +38,10 @@ public class TutorialManager : MonoBehaviour
         if (_progression == TutorialProgression.ETAHNIA_INTRO)
             _progression = TutorialProgression.ETAHNIA_KILL_INTRO;
     }
+
+    public void IntroduceNextEtahniaStep()
+    {
+        if (_progression == TutorialProgression.ETAHNIA_KILL_INTRO)
+            _progression = TutorialProgression.ETAHNIA_DECIDE_NEXT_STEP;
+    }
 }
