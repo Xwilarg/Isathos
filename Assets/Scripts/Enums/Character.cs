@@ -4,7 +4,8 @@
     MC,
     ETAHNIA,
     ANAEL,
-    LEANA,
+    SALENAE,
     NACHI,
-    UNAR
+    UNAR,
+    EXPL_GOD
 }

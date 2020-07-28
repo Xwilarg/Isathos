@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
 
     public void ExitEventTrigger()
     {
+        // That happens after taking a door but while being in a tutorial
+        // When that's the case, we want to keep the tutorial popup
+        if (!_canMove)
+            return;
+
         _speakEventIcon.SetActive(false);
         _toSpeak = null;
         EventManager.S.Clear();

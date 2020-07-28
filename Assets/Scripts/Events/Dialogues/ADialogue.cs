@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public abstract class ADialogue : AEventMessage
 {
+    public ADialogue() : base()
+    {
+        _current = null;
+    }
+
     /// <summary>
     /// Get the next dialogue
     /// </summary>
@@ -13,7 +20,17 @@ public abstract class ADialogue : AEventMessage
         _relation++;
         EventManager.S.DisplayReaction(e, ReactionType.RELATION_UP);
     }
+    protected IDialogueResult AskQuestion(Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> choices, EventDiscussion e, int choiceId)
+    {
+        _currProgress = 0;
+        _current = choices.ElementAt(choiceId).Key;
+        return _current(e, choiceId);
+    }
 
     private int _relation;
+    private string _knownName = "???";
     protected Func<EventDiscussion, int, IDialogueResult> _current;
+
+    public bool IsNameKnown()
+        => _knownName != "???";
 }

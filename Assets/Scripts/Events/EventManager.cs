@@ -8,7 +8,7 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     private Reaction _reaction;
 
-    private EtahniaDialogue _etahnia = new EtahniaDialogue();
+    private EtahniaDialogue _etahnia = new EtahniaDialogue(); public EtahniaDialogue GetEtahnia() => _etahnia;
     private TutorialLook _tutorial = new TutorialLook();
     private TutorialDialogue _tutorialD = new TutorialDialogue();
 
@@ -64,6 +64,7 @@ public class EventManager : MonoBehaviour
                 {
                     case TutorialProgression.ETAHNIA_INTRO: // The player go back to the human world for the first time
                         PlayerController.S.SetCanMove(false);
+                        Clear();
                         StartTutorialDiscution();
                         break;
                 }
@@ -89,10 +90,29 @@ public class EventManager : MonoBehaviour
             DialoguePopup.S.Close();
             return;
         }
+        if (result is NormalDialogue nDial)
+        {
+            if (nDial.IsSpeaking)
+                _speakerTwoLastExpression = nDial.Expression;
+            else
+                _speakerOneLastExpression = nDial.Expression;
+            DialoguePopup.S.Display(Character.MC, nDial.Speaker, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, nDial.NameOverride);
+        }
+        else if (result is ChoiceDialogue cDial)
+        {
+            DialoguePopup.S.DisplayChoices(null, cDial.Choices);
+        }
     }
 
     public void StartDiscussion(EventDiscussion e, int id = -1)
     {
+        // Tutorial choice callback
+        if (e == null)
+        {
+            StartTutorialDiscution(id);
+            return;
+        }
+
         Character c = e.GetCharacter();
 
         IDialogueResult result;

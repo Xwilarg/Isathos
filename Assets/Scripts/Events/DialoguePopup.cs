@@ -86,8 +86,13 @@ public class DialoguePopup : MonoBehaviour
     private Sprite GetSprite(Character c, FacialExpression fe)
     {
         DialogueSpritesCharacter? charac = null;
-        if (c == Character.MC) charac  = _sprites.MC;
-        if (c == Character.ETAHNIA) charac = _sprites.Etahnia;
+        if (c == Character.MC) charac = _sprites.MC;
+        else if (c == Character.ETAHNIA) charac = _sprites.Etahnia;
+        else if (c == Character.ANAEL) charac = _sprites.Anael;
+        else if (c == Character.SALENAE) charac = _sprites.Salenae;
+        else if (c == Character.NACHI) charac = _sprites.Nachi;
+        else if (c == Character.UNAR) charac = _sprites.Unar;
+        else if (c == Character.EXPL_GOD) charac = _sprites.ExplGod;
         if (charac == null)
             return _sprites.Empty;
         if (fe == FacialExpression.NEUTRAL)

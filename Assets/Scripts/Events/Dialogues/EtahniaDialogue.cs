@@ -216,13 +216,6 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult AskQuestion(Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> choices, EventDiscussion e, int choiceId)
-    {
-        _currProgress = 0;
-        _current = choices.ElementAt(choiceId).Key;
-        return _current(e, choiceId);
-    }
-
     private void AssignRandomConversation()
     {
         if (_randomConversations.Count == 0)
@@ -251,7 +244,6 @@ public class EtahniaDialogue : ADialogue
     public EtahniaDialogue() : base()
     {
         _current = Intro;
-        _knownName = "???";
 
         _introChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
         _introChoice.Add(WhoAreYou, "Who are you?");
