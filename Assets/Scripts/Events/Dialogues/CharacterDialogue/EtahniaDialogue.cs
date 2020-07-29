@@ -14,6 +14,30 @@ public class EtahniaDialogue : ADialogue
 
     private IDialogueResult ScenarioBack(EventDiscussion e, int lastChoiceId)
     {
+        if (_currProgress == 0) return new NormalDialogue(true, "Oh you're back already? What is happening?", FacialExpression.NEUTRAL, _knownName);
+        if (lastChoiceId == -1) return new ChoiceDialogue(_backChoice.Select(x => x.Value).ToArray());
+
+        return AskQuestion(_backChoice, e, lastChoiceId);
+    }
+
+    private IDialogueResult ScenarioBackKill(EventDiscussion e, int lastChoiceId)
+    {
+        PlayerController.S.SetIsCinematic(true);
+        if (_currProgress == 0)
+        {
+            DecreaseRelation(e);
+            return new NormalDialogue(false, "I came here to kill you.", FacialExpression.NEUTRAL, "Me");
+        }
+        if (_currProgress == 1) return new NormalDialogue(true, "You barely remember how to walk, what happened so suddenly?", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(false, "I now know why I came here at first.", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 3) return new NormalDialogue(true, "Well if you decide to go this way...", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "You leave me no other choice.", FacialExpression.MAD, _knownName);
+        EventManager.S.DisplayGameOver(e, true);
+        return null;
+    }
+
+    private IDialogueResult ScenarioBackHelp(EventDiscussion e, int lastChoiceId)
+    {
         if (_currProgress == 0) return new NormalDialogue(true, "...", FacialExpression.NEUTRAL, _knownName);
         return null;
     }
@@ -257,6 +281,7 @@ public class EtahniaDialogue : ADialogue
     }
 
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
+    private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _backChoice;
     private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
     private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
@@ -269,6 +294,10 @@ public class EtahniaDialogue : ADialogue
         _introChoice.Add(WhereAmI, "Where am I?");
         _introChoice.Add(WhoAmI, "Who am I?");
         _introChoice.Add(NoQuestion, "That's okay for now");
+
+        _backChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
+        _backChoice.Add(ScenarioBackKill, "I came to kill you");
+        _backChoice.Add(ScenarioBackHelp, "I came to help you");
 
         _randomConversations = new List<Func<EventDiscussion, int, IDialogueResult>>
         {

@@ -15,3 +15,4 @@ MonoBehaviour:
   relationUp: {fileID: 1258873702798219782, guid: b93b3377aad3c2047875aaa80c7605b2, type: 3}
   relationDown: {fileID: 824493128673450585, guid: c2cce6f3b9de5ac42b00028d6d145e82, type: 3}
   newItem: {fileID: 8992232720859037099, guid: 422cf443b042222448b60500a508adee, type: 3}
+  blood: {fileID: 8180497584044443905, guid: ac542bd65b365f74cac4f3efc366f432, type: 3}

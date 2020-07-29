@@ -18,11 +18,24 @@ public class PlayerController : MonoBehaviour
     private Direction _dir;
     private EventTrigger _toSpeak;
 
-    private bool _canMove;
+    private bool _canMove; // Set for tutorial purpose
+    private bool _isCinematic; // Cinematics outside of tutorials
+    private bool _isGameOver;
 
     public void SetCanMove(bool value)
     {
         _canMove = value;
+    }
+
+    public void SetIsCinematic(bool value)
+    {
+        _isCinematic = value;
+    }
+
+    public void Loose()
+    {
+        _isGameOver = true;
+        _sr.sprite = _playerSprites.dead;
     }
 
     public static PlayerController S;
@@ -58,10 +71,18 @@ public class PlayerController : MonoBehaviour
         _dir = Direction.UP;
         _toSpeak = null;
         _canMove = true;
+        _isCinematic = false;
     }
 
     private void Update()
     {
+        if (_isGameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+                EventManager.S.StartGameOverDiscution();
+            return;
+        }
+
         // Interraction
         if (_canMove)
         {
@@ -77,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_canMove)
+        if (!_canMove || _isCinematic || _isGameOver)
         {
             _rb.velocity = Vector2.zero;
             return;

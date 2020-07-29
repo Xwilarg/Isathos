@@ -12,3 +12,6 @@ Icons:
 
 Tiles:
  - [Modern interiors](https://limezu.itch.io/moderninteriors) by LimeZu under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+ 
+Others:
+ - [Blood Animations](https://sinestesia.itch.io/blood-animations) by Wetmud Games

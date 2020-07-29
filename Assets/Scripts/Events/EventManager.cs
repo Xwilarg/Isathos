@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -21,6 +22,9 @@ public class EventManager : MonoBehaviour
 
     // MAP
     private InvocationHouseLook _invocationHouse = new InvocationHouseLook();
+
+    // GAME OVER
+    private GameOverDialogue _gameOver = new GameOverDialogue();
 
     private void Awake()
     {
@@ -45,6 +49,13 @@ public class EventManager : MonoBehaviour
     {
         GameObject go = Instantiate(_reaction.newItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
         ItemsManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
+    }
+
+    public void DisplayGameOver(EventDiscussion e, bool withBlood)
+    {
+        PlayerController.S.Loose();
+        if (withBlood)
+            Instantiate(_reaction.blood, e.transform.position, Quaternion.identity);
     }
 
     public void DisplayReaction(EventDiscussion e, ReactionType react)
@@ -122,6 +133,16 @@ public class EventManager : MonoBehaviour
     private void StartPopup(string text)
     {
         DialoguePopup.S.Display(Character.MC, Character.NONE, FacialExpression.NEUTRAL, FacialExpression.NEUTRAL, text, true, "Me");
+    }
+
+    public void StartGameOverDiscution(int id = -1)
+    {
+        var result = (NormalDialogue)_gameOver.Defeat(null, -1);
+        if (result.IsSpeaking)
+            _speakerTwoLastExpression = result.Expression;
+        else
+            _speakerOneLastExpression = result.Expression;
+        DialoguePopup.S.Display(Character.MC, Character.EXPL_GOD, _speakerOneLastExpression, _speakerTwoLastExpression, result.Text, !result.IsSpeaking, result.NameOverride);
     }
 
     public void StartTutorialDiscution(int id = -1)

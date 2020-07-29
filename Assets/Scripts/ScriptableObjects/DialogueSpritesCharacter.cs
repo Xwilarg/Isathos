@@ -6,4 +6,5 @@ public struct DialogueSpritesCharacter
 {
     public Sprite Neutral;
     public Sprite Smile;
+    public Sprite Mad;
 }

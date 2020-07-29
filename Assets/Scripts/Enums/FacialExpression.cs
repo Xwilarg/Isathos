@@ -1,5 +1,6 @@
 ﻿public enum FacialExpression
 {
     NEUTRAL,
-    SMILE
+    SMILE,
+    MAD
 }

@@ -99,6 +99,8 @@ public class DialoguePopup : MonoBehaviour
             return charac.Value.Neutral;
         if (fe == FacialExpression.SMILE)
             return charac.Value.Smile;
+        if (fe == FacialExpression.MAD)
+            return charac.Value.Mad;
         throw new ArgumentException("Invalid expression " + fe.ToString());
     }
 }
