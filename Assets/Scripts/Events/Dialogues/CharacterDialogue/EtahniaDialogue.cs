@@ -38,7 +38,9 @@ public class EtahniaDialogue : ADialogue
 
     private IDialogueResult ScenarioBackHelp(EventDiscussion e, int lastChoiceId)
     {
-        if (_currProgress == 0) return new NormalDialogue(true, "...", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(true, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone.", FacialExpression.NEUTRAL, _knownName);
         return null;
     }
 
