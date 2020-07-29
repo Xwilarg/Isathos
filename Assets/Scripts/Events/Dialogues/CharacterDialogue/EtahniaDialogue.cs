@@ -14,7 +14,7 @@ public class EtahniaDialogue : ADialogue
 
     private IDialogueResult ScenarioBack(EventDiscussion e, int lastChoiceId)
     {
-        if (_currProgress == 0) return new NormalDialogue(true, "Oh you're back already? What is happening?", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 0) return new NormalDialogue(true, "Oh you're already back? What is happening?", FacialExpression.NEUTRAL, _knownName);
         if (lastChoiceId == -1) return new ChoiceDialogue(_backChoice.Select(x => x.Value).ToArray());
 
         return AskQuestion(_backChoice, e, lastChoiceId);
@@ -40,7 +40,11 @@ public class EtahniaDialogue : ADialogue
     {
         if (_currProgress == 0) return new NormalDialogue(true, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone, uh. Well I'll close that portal so they won't follow us.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "You woudn't happens to know who they were, would you?", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 4) return new NormalDialogue(true, "I think one of their name was Anael but I don't remember for the others ones.", FacialExpression.NEUTRAL, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(true, "Anael... Well I'm terrible at remembering names so that doesnt' help me much.", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 5) return new NormalDialogue(true, "Anyway we should continue with our original idea, I'll create you another portal", FacialExpression.SMILE, _knownName);
         return null;
     }
 
