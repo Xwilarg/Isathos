@@ -13,5 +13,7 @@ namespace SO
         public DialogueSpritesCharacter Nachi;
         public DialogueSpritesCharacter Unar;
         public DialogueSpritesCharacter ExplGod;
+        public DialogueSpritesCharacter Eranel;
+        public DialogueSpritesCharacter Huriane;
     }
 }
