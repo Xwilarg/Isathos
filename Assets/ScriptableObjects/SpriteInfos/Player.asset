@@ -16,3 +16,4 @@ MonoBehaviour:
   down: {fileID: 3476813085599450662, guid: ed76b56781c4ae34fb50ad7143a33ec4, type: 3}
   left: {fileID: 8069484234220146471, guid: ed76b56781c4ae34fb50ad7143a33ec4, type: 3}
   right: {fileID: -3916723515027013119, guid: ed76b56781c4ae34fb50ad7143a33ec4, type: 3}
+  dead: {fileID: 1450483450266374648, guid: 834b0900b650c4c4381c6bc1b95f50c2, type: 3}
