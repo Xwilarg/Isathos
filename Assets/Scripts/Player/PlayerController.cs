@@ -17,11 +17,15 @@ public class PlayerController : MonoBehaviour
 
     private Direction _dir;
     private EventTrigger _toSpeak;
+    public Inventory Inventory { private set; get; }
 
     private bool _canMove; // Set for tutorial purpose
     private bool _isCinematic; // Cinematics outside of tutorials
     private bool _isGameOver;
 
+    /// <summary>
+    /// ONLY FOR TUTORIAL
+    /// </summary>
     public void SetCanMove(bool value)
     {
         _canMove = value;
@@ -72,6 +76,8 @@ public class PlayerController : MonoBehaviour
         _toSpeak = null;
         _canMove = true;
         _isCinematic = false;
+        Inventory = new Inventory();
+        Inventory.AddItem(ItemID.HUD);
     }
 
     private void Update()

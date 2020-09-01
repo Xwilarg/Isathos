@@ -4,4 +4,5 @@
 public class ItemIcons : ScriptableObject
 {
     public Sprite Ring;
+    public Sprite UI;
 }

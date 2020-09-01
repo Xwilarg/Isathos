@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ItemIcons
   m_EditorClassIdentifier: 
   Ring: {fileID: 2758960017261175285, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  UI: {fileID: 1202984965197363600, guid: a9331797a8939a841bae464f7ef0b160, type: 3}

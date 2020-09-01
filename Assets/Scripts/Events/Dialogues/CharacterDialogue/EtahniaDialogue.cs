@@ -12,6 +12,7 @@ public class EtahniaDialogue : ADialogue
         return result;
     }
 
+    #region dialogues_back
     private IDialogueResult ScenarioBack(EventDiscussion e, int lastChoiceId)
     {
         if (_currProgress == 0) return new NormalDialogue(true, "Oh you're already back? What is happening?", FacialExpression.NEUTRAL, _knownName);
@@ -20,6 +21,9 @@ public class EtahniaDialogue : ADialogue
         return AskQuestion(_backChoice, e, lastChoiceId);
     }
 
+    /// <summary>
+    /// When the player is back and choose to try to kill Etahnia
+    /// </summary>
     private IDialogueResult ScenarioBackKill(EventDiscussion e, int lastChoiceId)
     {
         PlayerController.S.SetIsCinematic(true);
@@ -29,7 +33,7 @@ public class EtahniaDialogue : ADialogue
             return new NormalDialogue(false, "I came here to kill you.", FacialExpression.NEUTRAL, "Me");
         }
         if (_currProgress == 1) return new NormalDialogue(true, "You barely remember how to walk, what happened so suddenly?", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 2) return new NormalDialogue(false, "I now know why I came here at first.", FacialExpression.NEUTRAL, "Me");
+        if (_currProgress == 2) return new NormalDialogue(false, "I now recall why I came here at first.", FacialExpression.NEUTRAL, "Me");
         if (_currProgress == 3) return new NormalDialogue(true, "Well if you decide to go this way...", FacialExpression.SMILE, _knownName);
         if (_currProgress == 4) return new NormalDialogue(true, "You leave me no other choice.", FacialExpression.MAD, _knownName);
         EventManager.S.DisplayGameOver(e, true);
@@ -41,13 +45,12 @@ public class EtahniaDialogue : ADialogue
         if (_currProgress == 0) return new NormalDialogue(true, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
         if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone, uh. Well I'll close that portal so they won't follow us.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 3) return new NormalDialogue(true, "You woudn't happens to know who they were, would you?", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 4) return new NormalDialogue(true, "I think one of their name was Anael but I don't remember for the others ones.", FacialExpression.NEUTRAL, _knownName);
-        if (_currProgress == 5) return new NormalDialogue(true, "Anael... Well I'm terrible at remembering names so that doesnt' help me much.", FacialExpression.SMILE, _knownName);
-        if (_currProgress == 5) return new NormalDialogue(true, "Anyway we should continue with our original idea, I'll create you another portal", FacialExpression.SMILE, _knownName);
+        if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal", FacialExpression.SMILE, _knownName);
         return null;
     }
+    #endregion dialogues_back
 
+    #region intro
     /// <summary>
     /// When the player first encounter the character
     /// </summary>
@@ -166,7 +169,9 @@ public class EtahniaDialogue : ADialogue
         AssignRandomConversation();
         return null;
     }
+    #endregion intro
 
+    #region random_conversation
     private IDialogueResult RandomConversation1(EventDiscussion e, int _)
     {
         if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
@@ -247,23 +252,17 @@ public class EtahniaDialogue : ADialogue
         return null;
     }
 
-    private IDialogueResult RandomConversationEnd(EventDiscussion e, int _)
-    {
-        if (_currProgress == 0) return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
-        return null;
-    }
-
     private void AssignRandomConversation()
     {
         if (_randomConversations.Count == 0)
         {
-            if (!_didReceiveThanks)
+            if (!_didReceiveThanks) // First time we reach the end of all conversations, Etahnia say thanks
             {
                 _current = RandomConversationThanks;
                 _didReceiveThanks = true;
             }
             else
-                _current = RandomConversationEnd;
+                _current = ShowDialogueMenu;
         }
         else
         {
@@ -271,6 +270,28 @@ public class EtahniaDialogue : ADialogue
             _current = _randomConversations[random];
             _randomConversations.RemoveAt(random);
         }
+    }
+    #endregion random_conversation
+
+    private IDialogueResult ShowDialogueMenu(EventDiscussion e, int lastChoiceId)
+    {
+        return AskQuestion(_dialogueChoice, e, lastChoiceId);
+    }
+
+    private IDialogueResult RandomConversationEnd(EventDiscussion e, int _)
+    {
+        if (_currProgress == 0)
+        {
+            // TODO: random end conversation
+            return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
+        }
+        return null;
+    }
+
+
+    private IDialogueResult GiveItem(EventDiscussion e, int _)
+    {
+        return null;
     }
 
     public void UpdateTutorial()
@@ -286,6 +307,7 @@ public class EtahniaDialogue : ADialogue
         }
     }
 
+    private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _dialogueChoice;
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
     private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _backChoice;
     private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
@@ -294,6 +316,10 @@ public class EtahniaDialogue : ADialogue
     public EtahniaDialogue() : base()
     {
         _current = Intro;
+
+        _dialogueChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
+        _dialogueChoice.Add(GiveItem, "Give");
+        _dialogueChoice.Add(RandomConversationEnd, "Speak");
 
         _introChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
         _introChoice.Add(WhoAreYou, "Who are you?");

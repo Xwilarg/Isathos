@@ -49,6 +49,7 @@ public class EventManager : MonoBehaviour
     {
         GameObject go = Instantiate(_reaction.newItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
         ItemsManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
+        PlayerController.S.Inventory.AddItem(id);
     }
 
     public void DisplayGameOver(EventDiscussion e, bool withBlood)
