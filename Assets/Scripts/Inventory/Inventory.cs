@@ -15,5 +15,8 @@ public class Inventory
             _items.Add(id, 1);
     }
 
+    public Dictionary<ItemID, int> GetItems()
+        => _items;
+
     private Dictionary<ItemID, int> _items;
 }

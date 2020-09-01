@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         _isCinematic = false;
         Inventory = new Inventory();
         Inventory.AddItem(ItemID.HUD);
+        Inventory.AddItem(ItemID.HOUSE_KEY);
     }
 
     private void Update()
@@ -94,6 +95,8 @@ public class PlayerController : MonoBehaviour
         {
             if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
                 EventManager.S.StartEvent(_toSpeak, transform);
+            if (Input.GetKeyDown(KeyCode.I))
+                InventoryPopup.S.ToggleInventory();
         }
         else
         {

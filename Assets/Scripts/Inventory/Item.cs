@@ -14,6 +14,10 @@ public class Item
         popup.Init(_name, _icon);
     }
 
+    public string GetName() => _name;
+    public string GetDescription() => _description;
+    public Sprite GetIcon() => _icon;
+
     private string _name;
     private string _description;
     private Sprite _icon;
