@@ -70,7 +70,7 @@ namespace Inventory
                 _instanciatedItems.Add(go);
 
                 var fItem = ItemManager.S.GetItem(item.Key);
-                go.GetComponent<ItemPanel>().Init(fItem.GetIcon(), fItem.GetName(), fItem.GetDescription(), () => { callback(item.Key); });
+                go.GetComponent<ItemPanel>().Init(fItem.GetIcon(), fItem.GetName(), fItem.GetDescription(), callback == null ? (Action)null : () => { callback(item.Key); });
             }
             if (callback != null) // This happens when we display the menu the give items to Etahnia
             {

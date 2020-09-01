@@ -54,6 +54,9 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone, uh. Well I'll close that portal so they won't follow us.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal", FacialExpression.SMILE, _knownName);
+
+            TutorialManager.S.IntroduceNextEtahniaStep();
+            _current = ShowDialogueMenu;
             return null;
         }
         #endregion dialogues_back
@@ -283,6 +286,8 @@ namespace Event.Dialogue.Speak
 
         private IDialogueResult ShowDialogueMenu(EventDiscussion e, int lastChoiceId)
         {
+            if (_currProgress == 0) return new NormalDialogue(true, "What is it?", FacialExpression.SMILE, _knownName);
+            
             if (lastChoiceId == -1) return new ChoiceDialogue(_dialogueChoice.Select(x => x.Value).ToArray());
             return AskQuestion(_dialogueChoice, e, lastChoiceId);
         }
