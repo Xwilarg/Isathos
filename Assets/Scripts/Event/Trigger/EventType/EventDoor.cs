@@ -21,6 +21,9 @@ namespace Event.Trigger.EventType
 
         [Tooltip("Phase that much be reached to use this object")]
         public Tutorial.Progression RequiredPhase;
+
+        [Tooltip("Output scale")]
+        public float OutputScale = 1.2f;
     }
 
 }

@@ -115,6 +115,14 @@ namespace Event
                 else if (eDoor.FailureType == DoorFailureType.NONE)
                 {
                     player.position = eDoor.Destination.transform.position;
+                    if (!eDoor.IsWarp)
+                    {
+                        if (player.position.y > eDoor.transform.position.y)
+                            player.position += Vector3.down * .5f;
+                        else
+                            player.position += Vector3.up * .5f;
+                    }
+                    player.localScale = new Vector3(eDoor.OutputScale, eDoor.OutputScale, 1f);
                     eDoor.transform.parent.gameObject.SetActive(false);
                     eDoor.Destination.transform.parent.gameObject.SetActive(true);
                     switch (TutorialManager.S.GetProgression())
@@ -125,6 +133,7 @@ namespace Event
                             StartTutorialDiscution();
                             eDoor.Destination = _forestEntrance;
                             eDoor.RequiredPhase = Progression.ETAHNIA_DECIDE_NEXT_STEP;
+                            eDoor.OutputScale = 0.8f;
                             break;
 
                         case Progression.ETAHNIA_KILL_INTRO:
@@ -132,7 +141,6 @@ namespace Event
                             break;
 
                         case Progression.ETAHNIA_DECIDE_NEXT_STEP:
-                            PlayerController.S.transform.localScale = Vector2.one * .8f;
                             break;
                     }
                 }

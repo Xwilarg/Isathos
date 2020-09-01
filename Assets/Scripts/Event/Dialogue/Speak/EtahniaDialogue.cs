@@ -53,8 +53,10 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0) return new NormalDialogue(true, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone, uh. Well I'll close that portal so they won't follow us.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal to a friend that will be able to help you.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(true, "Just tell him you're here from " + (_knownName == "???" ? "Etahnia" : "me") + " and he will tell you what to do.", FacialExpression.SMILE, _knownName);
 
+            _knownName = "Etahnia";
             TutorialManager.S.IntroduceNextEtahniaStep();
             _current = ShowDialogueMenu;
             return null;
