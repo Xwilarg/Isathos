@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class GoUp : MonoBehaviour
 {
+    [SerializeField]
+    private float timer = 1f;
+
     private void Start()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, timer);
     }
 
     private void FixedUpdate()
