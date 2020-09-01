@@ -12,6 +12,8 @@ Icons:
 
 Tiles:
  - [Modern interiors](https://limezu.itch.io/moderninteriors) by LimeZu under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+ - [RPG Nature Tileset - Seasons](https://stealthix.itch.io/rpg-nature-tileset) by Stealthix under [CC-0](https://creativecommons.org/share-your-work/public-domain/cc0/)
+ - [Houses Pack](https://szadiart.itch.io/houses-pack) by Szadi art
  
 Others:
  - [Blood Animations](https://sinestesia.itch.io/blood-animations) by Wetmud Games

@@ -9,7 +9,6 @@ using Player;
 using System;
 using Tutorial;
 using UnityEngine;
-using System.Xml;
 
 namespace Event
 {
@@ -19,6 +18,9 @@ namespace Event
 
         [SerializeField]
         private SO.Reaction _reaction;
+
+        [SerializeField]
+        private GameObject _forestEntrance;
 
         // CHARACTERS
         private EtahniaDialogue _etahnia = new EtahniaDialogue(); public EtahniaDialogue GetEtahnia() => _etahnia;
@@ -121,11 +123,16 @@ namespace Event
                             PlayerController.S.SetCanMove(false);
                             Clear();
                             StartTutorialDiscution();
+                            eDoor.Destination = _forestEntrance;
                             eDoor.RequiredPhase = Progression.ETAHNIA_DECIDE_NEXT_STEP;
                             break;
 
                         case Progression.ETAHNIA_KILL_INTRO:
                             _etahnia.UpdateTutorial();
+                            break;
+
+                        case Progression.ETAHNIA_DECIDE_NEXT_STEP:
+                            PlayerController.S.transform.localScale = Vector2.one * .8f;
                             break;
                     }
                 }
