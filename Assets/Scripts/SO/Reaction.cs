@@ -9,6 +9,7 @@ namespace SO
         public GameObject relationDown;
 
         public GameObject newItem;
+        public GameObject removeItem;
         public GameObject blood;
     }
 }

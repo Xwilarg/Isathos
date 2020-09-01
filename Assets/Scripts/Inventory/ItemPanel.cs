@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Inventory
@@ -14,12 +16,19 @@ namespace Inventory
         [SerializeField]
         private Button _actionButton;
 
-        public void Init(Sprite icon, string name, string description)
+        public void Init(Sprite icon, string name, string description, Action callback)
         {
             _icon.sprite = icon;
             _name.text = name;
             _description.text = description;
-            _actionButton.gameObject.SetActive(false);
+            if (callback == null)
+                _actionButton.gameObject.SetActive(false);
+            else
+            {
+                _actionButtonText.text = "Give";
+                _actionButton.onClick.AddListener(new UnityAction(callback));
+                _actionButton.gameObject.SetActive(true);
+            }
         }
     }
 }

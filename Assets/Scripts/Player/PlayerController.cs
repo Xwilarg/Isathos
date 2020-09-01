@@ -24,7 +24,8 @@ namespace Player
 
         private Direction _dir;
         private EventTrigger _toSpeak;
-        public Inventory.Bag Inventory { private set; get; }
+        public EventTrigger GetEventTrigger() => _toSpeak;
+        public Bag Inventory { private set; get; }
 
         private bool _canMove; // Set for tutorial purpose
         private bool _isCinematic; // Cinematics outside of tutorials
@@ -86,6 +87,7 @@ namespace Player
             Inventory = new Bag();
             Inventory.AddItem(ItemID.HUD);
             Inventory.AddItem(ItemID.HOUSE_KEY);
+            Inventory.AddItem(ItemID.SALENAE_RING);
         }
 
         private void Update()
@@ -102,8 +104,11 @@ namespace Player
             {
                 if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
                     EventManager.S.StartEvent(_toSpeak, transform);
-                if (Input.GetKeyDown(KeyCode.I))
-                    InventoryPopup.S.ToggleInventory();
+                if (!_isCinematic) // Can't open menus during cinematics
+                {
+                    if (Input.GetKeyDown(KeyCode.I))
+                        InventoryPopup.S.ToggleInventory();
+                }
             }
             else
             {

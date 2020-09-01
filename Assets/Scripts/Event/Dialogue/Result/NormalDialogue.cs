@@ -11,7 +11,7 @@ namespace Event.Dialogue.Result
             NameOverride = nameOverride;
             Expression = exp;
 
-            Speaker = Other.Character.NONE;
+            Speaker = Character.NONE;
         }
 
         public bool IsSpeaking;
@@ -22,7 +22,7 @@ namespace Event.Dialogue.Result
         // THE FOLLOWING IS USED FOR MIXED DIALOGUES
         public Other.Character Speaker;
 
-        public NormalDialogue(Other.Character speaker, bool isSpeaking, string text, FacialExpression exp, string nameOverride = null)
+        public NormalDialogue(Character speaker, bool isSpeaking, string text, FacialExpression exp, string nameOverride = null)
         {
             IsSpeaking = isSpeaking;
             Text = text;

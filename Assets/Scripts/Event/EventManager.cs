@@ -9,6 +9,7 @@ using Player;
 using System;
 using Tutorial;
 using UnityEngine;
+using System.Xml;
 
 namespace Event
 {
@@ -60,6 +61,13 @@ namespace Event
             GameObject go = Instantiate(_reaction.newItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
             ItemManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
             PlayerController.S.Inventory.AddItem(id);
+        }
+
+        public void RemoveItem(EventDiscussion e, ItemID id)
+        {
+            GameObject go = Instantiate(_reaction.removeItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
+            ItemManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
+            PlayerController.S.Inventory.RemoveItem(id);
         }
 
         public void DisplayGameOver(EventDiscussion e, bool withBlood)
@@ -141,6 +149,7 @@ namespace Event
                 throw new ArgumentException("Invalid event " + e.name);
         }
 
+        #region dialogue
         private void StartPopup(string text)
         {
             DialoguePopup.S.Display(Character.MC, Character.NONE, FacialExpression.NEUTRAL, FacialExpression.NEUTRAL, text, true, "Me");
@@ -191,6 +200,11 @@ namespace Event
             }
 
             Character c = e.GetCharacter();
+            DisplayDiscution(e, id, c);
+        }
+
+        public void DisplayDiscution(EventDiscussion e, int id, Character c)
+        {
 
             IDialogueResult result;
             if (c == Character.ETAHNIA)
@@ -217,7 +231,7 @@ namespace Event
                     _speakerTwoLastExpression = nDial.Expression;
                 else
                     _speakerOneLastExpression = nDial.Expression;
-                DialoguePopup.S.Display(Character.MC, c, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, nDial.NameOverride);
+                DialoguePopup.S.Display(Character.MC, nDial.Speaker == Character.NONE ? c : nDial.Speaker, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, nDial.NameOverride);
             }
             else if (result is ChoiceDialogue cDial)
             {
@@ -230,5 +244,6 @@ namespace Event
         // To keep the last expression when the other person is speaking
         private FacialExpression _speakerOneLastExpression = FacialExpression.NEUTRAL;
         private FacialExpression _speakerTwoLastExpression = FacialExpression.SMILE;
+        #endregion dialogue
     }
 }

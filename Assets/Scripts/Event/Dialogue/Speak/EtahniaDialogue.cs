@@ -1,5 +1,6 @@
 ﻿using Event.Dialogue.Result;
 using Event.Trigger.EventType;
+using Inventory;
 using Other;
 using Player;
 using System;
@@ -282,6 +283,7 @@ namespace Event.Dialogue.Speak
 
         private IDialogueResult ShowDialogueMenu(EventDiscussion e, int lastChoiceId)
         {
+            if (lastChoiceId == -1) return new ChoiceDialogue(_dialogueChoice.Select(x => x.Value).ToArray());
             return AskQuestion(_dialogueChoice, e, lastChoiceId);
         }
 
@@ -292,12 +294,97 @@ namespace Event.Dialogue.Speak
                 // TODO: random end conversation
                 return new NormalDialogue(true, "If you find anything during your journey, show it to me!", FacialExpression.SMILE, _knownName);
             }
+
+            _current = ShowDialogueMenu;
             return null;
         }
 
-
-        private IDialogueResult GiveItem(EventDiscussion e, int _)
+        private IDialogueResult GiveNothing(EventDiscussion e, int _)
         {
+            if (_currProgress == 0) return new NormalDialogue(false, "Nevermind", FacialExpression.NEUTRAL, _knownName);
+
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveHUD(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0) return new NormalDialogue(Character.EXPL_GOD, true, "Hey, what do you think you are doing!", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(Character.EXPL_GOD, true, "If you give that away you won't be able to see anything!", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "...?", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(false, "Nevermind", FacialExpression.NEUTRAL, _knownName);
+
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveSalenaeRing(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.SALENAE_RING);
+                return new NormalDialogue(true, "Oh what a nice ring!", FacialExpression.SMILE, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(true, "It's been a long time since I was able to wear a piece of jewelry, thanks!", FacialExpression.SMILE, _knownName);
+
+            IncreaseRelation(e);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveHomeKey(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.HOUSE_KEY);
+                return new NormalDialogue(true, "A key? What does it opens?", FacialExpression.SMILE, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(false, "I don't know, I found it in my pocket.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "You would better keep it for now then.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "But if it opens some treasure room bring me what you find inside!", FacialExpression.SMILE, _knownName);
+            EventManager.S.DisplayNewItem(e, ItemID.HOUSE_KEY);
+
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private void GetItem(ItemID id)
+        {
+            InventoryPopup.S.ForceCloseInventory();
+            switch (id)
+            {
+                case (ItemID)(-1):
+                    _current = GiveNothing;
+                    break;
+
+                case ItemID.HUD:
+                    _current = GiveHUD;
+                    break;
+
+                case ItemID.SALENAE_RING:
+                    _current = GiveSalenaeRing;
+                    break;
+
+                case ItemID.HOUSE_KEY:
+                    _current = GiveHomeKey;
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid id value: " + id);
+            }
+            EventManager.S.DisplayDiscution((EventDiscussion)PlayerController.S.GetEventTrigger().Event, -1, Character.ETAHNIA); // Force the display of next Etahnia dialogue
+        }
+
+
+        private IDialogueResult GiveItem(EventDiscussion e, int lastChoiceId)
+        {
+            PlayerController.S.SetIsCinematic(true);
+            InventoryPopup.S.ForceOpenInventory(GetItem);
+            _currProgress = 0;
             return null;
         }
 
