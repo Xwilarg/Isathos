@@ -1,171 +1,179 @@
-﻿using UnityEngine;
+﻿using Event;
+using Event.Trigger;
+using Inventory;
+using Other;
+using SO;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    [SerializeField]
-    private CharacterSprites _playerSprites;
-
-    [SerializeField]
-    private GameObject _collUp, _collDown, _collLeft, _collRight;
-
-    [SerializeField]
-    private GameObject _speakEventIcon;
-
-    private Rigidbody2D _rb;
-    private SpriteRenderer _sr;
-
-    private Direction _dir;
-    private EventTrigger _toSpeak;
-    public Inventory Inventory { private set; get; }
-
-    private bool _canMove; // Set for tutorial purpose
-    private bool _isCinematic; // Cinematics outside of tutorials
-    private bool _isGameOver;
-
-    /// <summary>
-    /// ONLY FOR TUTORIAL
-    /// </summary>
-    public void SetCanMove(bool value)
+    [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
+    public class PlayerController : MonoBehaviour
     {
-        _canMove = value;
-    }
+        [SerializeField]
+        private CharacterSprites _playerSprites;
 
-    public void SetIsCinematic(bool value)
-    {
-        _isCinematic = value;
-    }
+        [SerializeField]
+        private GameObject _collUp, _collDown, _collLeft, _collRight;
 
-    public void Loose()
-    {
-        _isGameOver = true;
-        _sr.sprite = _playerSprites.dead;
-    }
+        [SerializeField]
+        private GameObject _speakEventIcon;
 
-    public static PlayerController S;
+        private Rigidbody2D _rb;
+        private SpriteRenderer _sr;
 
-    public void EnterEventTrigger(EventTrigger e)
-    {
-        _speakEventIcon.SetActive(true);
-        _toSpeak = e;
-    }
+        private Direction _dir;
+        private EventTrigger _toSpeak;
+        public Inventory.Bag Inventory { private set; get; }
 
-    public void ExitEventTrigger()
-    {
-        // That happens after taking a door but while being in a tutorial
-        // When that's the case, we want to keep the tutorial popup
-        if (!_canMove)
-            return;
+        private bool _canMove; // Set for tutorial purpose
+        private bool _isCinematic; // Cinematics outside of tutorials
+        private bool _isGameOver;
 
-        _speakEventIcon.SetActive(false);
-        _toSpeak = null;
-        EventManager.S.Clear();
-        DialoguePopup.S.Close();
-    }
-
-    private void Awake()
-    {
-        S = this;
-    }
-
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
-        _dir = Direction.UP;
-        _toSpeak = null;
-        _canMove = true;
-        _isCinematic = false;
-        Inventory = new Inventory();
-        Inventory.AddItem(ItemID.HUD);
-        Inventory.AddItem(ItemID.HOUSE_KEY);
-    }
-
-    private void Update()
-    {
-        if (_isGameOver)
+        /// <summary>
+        /// ONLY FOR TUTORIAL
+        /// </summary>
+        public void SetCanMove(bool value)
         {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
-                EventManager.S.StartGameOverDiscution();
-            return;
+            _canMove = value;
         }
 
-        // Interraction
-        if (_canMove)
+        public void SetIsCinematic(bool value)
         {
-            if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
-                EventManager.S.StartEvent(_toSpeak, transform);
-            if (Input.GetKeyDown(KeyCode.I))
-                InventoryPopup.S.ToggleInventory();
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
-                EventManager.S.StartTutorialDiscution();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (!_canMove || _isCinematic || _isGameOver)
-        {
-            _rb.velocity = Vector2.zero;
-            return;
+            _isCinematic = value;
         }
 
-        // Movements
-        _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * 5f;
-
-        // Set direction depending of velocity
-        if (Mathf.Abs(_rb.velocity.x) > Mathf.Abs(_rb.velocity.y))
+        public void Loose()
         {
-            if (_rb.velocity.x > 0)
-                _dir = Direction.RIGHT;
-            else if (_rb.velocity.x < 0)
-                _dir = Direction.LEFT;
-        }
-        else
-        {
-            if (_rb.velocity.y > 0)
-                _dir = Direction.UP;
-            else if (_rb.velocity.y < 0)
-                _dir = Direction.DOWN;
+            _isGameOver = true;
+            _sr.sprite = _playerSprites.dead;
         }
 
-        // Set sprite direction
-        switch (_dir)
+        public static PlayerController S;
+
+        public void EnterEventTrigger(EventTrigger e)
         {
-            case Direction.UP:
-                _sr.sprite = _playerSprites.up;
-                _collUp.SetActive(true);
-                _collDown.SetActive(false);
-                _collLeft.SetActive(false);
-                _collRight.SetActive(false);
-                break;
+            _speakEventIcon.SetActive(true);
+            _toSpeak = e;
+        }
 
-            case Direction.DOWN:
-                _sr.sprite = _playerSprites.down;
-                _collUp.SetActive(false);
-                _collDown.SetActive(true);
-                _collLeft.SetActive(false);
-                _collRight.SetActive(false);
-                break;
+        public void ExitEventTrigger()
+        {
+            // That happens after taking a door but while being in a tutorial
+            // When that's the case, we want to keep the tutorial popup
+            if (!_canMove)
+                return;
 
-            case Direction.LEFT:
-                _sr.sprite = _playerSprites.left;
-                _collUp.SetActive(false);
-                _collDown.SetActive(false);
-                _collLeft.SetActive(true);
-                _collRight.SetActive(false);
-                break;
+            _speakEventIcon.SetActive(false);
+            _toSpeak = null;
+            EventManager.S.Clear();
+            DialoguePopup.S.Close();
+        }
 
-            case Direction.RIGHT:
-                _sr.sprite = _playerSprites.right;
-                _collUp.SetActive(false);
-                _collDown.SetActive(false);
-                _collLeft.SetActive(false);
-                _collRight.SetActive(true);
-                break;
+        private void Awake()
+        {
+            S = this;
+        }
+
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _sr = GetComponent<SpriteRenderer>();
+            _dir = Direction.UP;
+            _toSpeak = null;
+            _canMove = true;
+            _isCinematic = false;
+            Inventory = new Bag();
+            Inventory.AddItem(ItemID.HUD);
+            Inventory.AddItem(ItemID.HOUSE_KEY);
+        }
+
+        private void Update()
+        {
+            if (_isGameOver)
+            {
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+                    EventManager.S.StartGameOverDiscution();
+                return;
+            }
+
+            // Interraction
+            if (_canMove)
+            {
+                if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return)) && _toSpeak != null)
+                    EventManager.S.StartEvent(_toSpeak, transform);
+                if (Input.GetKeyDown(KeyCode.I))
+                    InventoryPopup.S.ToggleInventory();
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
+                    EventManager.S.StartTutorialDiscution();
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_canMove || _isCinematic || _isGameOver)
+            {
+                _rb.velocity = Vector2.zero;
+                return;
+            }
+
+            // Movements
+            _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * 5f;
+
+            // Set direction depending of velocity
+            if (Mathf.Abs(_rb.velocity.x) > Mathf.Abs(_rb.velocity.y))
+            {
+                if (_rb.velocity.x > 0)
+                    _dir = Direction.RIGHT;
+                else if (_rb.velocity.x < 0)
+                    _dir = Direction.LEFT;
+            }
+            else
+            {
+                if (_rb.velocity.y > 0)
+                    _dir = Direction.UP;
+                else if (_rb.velocity.y < 0)
+                    _dir = Direction.DOWN;
+            }
+
+            // Set sprite direction
+            switch (_dir)
+            {
+                case Direction.UP:
+                    _sr.sprite = _playerSprites.up;
+                    _collUp.SetActive(true);
+                    _collDown.SetActive(false);
+                    _collLeft.SetActive(false);
+                    _collRight.SetActive(false);
+                    break;
+
+                case Direction.DOWN:
+                    _sr.sprite = _playerSprites.down;
+                    _collUp.SetActive(false);
+                    _collDown.SetActive(true);
+                    _collLeft.SetActive(false);
+                    _collRight.SetActive(false);
+                    break;
+
+                case Direction.LEFT:
+                    _sr.sprite = _playerSprites.left;
+                    _collUp.SetActive(false);
+                    _collDown.SetActive(false);
+                    _collLeft.SetActive(true);
+                    _collRight.SetActive(false);
+                    break;
+
+                case Direction.RIGHT:
+                    _sr.sprite = _playerSprites.right;
+                    _collUp.SetActive(false);
+                    _collDown.SetActive(false);
+                    _collLeft.SetActive(false);
+                    _collRight.SetActive(true);
+                    break;
+            }
         }
     }
 }

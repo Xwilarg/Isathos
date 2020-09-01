@@ -595,12 +595,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 259837494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc25ce69012e7784f8eb83afe19adda5, type: 3}
+  m_Script: {fileID: 11500000, guid: c254a394ddae93b459ec91d8451ec1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gameObject: {fileID: 3680178180382960342, guid: 29589484097b75e4fb3f9182dbd470ec, type: 3}
-  _name: {fileID: 0}
-  _description: {fileID: 0}
 --- !u!114 &285221093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8878318242370369687, guid: 39429db38923b024098f88d5f86f2e73, type: 3}

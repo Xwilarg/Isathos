@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class NewItem : MonoBehaviour
+namespace Inventory
 {
-    [SerializeField]
-    private TextMesh _name;
-
-    [SerializeField]
-    private SpriteRenderer _icon;
-
-    public void Init(string name, Sprite icon)
+    public class NewItem : MonoBehaviour
     {
-        _name.text = name;
-        _icon.sprite = icon;
+        [SerializeField]
+        private TextMesh _name;
+
+        [SerializeField]
+        private SpriteRenderer _icon;
+
+        public void Init(string name, Sprite icon)
+        {
+            _name.text = name;
+            _icon.sprite = icon;
+        }
     }
 }

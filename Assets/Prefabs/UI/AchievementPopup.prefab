@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description of the achivement
+  m_Text: Description of the achievement
 --- !u!1 &3680178180382960342
 GameObject:
   m_ObjectHideFlags: 0

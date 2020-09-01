@@ -1,7 +1,9 @@
-﻿public enum ItemID
+﻿namespace Inventory
 {
-    HUD,
-    CRUMBLED_PAPER,
-    HOUSE_KEY,
-    SALENAE_RING
+    public enum ItemID
+    {
+        HUD,
+        HOUSE_KEY,
+        SALENAE_RING
+    }
 }

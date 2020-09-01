@@ -1,47 +1,50 @@
 using UnityEngine;
 
-public class TutorialManager : MonoBehaviour
+namespace Tutorial
 {
-    public static TutorialManager S;
-
-    private void Awake()
+    public class TutorialManager : MonoBehaviour
     {
-        S = this;
-    }
+        public static TutorialManager S;
 
-    private void Start()
-    {
-        _progression = TutorialProgression.BEGINNING;
-    }
+        private void Awake()
+        {
+            S = this;
+        }
 
-    private TutorialProgression _progression;
+        private void Start()
+        {
+            _progression = Progression.BEGINNING;
+        }
 
-    public TutorialProgression GetProgression()
-        => _progression;
+        private Progression _progression;
 
-    /// ALL THE FOLLOWING FUNCTIONS INCREASE THE TUTORIAL PROGRESSION
+        public Progression GetProgression()
+            => _progression;
 
-    /// <summary>
-    /// Triggered when the player first speak and finish the introduction dialogue
-    /// </summary>
-    public void IntroduceEtahnia()
-    {
-        if (_progression == TutorialProgression.BEGINNING)
-            _progression = TutorialProgression.ETAHNIA_INTRO;
-    }
+        /// ALL THE FOLLOWING FUNCTIONS INCREASE THE TUTORIAL PROGRESSION
 
-    /// <summary>
-    /// Triggered when the player first go back to the human world and is told that he must kill Etahnia
-    /// </summary>
-    public void IntroduceKillEtahnia()
-    {
-        if (_progression == TutorialProgression.ETAHNIA_INTRO)
-            _progression = TutorialProgression.ETAHNIA_KILL_INTRO;
-    }
+        /// <summary>
+        /// Triggered when the player first speak and finish the introduction dialogue
+        /// </summary>
+        public void IntroduceEtahnia()
+        {
+            if (_progression == Progression.BEGINNING)
+                _progression = Progression.ETAHNIA_INTRO;
+        }
 
-    public void IntroduceNextEtahniaStep()
-    {
-        if (_progression == TutorialProgression.ETAHNIA_KILL_INTRO)
-            _progression = TutorialProgression.ETAHNIA_DECIDE_NEXT_STEP;
+        /// <summary>
+        /// Triggered when the player first go back to the human world and is told that he must kill Etahnia
+        /// </summary>
+        public void IntroduceKillEtahnia()
+        {
+            if (_progression == Progression.ETAHNIA_INTRO)
+                _progression = Progression.ETAHNIA_KILL_INTRO;
+        }
+
+        public void IntroduceNextEtahniaStep()
+        {
+            if (_progression == Progression.ETAHNIA_KILL_INTRO)
+                _progression = Progression.ETAHNIA_DECIDE_NEXT_STEP;
+        }
     }
 }

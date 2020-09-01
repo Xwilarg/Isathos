@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestManager : MonoBehaviour
+namespace Player
 {
-    public static QuestManager S;
-
-    [SerializeField]
-    private Text _questText;
-
-    private void Awake()
+    public class QuestManager : MonoBehaviour
     {
-        S = this;
-    }
+        public static QuestManager S;
 
-    public void UpdateQuestDescription(string content)
-    {
-        _questText.text = content;
+        [SerializeField]
+        private Text _questText;
+
+        private void Awake()
+        {
+            S = this;
+        }
+
+        public void UpdateQuestDescription(string content)
+        {
+            _questText.text = content;
+        }
     }
 }
