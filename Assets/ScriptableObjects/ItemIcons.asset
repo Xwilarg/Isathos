@@ -19,3 +19,4 @@ MonoBehaviour:
   BookBrown: {fileID: 377901513857718070, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   BookSpell: {fileID: -6750833894080825350, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   BookOldSpell: {fileID: 3581452293719351396, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  Candy: {fileID: 569668400994966534, guid: a9331797a8939a841bae464f7ef0b160, type: 3}

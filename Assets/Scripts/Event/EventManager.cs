@@ -35,6 +35,7 @@ namespace Event
         private UnarDialogue _unar = new UnarDialogue();
         private NachiDialogue _nachi = new NachiDialogue();
         private EranelDialogue _eranel = new EranelDialogue();
+        private HurianeDialogue _huriane = new HurianeDialogue();
 
         // TUTORIAL
         private TutorialLook _tutorial = new TutorialLook();
@@ -61,6 +62,7 @@ namespace Event
             _nachi.Clear();
             _unar.Clear();
             _eranel.Clear();
+            _huriane.Clear();
 
             _tutorial.Clear();
             _tutorialD.Clear();
@@ -259,6 +261,8 @@ namespace Event
                 result = _nachi.GetDialogue(e, id);
             else if (c == Character.ERANEL)
                 result = _eranel.GetDialogue(e, id);
+            else if (c == Character.HURIANE)
+                result = _huriane.GetDialogue(e, id);
             else
                 throw new ArgumentException("Invalid character " + c.ToString());
             if (result == null)

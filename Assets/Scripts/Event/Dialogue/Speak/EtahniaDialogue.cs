@@ -50,10 +50,10 @@ namespace Event.Dialogue.Speak
 
         private IDialogueResult ScenarioBackHelp(EventDiscussion e, int lastChoiceId)
         {
-            if (_currProgress == 0) return new NormalDialogue(true, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 1) return new NormalDialogue(true, "There are people out there who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 0) return new NormalDialogue(false, "(Whatever my final choice end up being, I should play along for now.)", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(false, "There are people who want to kill you out there.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "Even after banishing me they won't leave me alone, uh. Well I'll close that portal so they won't follow us.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal to a friend that will be able to help you.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "For now you should just avoid these guys, I'll create you another portal to a friend that will be able to help us.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "Just tell him you're here from " + (_knownName == "???" ? "Etahnia" : "me") + " and he will tell you what to do.", FacialExpression.SMILE, _knownName);
 
             _knownName = "Etahnia";
@@ -104,6 +104,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 12) return new NormalDialogue(false, "...", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 13) return new NormalDialogue(true, "But enough speaking of me, I'm sure there are plenty of others things you would like to know!", FacialExpression.SMILE, _knownName);
 
+            InformationManager.S.HaveBanInfo = true;
             _introChoice.Remove(WhoAreYou);
             if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 
@@ -119,6 +120,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 4) return new NormalDialogue(false, "I can't remember anything about that or why I came here", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 5) return new NormalDialogue(true, "Well if you don't remember there's no use digging on it! I'm sure it'll come back in due time. Anything else you would like to know?", FacialExpression.SMILE, _knownName);
 
+            InformationManager.S.HaveSealedPlanInfo = true;
             _introChoice.Remove(WhoAmI);
             if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
 

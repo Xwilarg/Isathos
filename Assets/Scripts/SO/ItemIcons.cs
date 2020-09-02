@@ -9,5 +9,6 @@ namespace SO
         public Sprite UI;
         public Sprite Key;
         public Sprite BookBlue, BookBrown, BookSpell, BookOldSpell;
+        public Sprite Candy;
     }
 }
