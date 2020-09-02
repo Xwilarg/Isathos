@@ -9,6 +9,7 @@ Characters:
  
 Icons:
  - [Shikashi's Fantasy Icons Pack](https://cheekyinkling.itch.io/shikashis-fantasy-icons-pack) by Shikashi and game-icons.net under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+ - By [srip](https://www.flaticon.com/authors/srip) from [Flaticon](https://www.flaticon.com/)
 
 Tiles:
  - [Modern interiors](https://limezu.itch.io/moderninteriors) by LimeZu under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

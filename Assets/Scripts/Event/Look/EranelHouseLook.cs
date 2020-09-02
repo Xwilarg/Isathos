@@ -118,8 +118,7 @@ namespace Event.Look
             }
             else if (name == "COMPUTER")
             {
-                if (_currProgress == 0)
-                    res = "A computer.";
+                ComputerManager.S.StartComputer();
             }
             _currProgress++;
             return res;
