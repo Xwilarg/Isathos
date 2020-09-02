@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6005949984284135121}
   - component: {fileID: 6005949984284135120}
   - component: {fileID: 2156299626084639300}
+  - component: {fileID: -136836626590916932}
   m_Layer: 9
   m_Name: ManaBall
   m_TagString: Untagged
@@ -151,3 +152,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-136836626590916932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005949984284135123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3244b18a97f6f6645b571d76a4737cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 3457982665917436127, guid: c00fe74ee20f6914b852c7915fa9e2a7, type: 3}

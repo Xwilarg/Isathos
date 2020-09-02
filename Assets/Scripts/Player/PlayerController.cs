@@ -123,7 +123,7 @@ namespace Player
                         var dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
                         dir.z = 0f;
                         dir.Normalize();
-                        GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Vector2.SignedAngle(transform.position + Vector3.up, transform.position + dir) + 90f)));
+                        GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Vector2.SignedAngle(Vector2.up, dir) + 90f)));
                         go.GetComponent<Rigidbody2D>().velocity = dir * 10f;
                         Destroy(go, 10f);
                         Reload();

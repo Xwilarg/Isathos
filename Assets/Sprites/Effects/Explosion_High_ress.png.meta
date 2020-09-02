@@ -1,7 +1,1021 @@
 fileFormatVersion: 2
 guid: 8a233aff930430743836c6ccf24db740
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8867473742093066017
+    second: Explosion_High_ress_0
+  - first:
+      213: -6337207955110858365
+    second: Explosion_High_ress_1
+  - first:
+      213: -7355968971093954357
+    second: Explosion_High_ress_2
+  - first:
+      213: 7695460006473682919
+    second: Explosion_High_ress_3
+  - first:
+      213: 2771533493119624588
+    second: Explosion_High_ress_4
+  - first:
+      213: 6419985937804118926
+    second: Explosion_High_ress_5
+  - first:
+      213: 1806749197717713445
+    second: Explosion_High_ress_6
+  - first:
+      213: -8932278632566515908
+    second: Explosion_High_ress_7
+  - first:
+      213: -3595429406096256226
+    second: Explosion_High_ress_8
+  - first:
+      213: 5139343298380249019
+    second: Explosion_High_ress_9
+  - first:
+      213: 5244880838379072148
+    second: Explosion_High_ress_10
+  - first:
+      213: -1284849020225297217
+    second: Explosion_High_ress_11
+  - first:
+      213: -7752006307910927071
+    second: Explosion_High_ress_12
+  - first:
+      213: 1154248844093764520
+    second: Explosion_High_ress_13
+  - first:
+      213: -1253420097177074795
+    second: Explosion_High_ress_14
+  - first:
+      213: 925037983813859042
+    second: Explosion_High_ress_15
+  - first:
+      213: -6126405854566844188
+    second: Explosion_High_ress_16
+  - first:
+      213: 3953429847599419371
+    second: Explosion_High_ress_17
+  - first:
+      213: -222564566577049149
+    second: Explosion_High_ress_18
+  - first:
+      213: -427242137516094582
+    second: Explosion_High_ress_19
+  - first:
+      213: -91142829712164532
+    second: Explosion_High_ress_20
+  - first:
+      213: 1843174662788579263
+    second: Explosion_High_ress_21
+  - first:
+      213: 7051304520972243227
+    second: Explosion_High_ress_22
+  - first:
+      213: 1284773073499645954
+    second: Explosion_High_ress_23
+  - first:
+      213: -7477982386480364695
+    second: Explosion_High_ress_24
+  - first:
+      213: 8395232379373517697
+    second: Explosion_High_ress_25
+  - first:
+      213: -5286552679470470661
+    second: Explosion_High_ress_26
+  - first:
+      213: 5926276896944700536
+    second: Explosion_High_ress_27
+  - first:
+      213: 7353771525165546391
+    second: Explosion_High_ress_28
+  - first:
+      213: -3932384408927148343
+    second: Explosion_High_ress_29
+  - first:
+      213: 4900861448201538400
+    second: Explosion_High_ress_30
+  - first:
+      213: 2543007886994530107
+    second: Explosion_High_ress_31
+  - first:
+      213: -8803339509325116033
+    second: Explosion_High_ress_32
+  - first:
+      213: -881219305165586485
+    second: Explosion_High_ress_33
+  - first:
+      213: 282217590429761724
+    second: Explosion_High_ress_34
+  - first:
+      213: 2072769159114741611
+    second: Explosion_High_ress_35
+  - first:
+      213: -3213404721478002668
+    second: Explosion_High_ress_36
+  - first:
+      213: -8794378747473911996
+    second: Explosion_High_ress_37
+  - first:
+      213: -15815755765022484
+    second: Explosion_High_ress_38
+  - first:
+      213: -435316284121093482
+    second: Explosion_High_ress_39
+  - first:
+      213: 2486784569058266031
+    second: Explosion_High_ress_40
+  - first:
+      213: -9124783344884744590
+    second: Explosion_High_ress_41
+  - first:
+      213: -208407996376131922
+    second: Explosion_High_ress_42
+  - first:
+      213: -6168404506426401482
+    second: Explosion_High_ress_43
+  - first:
+      213: -7080760052050295261
+    second: Explosion_High_ress_44
+  - first:
+      213: -7737904710961973860
+    second: Explosion_High_ress_45
+  - first:
+      213: -5944732845329759797
+    second: Explosion_High_ress_46
+  - first:
+      213: 4119793622198881502
+    second: Explosion_High_ress_47
+  - first:
+      213: -7286821813938563596
+    second: Explosion_High_ress_48
+  - first:
+      213: 2179822844659870761
+    second: Explosion_High_ress_49
+  - first:
+      213: 7467928181185791976
+    second: Explosion_High_ress_50
+  - first:
+      213: 6410996510552807369
+    second: Explosion_High_ress_51
+  - first:
+      213: 2649332872147716138
+    second: Explosion_High_ress_52
+  - first:
+      213: 7492548799020011942
+    second: Explosion_High_ress_53
+  - first:
+      213: -7193981802548088701
+    second: Explosion_High_ress_54
+  - first:
+      213: 5457029399322046632
+    second: Explosion_High_ress_55
+  - first:
+      213: 1031297387093274593
+    second: Explosion_High_ress_56
+  - first:
+      213: 5372291581475250640
+    second: Explosion_High_ress_57
+  - first:
+      213: -8177202904731045192
+    second: Explosion_High_ress_58
+  - first:
+      213: -6602842917239041124
+    second: Explosion_High_ress_59
+  - first:
+      213: 2795285450737751188
+    second: Explosion_High_ress_60
+  - first:
+      213: -2362038958888668789
+    second: Explosion_High_ress_61
+  - first:
+      213: -5931953847182830435
+    second: Explosion_High_ress_62
+  - first:
+      213: -4535731993589158698
+    second: Explosion_High_ress_63
+  - first:
+      213: -7211893185108853126
+    second: Explosion_High_ress_64
+  - first:
+      213: -5792772384451035368
+    second: Explosion_High_ress_65
+  - first:
+      213: 8832036941800938429
+    second: Explosion_High_ress_66
+  - first:
+      213: -8604203046784916433
+    second: Explosion_High_ress_67
+  - first:
+      213: -4633418508122398075
+    second: Explosion_High_ress_68
+  - first:
+      213: 622169537074920400
+    second: Explosion_High_ress_69
+  - first:
+      213: 8223703520934521061
+    second: Explosion_High_ress_70
+  - first:
+      213: -1517498781681735169
+    second: Explosion_High_ress_71
+  - first:
+      213: 1845872853057864697
+    second: Explosion_High_ress_72
+  - first:
+      213: -7076312456583882570
+    second: Explosion_High_ress_73
+  - first:
+      213: 8525514936764641576
+    second: Explosion_High_ress_74
+  - first:
+      213: 1311571078377292133
+    second: Explosion_High_ress_75
+  - first:
+      213: -6364908709196327033
+    second: Explosion_High_ress_76
+  - first:
+      213: 5573073165741100249
+    second: Explosion_High_ress_77
+  - first:
+      213: 9042750107829978205
+    second: Explosion_High_ress_78
+  - first:
+      213: 7221921165416135025
+    second: Explosion_High_ress_79
+  - first:
+      213: -59365595244304423
+    second: Explosion_High_ress_80
+  - first:
+      213: -6931151190921852551
+    second: Explosion_High_ress_81
+  - first:
+      213: -8946288129729528607
+    second: Explosion_High_ress_82
+  - first:
+      213: 102737487829589818
+    second: Explosion_High_ress_83
+  - first:
+      213: 3511837667414979810
+    second: Explosion_High_ress_84
+  - first:
+      213: -6578243907791901723
+    second: Explosion_High_ress_85
+  - first:
+      213: 5317312303281113692
+    second: Explosion_High_ress_86
+  - first:
+      213: 1086648898241139188
+    second: Explosion_High_ress_87
+  - first:
+      213: -2681256926899488984
+    second: Explosion_High_ress_88
+  - first:
+      213: -8290001970339034102
+    second: Explosion_High_ress_89
+  - first:
+      213: 2279039661524541975
+    second: Explosion_High_ress_90
+  - first:
+      213: 4857290663934660626
+    second: Explosion_High_ress_91
+  - first:
+      213: 6880118624854113441
+    second: Explosion_High_ress_92
+  - first:
+      213: -7288903163747656260
+    second: Explosion_High_ress_93
+  - first:
+      213: -8375867880105470511
+    second: Explosion_High_ress_94
+  - first:
+      213: -3471473527243682088
+    second: Explosion_High_ress_95
+  - first:
+      213: -6936975267965677952
+    second: Explosion_High_ress_96
+  - first:
+      213: -3661097343651696541
+    second: Explosion_High_ress_97
+  - first:
+      213: 4216333922363758075
+    second: Explosion_High_ress_98
+  - first:
+      213: 8312318712256720471
+    second: Explosion_High_ress_99
+  - first:
+      213: -8827517432632083187
+    second: Explosion_High_ress_100
+  - first:
+      213: -1909309719645343477
+    second: Explosion_High_ress_101
+  - first:
+      213: -2050985093257932985
+    second: Explosion_High_ress_102
+  - first:
+      213: -283890535800903965
+    second: Explosion_High_ress_103
+  - first:
+      213: 2808963778950395351
+    second: Explosion_High_ress_104
+  - first:
+      213: 6639056463483000178
+    second: Explosion_High_ress_105
+  - first:
+      213: -4887046202284894668
+    second: Explosion_High_ress_106
+  - first:
+      213: -8917165032314992456
+    second: Explosion_High_ress_107
+  - first:
+      213: -7171499259798106078
+    second: Explosion_High_ress_108
+  - first:
+      213: -7542457888826982882
+    second: Explosion_High_ress_109
+  - first:
+      213: -7663735513682732978
+    second: Explosion_High_ress_110
+  - first:
+      213: -8771691343865963126
+    second: Explosion_High_ress_111
+  - first:
+      213: 3047180379699690772
+    second: Explosion_High_ress_112
+  - first:
+      213: -2054740900224051303
+    second: Explosion_High_ress_113
+  - first:
+      213: -311679527327070826
+    second: Explosion_High_ress_114
+  - first:
+      213: 1729457117207917102
+    second: Explosion_High_ress_115
+  - first:
+      213: -4454228755896287786
+    second: Explosion_High_ress_116
+  - first:
+      213: -4036946567617904781
+    second: Explosion_High_ress_117
+  - first:
+      213: 2731806627054726220
+    second: Explosion_High_ress_118
+  - first:
+      213: 4975859029909933950
+    second: Explosion_High_ress_119
+  - first:
+      213: -1997566941670102515
+    second: Explosion_High_ress_120
+  - first:
+      213: -5456961679521075961
+    second: Explosion_High_ress_121
+  - first:
+      213: 5559979974389119443
+    second: Explosion_High_ress_122
+  - first:
+      213: -8776857384963022564
+    second: Explosion_High_ress_123
+  - first:
+      213: 632985753569657662
+    second: Explosion_High_ress_124
+  - first:
+      213: -2620378288130422538
+    second: Explosion_High_ress_125
+  - first:
+      213: -3908510511528489145
+    second: Explosion_High_ress_126
+  - first:
+      213: -107255649239747581
+    second: Explosion_High_ress_127
+  - first:
+      213: 1206183926191452123
+    second: Explosion_High_ress_128
+  - first:
+      213: -2573309104194188705
+    second: Explosion_High_ress_129
+  - first:
+      213: -8718224427744089686
+    second: Explosion_High_ress_130
+  - first:
+      213: -1850977618432198345
+    second: Explosion_High_ress_131
+  - first:
+      213: 2682873404968911493
+    second: Explosion_High_ress_132
+  - first:
+      213: 5031240997469875311
+    second: Explosion_High_ress_133
+  - first:
+      213: -6465579593870197891
+    second: Explosion_High_ress_134
+  - first:
+      213: -1734806819545201916
+    second: Explosion_High_ress_135
+  - first:
+      213: -3245945646395636117
+    second: Explosion_High_ress_136
+  - first:
+      213: 2070591142738365316
+    second: Explosion_High_ress_137
+  - first:
+      213: -6136251786198332392
+    second: Explosion_High_ress_138
+  - first:
+      213: -5781216728934252729
+    second: Explosion_High_ress_139
+  - first:
+      213: 4743199730892894798
+    second: Explosion_High_ress_140
+  - first:
+      213: 387060779288714636
+    second: Explosion_High_ress_141
+  - first:
+      213: -6390995803448564267
+    second: Explosion_High_ress_142
+  - first:
+      213: -2254096663832435830
+    second: Explosion_High_ress_143
+  - first:
+      213: 3201731510447741714
+    second: Explosion_High_ress_144
+  - first:
+      213: -4349107362452476220
+    second: Explosion_High_ress_145
+  - first:
+      213: -5856639226245295955
+    second: Explosion_High_ress_146
+  - first:
+      213: -6830611978786129184
+    second: Explosion_High_ress_147
+  - first:
+      213: -8038708606046298526
+    second: Explosion_High_ress_148
+  - first:
+      213: 2649855690802828302
+    second: Explosion_High_ress_149
+  - first:
+      213: 8261051177875068967
+    second: Explosion_High_ress_150
+  - first:
+      213: -5659138344894508662
+    second: Explosion_High_ress_151
+  - first:
+      213: -4497762077908584620
+    second: Explosion_High_ress_152
+  - first:
+      213: -4401787196877852970
+    second: Explosion_High_ress_153
+  - first:
+      213: 6032586573840817914
+    second: Explosion_High_ress_154
+  - first:
+      213: 6285462008216859365
+    second: Explosion_High_ress_155
+  - first:
+      213: -2197314698556519539
+    second: Explosion_High_ress_156
+  - first:
+      213: -6006855962347729208
+    second: Explosion_High_ress_157
+  - first:
+      213: -2002701135122757302
+    second: Explosion_High_ress_158
+  - first:
+      213: -2073462239448656100
+    second: Explosion_High_ress_159
+  - first:
+      213: -4015956224588125762
+    second: Explosion_High_ress_160
+  - first:
+      213: -5358555438369441111
+    second: Explosion_High_ress_161
+  - first:
+      213: 7250947638912681905
+    second: Explosion_High_ress_162
+  - first:
+      213: 7762950102983688194
+    second: Explosion_High_ress_163
+  - first:
+      213: -2243843691803969184
+    second: Explosion_High_ress_164
+  - first:
+      213: -7278266084256248526
+    second: Explosion_High_ress_165
+  - first:
+      213: -8360476208232367503
+    second: Explosion_High_ress_166
+  - first:
+      213: 911019315446212541
+    second: Explosion_High_ress_167
+  - first:
+      213: 1221784684219142860
+    second: Explosion_High_ress_168
+  - first:
+      213: -8320395555054776641
+    second: Explosion_High_ress_169
+  - first:
+      213: -6519759584052913204
+    second: Explosion_High_ress_170
+  - first:
+      213: 1779468178746693431
+    second: Explosion_High_ress_171
+  - first:
+      213: 8229593625631213633
+    second: Explosion_High_ress_172
+  - first:
+      213: -5292038638226201539
+    second: Explosion_High_ress_173
+  - first:
+      213: -349985216555823757
+    second: Explosion_High_ress_174
+  - first:
+      213: 4154332840516309303
+    second: Explosion_High_ress_175
+  - first:
+      213: 2445266148629038650
+    second: Explosion_High_ress_176
+  - first:
+      213: -1886911879574762650
+    second: Explosion_High_ress_177
+  - first:
+      213: 2425575309252720100
+    second: Explosion_High_ress_178
+  - first:
+      213: -4914173193685636845
+    second: Explosion_High_ress_179
+  - first:
+      213: -5329007268763644070
+    second: Explosion_High_ress_180
+  - first:
+      213: 1985221186427377905
+    second: Explosion_High_ress_181
+  - first:
+      213: -5021750413234841054
+    second: Explosion_High_ress_182
+  - first:
+      213: 6242829201726932434
+    second: Explosion_High_ress_183
+  - first:
+      213: -2380502254453083587
+    second: Explosion_High_ress_184
+  - first:
+      213: -1267285499140249047
+    second: Explosion_High_ress_185
+  - first:
+      213: 6513644674603549784
+    second: Explosion_High_ress_186
+  - first:
+      213: -6771718008585533050
+    second: Explosion_High_ress_187
+  - first:
+      213: 5286011764247299011
+    second: Explosion_High_ress_188
+  - first:
+      213: -7495095767230216578
+    second: Explosion_High_ress_189
+  - first:
+      213: 5129135928755630536
+    second: Explosion_High_ress_190
+  - first:
+      213: 7948231667834448310
+    second: Explosion_High_ress_191
+  - first:
+      213: 1210057810003173353
+    second: Explosion_High_ress_192
+  - first:
+      213: 478209429089697417
+    second: Explosion_High_ress_193
+  - first:
+      213: 8711273169972766344
+    second: Explosion_High_ress_194
+  - first:
+      213: -2336813978735455969
+    second: Explosion_High_ress_195
+  - first:
+      213: 8487163055084936057
+    second: Explosion_High_ress_196
+  - first:
+      213: -7290537580061547701
+    second: Explosion_High_ress_197
+  - first:
+      213: 3729425703617795286
+    second: Explosion_High_ress_198
+  - first:
+      213: -606115946138285835
+    second: Explosion_High_ress_199
+  - first:
+      213: 2468558118768479878
+    second: Explosion_High_ress_200
+  - first:
+      213: -8572711147829152776
+    second: Explosion_High_ress_201
+  - first:
+      213: -7235145834424593843
+    second: Explosion_High_ress_202
+  - first:
+      213: -4131994730715074610
+    second: Explosion_High_ress_203
+  - first:
+      213: 2283668266752922575
+    second: Explosion_High_ress_204
+  - first:
+      213: -1081768288117660446
+    second: Explosion_High_ress_205
+  - first:
+      213: 761299982871959521
+    second: Explosion_High_ress_206
+  - first:
+      213: 3848928403492234427
+    second: Explosion_High_ress_207
+  - first:
+      213: -3894872694137672189
+    second: Explosion_High_ress_208
+  - first:
+      213: -90969609219897232
+    second: Explosion_High_ress_209
+  - first:
+      213: -5838887067018102663
+    second: Explosion_High_ress_210
+  - first:
+      213: -707604899084989192
+    second: Explosion_High_ress_211
+  - first:
+      213: 3784535330124617458
+    second: Explosion_High_ress_212
+  - first:
+      213: 4537575478106387857
+    second: Explosion_High_ress_213
+  - first:
+      213: -3822516180195416192
+    second: Explosion_High_ress_214
+  - first:
+      213: 6422591313128917861
+    second: Explosion_High_ress_215
+  - first:
+      213: -4433286708271444715
+    second: Explosion_High_ress_216
+  - first:
+      213: 97544613385174164
+    second: Explosion_High_ress_217
+  - first:
+      213: -4756453563505887903
+    second: Explosion_High_ress_218
+  - first:
+      213: -6722828041769819844
+    second: Explosion_High_ress_219
+  - first:
+      213: 3699364816171842322
+    second: Explosion_High_ress_220
+  - first:
+      213: -5605013569731329053
+    second: Explosion_High_ress_221
+  - first:
+      213: -4328374346545155023
+    second: Explosion_High_ress_222
+  - first:
+      213: -40691106869928558
+    second: Explosion_High_ress_223
+  - first:
+      213: 3149769303668419909
+    second: Explosion_High_ress_224
+  - first:
+      213: 9094639370098135804
+    second: Explosion_High_ress_225
+  - first:
+      213: -5081877960469491755
+    second: Explosion_High_ress_226
+  - first:
+      213: -8726033060051422433
+    second: Explosion_High_ress_227
+  - first:
+      213: 253054915742336086
+    second: Explosion_High_ress_228
+  - first:
+      213: -4557953900540007123
+    second: Explosion_High_ress_229
+  - first:
+      213: 6766158201081031619
+    second: Explosion_High_ress_230
+  - first:
+      213: -679727939689642906
+    second: Explosion_High_ress_231
+  - first:
+      213: 4153243137227323429
+    second: Explosion_High_ress_232
+  - first:
+      213: -3624612612680382161
+    second: Explosion_High_ress_233
+  - first:
+      213: -7370835315476806406
+    second: Explosion_High_ress_234
+  - first:
+      213: 2669630665645331905
+    second: Explosion_High_ress_235
+  - first:
+      213: -4299186923241338141
+    second: Explosion_High_ress_236
+  - first:
+      213: 6663983364579388301
+    second: Explosion_High_ress_237
+  - first:
+      213: 2901871712128735106
+    second: Explosion_High_ress_238
+  - first:
+      213: -5690208942647959180
+    second: Explosion_High_ress_239
+  - first:
+      213: -6103958186528270250
+    second: Explosion_High_ress_240
+  - first:
+      213: -6761608511634764696
+    second: Explosion_High_ress_241
+  - first:
+      213: 6033061277372001538
+    second: Explosion_High_ress_242
+  - first:
+      213: 6848212498685266581
+    second: Explosion_High_ress_243
+  - first:
+      213: 6810681722259190571
+    second: Explosion_High_ress_244
+  - first:
+      213: 7680639430550772735
+    second: Explosion_High_ress_245
+  - first:
+      213: 5065577395958393048
+    second: Explosion_High_ress_246
+  - first:
+      213: 4620688639813331755
+    second: Explosion_High_ress_247
+  - first:
+      213: -5214091778062674440
+    second: Explosion_High_ress_248
+  - first:
+      213: -3132592942490319674
+    second: Explosion_High_ress_249
+  - first:
+      213: 1816640293591760810
+    second: Explosion_High_ress_250
+  - first:
+      213: -2416186827641345461
+    second: Explosion_High_ress_251
+  - first:
+      213: -2508069703205423493
+    second: Explosion_High_ress_252
+  - first:
+      213: 186602513669463640
+    second: Explosion_High_ress_253
+  - first:
+      213: 8108707871474798022
+    second: Explosion_High_ress_254
+  - first:
+      213: -3728487435043976222
+    second: Explosion_High_ress_255
+  - first:
+      213: 7380135478606819617
+    second: Explosion_High_ress_256
+  - first:
+      213: 8196641393538879683
+    second: Explosion_High_ress_257
+  - first:
+      213: 1872703951790044111
+    second: Explosion_High_ress_258
+  - first:
+      213: 4975248583361840973
+    second: Explosion_High_ress_259
+  - first:
+      213: 46310537203575696
+    second: Explosion_High_ress_260
+  - first:
+      213: -7226448932460508490
+    second: Explosion_High_ress_261
+  - first:
+      213: 7111262644940494530
+    second: Explosion_High_ress_262
+  - first:
+      213: 8642206150674466990
+    second: Explosion_High_ress_263
+  - first:
+      213: 3125364965400356133
+    second: Explosion_High_ress_264
+  - first:
+      213: -7827343993983443049
+    second: Explosion_High_ress_265
+  - first:
+      213: 6077871509585411465
+    second: Explosion_High_ress_266
+  - first:
+      213: 2558418817581075099
+    second: Explosion_High_ress_267
+  - first:
+      213: 5805597347063287423
+    second: Explosion_High_ress_268
+  - first:
+      213: -8801482094026686009
+    second: Explosion_High_ress_269
+  - first:
+      213: 3244029785640831121
+    second: Explosion_High_ress_270
+  - first:
+      213: -550442709107924462
+    second: Explosion_High_ress_271
+  - first:
+      213: -4223283366247864518
+    second: Explosion_High_ress_272
+  - first:
+      213: -2848319010149135286
+    second: Explosion_High_ress_273
+  - first:
+      213: -3026519042265061881
+    second: Explosion_High_ress_274
+  - first:
+      213: 7637450646495708891
+    second: Explosion_High_ress_275
+  - first:
+      213: -6686813540634554227
+    second: Explosion_High_ress_276
+  - first:
+      213: 6339919272741755309
+    second: Explosion_High_ress_277
+  - first:
+      213: -1369613612688338645
+    second: Explosion_High_ress_278
+  - first:
+      213: -7762718295361336308
+    second: Explosion_High_ress_279
+  - first:
+      213: 2883130673349775083
+    second: Explosion_High_ress_280
+  - first:
+      213: 191856598741900859
+    second: Explosion_High_ress_281
+  - first:
+      213: -7735738380119868902
+    second: Explosion_High_ress_282
+  - first:
+      213: -7851232338417155575
+    second: Explosion_High_ress_283
+  - first:
+      213: -7013462242334228432
+    second: Explosion_High_ress_284
+  - first:
+      213: -712458354331686742
+    second: Explosion_High_ress_285
+  - first:
+      213: 4315250443455383839
+    second: Explosion_High_ress_286
+  - first:
+      213: 392500087766333944
+    second: Explosion_High_ress_287
+  - first:
+      213: -6678014668353006373
+    second: Explosion_High_ress_288
+  - first:
+      213: 7091200804060551653
+    second: Explosion_High_ress_289
+  - first:
+      213: 5258454636577803961
+    second: Explosion_High_ress_290
+  - first:
+      213: 6399309143327947963
+    second: Explosion_High_ress_291
+  - first:
+      213: 6781245071589307331
+    second: Explosion_High_ress_292
+  - first:
+      213: -6753458721157942571
+    second: Explosion_High_ress_293
+  - first:
+      213: -7712303745931244689
+    second: Explosion_High_ress_294
+  - first:
+      213: -4793833902200192660
+    second: Explosion_High_ress_295
+  - first:
+      213: 8811467560395187074
+    second: Explosion_High_ress_296
+  - first:
+      213: -3154262764896035343
+    second: Explosion_High_ress_297
+  - first:
+      213: -7818965603225336490
+    second: Explosion_High_ress_298
+  - first:
+      213: -8619528850794664890
+    second: Explosion_High_ress_299
+  - first:
+      213: -3577268528665313114
+    second: Explosion_High_ress_300
+  - first:
+      213: -7574234188023511038
+    second: Explosion_High_ress_301
+  - first:
+      213: 6680184190839775576
+    second: Explosion_High_ress_302
+  - first:
+      213: -3580924788449336848
+    second: Explosion_High_ress_303
+  - first:
+      213: -6120277348427305384
+    second: Explosion_High_ress_304
+  - first:
+      213: -1183015826860557636
+    second: Explosion_High_ress_305
+  - first:
+      213: -5179603274920316318
+    second: Explosion_High_ress_306
+  - first:
+      213: -6677098348278578176
+    second: Explosion_High_ress_307
+  - first:
+      213: 1461359667034468711
+    second: Explosion_High_ress_308
+  - first:
+      213: -6952854234878879548
+    second: Explosion_High_ress_0
+  - first:
+      213: 3678186278289386266
+    second: Explosion_High_ress_1
+  - first:
+      213: 4327202480719575093
+    second: Explosion_High_ress_2
+  - first:
+      213: 6868388595002297275
+    second: Explosion_High_ress_3
+  - first:
+      213: 2149338871372813012
+    second: Explosion_High_ress_4
+  - first:
+      213: -8849331533693586770
+    second: Explosion_High_ress_5
+  - first:
+      213: -3276045050858347364
+    second: Explosion_High_ress_6
+  - first:
+      213: 920189069316046295
+    second: Explosion_High_ress_7
+  - first:
+      213: 5696739756311923089
+    second: Explosion_High_ress_8
+  - first:
+      213: -7937951687335162564
+    second: Explosion_High_ress_9
+  - first:
+      213: 7575676349781856533
+    second: Explosion_High_ress_10
+  - first:
+      213: -3012314506097198014
+    second: Explosion_High_ress_11
+  - first:
+      213: -3624035797940567318
+    second: Explosion_High_ress_12
+  - first:
+      213: -885297340753219488
+    second: Explosion_High_ress_13
+  - first:
+      213: -2458967723919246361
+    second: Explosion_High_ress_14
+  - first:
+      213: -1982819659818148593
+    second: Explosion_High_ress_15
+  - first:
+      213: 4356605878121329868
+    second: Explosion_High_ress_16
+  - first:
+      213: -4767083329418081211
+    second: Explosion_High_ress_17
+  - first:
+      213: -5083177511368536295
+    second: Explosion_High_ress_18
+  - first:
+      213: 7298703893086834633
+    second: Explosion_High_ress_19
+  - first:
+      213: 5654619574140392462
+    second: Explosion_High_ress_20
+  - first:
+      213: 2789338048159657948
+    second: Explosion_High_ress_21
+  - first:
+      213: -3261509721731762934
+    second: Explosion_High_ress_22
+  - first:
+      213: -356100370996711135
+    second: Explosion_High_ress_23
+  - first:
+      213: -583600318438132036
+    second: Explosion_High_ress_24
+  - first:
+      213: 820970029138034557
+    second: Explosion_High_ress_25
+  - first:
+      213: -3696711985529531295
+    second: Explosion_High_ress_26
+  - first:
+      213: -7183553061480245882
+    second: Explosion_High_ress_27
+  - first:
+      213: 7185692866305280803
+    second: Explosion_High_ress_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +1046,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +1055,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +1089,630 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Explosion_High_ress_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c859f249ef728f90800000000000000
+      internalID: -6952854234878879548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ba727aeea8b0330800000000000000
+      internalID: 3678186278289386266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ba7ecabf4d0c30800000000000000
+      internalID: 4327202480719575093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbc470790b615f50800000000000000
+      internalID: 6868388595002297275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d29d1ad05cf3dd10800000000000000
+      internalID: 2149338871372813012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_5
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2f78a1bdbd03580800000000000000
+      internalID: -8849331533693586770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94696b22662982d0800000000000000
+      internalID: -3276045050858347364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddb7ca451b25cc00800000000000000
+      internalID: 920189069316046295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_8
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19941d030a2ee0f40800000000000000
+      internalID: 5696739756311923089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3dcc285ffab6d190800000000000000
+      internalID: -7937951687335162564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5115312a085322960800000000000000
+      internalID: 7575676349781856533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_11
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1600
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24cf158aaeb1236d0800000000000000
+      internalID: -3012314506097198014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2047a84a6d4bdc0800000000000000
+      internalID: -3624035797940567318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0607ec352cac6b3f0800000000000000
+      internalID: -885297340753219488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_14
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb74ad12edffddd0800000000000000
+      internalID: -2458967723919246361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_15
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0dd0ea560c9b74e0800000000000000
+      internalID: -1982819659818148593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_16
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4fccfb6f5c57c30800000000000000
+      internalID: 4356605878121329868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_17
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1200
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c495f08fae7ddb0800000000000000
+      internalID: -4767083329418081211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fcf983cfce479b0800000000000000
+      internalID: -5083177511368536295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf833445843a4560800000000000000
+      internalID: 7298703893086834633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_20
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04db901b8e397e40800000000000000
+      internalID: 5654619574140392462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfa90f1d28b5b620800000000000000
+      internalID: 2789338048159657948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_22
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05f1b4303accb2d0800000000000000
+      internalID: -3261509721731762934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_23
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 800
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1213b5a6990ee0bf0800000000000000
+      internalID: -356100370996711135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6b0b83a92a6e7f0800000000000000
+      internalID: -583600318438132036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fb30e44eba46b00800000000000000
+      internalID: 820970029138034557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_26
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16455910904a2bcc0800000000000000
+      internalID: -3696711985529531295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_27
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685dc49fc84ee4c90800000000000000
+      internalID: -7183553061480245882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_High_ress_28
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b4f292795b8b360800000000000000
+      internalID: 7185692866305280803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
