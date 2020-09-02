@@ -36,10 +36,11 @@ namespace Player
 
         private float _reloadTimer = 0f; // Time in ms between 2 spells
         private const float _reloadTimerRef = 1f;
-        private void Reload()
-        {
-            _reloadTimer = _reloadTimerRef;
-        }
+
+        private float _reloadDash = 0f;
+        private const float _reloadDashRef = 3f;
+        private float _timerDash = 0f;
+        private const float _timerDashRef = .2f;
 
         /// <summary>
         /// ONLY FOR TUTORIAL
@@ -108,6 +109,8 @@ namespace Player
                 return;
             }
             _reloadTimer -= Time.deltaTime;
+            _reloadDash -= Time.deltaTime;
+            _timerDash -= Time.deltaTime;
 
             // Interraction
             if (_canMove)
@@ -126,7 +129,13 @@ namespace Player
                         GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Vector2.SignedAngle(Vector2.up, dir) + 90f)));
                         go.GetComponent<Rigidbody2D>().velocity = dir * 10f;
                         Destroy(go, 10f);
-                        Reload();
+                        _reloadTimer = _reloadTimerRef;
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && _reloadDash < 0f && _timerDash < 0f)
+                    {
+                        _rb.velocity *= 3f;
+                        _reloadDash = _reloadDashRef;
+                        _timerDash = _timerDashRef;
                     }
                 }
             }
@@ -144,6 +153,9 @@ namespace Player
                 _rb.velocity = Vector2.zero;
                 return;
             }
+
+            if (_timerDash > 0f) // Can't move player while he is dashing
+                return;
 
             // Movements
             _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * 5f;
