@@ -120,12 +120,12 @@ namespace Player
                         InventoryPopup.S.ToggleInventory();
                     if (Input.GetMouseButtonDown(0) && _reloadTimer < 0f)
                     {
-                        float rot = 0f;
-                        if (_dir == Direction.UP) rot = 90f;
-                        else if (_dir == Direction.LEFT) rot = 180f;
-                        else if (_dir == Direction.DOWN) rot = 270f;
-                        GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot)));
-                        go.GetComponent<Rigidbody2D>().velocity = DirectionToVector(_dir) * 10f;
+                        var dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                        dir.z = 0f;
+                        dir.Normalize();
+                        GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, Vector2.SignedAngle(transform.position + Vector3.up, transform.position + dir) + 90f)));
+                        go.GetComponent<Rigidbody2D>().velocity = dir * 10f;
+                        Destroy(go, 10f);
                         Reload();
                     }
                 }
@@ -135,14 +135,6 @@ namespace Player
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
                     EventManager.S.StartTutorialDiscution();
             }
-        }
-
-        private Vector2 DirectionToVector(Direction dir)
-        {
-            if (dir == Direction.DOWN) return Vector2.down;
-            if (dir == Direction.LEFT) return Vector2.left;
-            if (dir == Direction.RIGHT) return Vector2.right;
-            return Vector2.up;
         }
 
         private void FixedUpdate()

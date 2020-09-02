@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6005949984284135121}
   - component: {fileID: 6005949984284135120}
   - component: {fileID: 2156299626084639300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ManaBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
