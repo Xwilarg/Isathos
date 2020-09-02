@@ -17,3 +17,4 @@ Tiles:
  
 Others:
  - [Blood Animations](https://sinestesia.itch.io/blood-animations) by Wetmud Games
+ - [Particle Pack](https://martdreson.itch.io/particle-pack) by Martdreson

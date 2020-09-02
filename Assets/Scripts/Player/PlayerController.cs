@@ -19,6 +19,9 @@ namespace Player
         [SerializeField]
         private GameObject _speakEventIcon;
 
+        [SerializeField]
+        private Spell _spell;
+
         private Rigidbody2D _rb;
         private SpriteRenderer _sr;
 
@@ -30,6 +33,13 @@ namespace Player
         private bool _canMove; // Set for tutorial purpose
         private bool _isCinematic; // Cinematics outside of tutorials
         private bool _isGameOver;
+
+        private float _reloadTimer = 0f; // Time in ms between 2 spells
+        private const float _reloadTimerRef = 1f;
+        private void Reload()
+        {
+            _reloadTimer = _reloadTimerRef;
+        }
 
         /// <summary>
         /// ONLY FOR TUTORIAL
@@ -97,6 +107,7 @@ namespace Player
                     EventManager.S.StartGameOverDiscution();
                 return;
             }
+            _reloadTimer -= Time.deltaTime;
 
             // Interraction
             if (_canMove)
@@ -107,6 +118,16 @@ namespace Player
                 {
                     if (Input.GetKeyDown(KeyCode.I))
                         InventoryPopup.S.ToggleInventory();
+                    if (Input.GetMouseButtonDown(0) && _reloadTimer < 0f)
+                    {
+                        float rot = 0f;
+                        if (_dir == Direction.UP) rot = 90f;
+                        else if (_dir == Direction.LEFT) rot = 180f;
+                        else if (_dir == Direction.DOWN) rot = 270f;
+                        GameObject go = Instantiate(_spell.ManaBall, transform.position, Quaternion.Euler(new Vector3(0f, 0f, rot)));
+                        go.GetComponent<Rigidbody2D>().velocity = DirectionToVector(_dir) * 10f;
+                        Reload();
+                    }
                 }
             }
             else
@@ -114,6 +135,14 @@ namespace Player
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
                     EventManager.S.StartTutorialDiscution();
             }
+        }
+
+        private Vector2 DirectionToVector(Direction dir)
+        {
+            if (dir == Direction.DOWN) return Vector2.down;
+            if (dir == Direction.LEFT) return Vector2.left;
+            if (dir == Direction.RIGHT) return Vector2.right;
+            return Vector2.up;
         }
 
         private void FixedUpdate()
