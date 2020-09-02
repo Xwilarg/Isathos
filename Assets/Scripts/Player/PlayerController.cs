@@ -22,6 +22,9 @@ namespace Player
         [SerializeField]
         private Spell _spell;
 
+        [SerializeField]
+        private RectTransform _reloadAttackRect, _reloadDashRect;
+
         private Rigidbody2D _rb;
         private SpriteRenderer _sr;
 
@@ -108,9 +111,23 @@ namespace Player
                     EventManager.S.StartGameOverDiscution();
                 return;
             }
+
+            // Reduce timer and display them ingame
             _reloadTimer -= Time.deltaTime;
             _reloadDash -= Time.deltaTime;
             _timerDash -= Time.deltaTime;
+            if (_reloadAttackRect != null && _reloadTimer > 0f)
+            {
+                float val = _reloadTimer * 50 / _reloadTimerRef - 50;
+                _reloadAttackRect.sizeDelta = new Vector2(val, 0f);
+                _reloadAttackRect.anchoredPosition = new Vector2(val / 2f, 0f);
+            }
+            if (_reloadDashRect != null && _reloadDash > 0f)
+            {
+                float val = _reloadDash * 50 / _reloadDashRef - 50;
+                _reloadDashRect.sizeDelta = new Vector2(val, 0f);
+                _reloadDashRect.anchoredPosition = new Vector2(val / 2f, 0f);
+            }
 
             // Interraction
             if (_canMove)
