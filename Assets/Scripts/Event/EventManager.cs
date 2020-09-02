@@ -22,12 +22,19 @@ namespace Event
         [SerializeField]
         private GameObject _forestEntrance;
 
+        [SerializeField]
+        private BoxCollider2D _eranelDoor;
+
+        public void EnableEranelDoor() // TUTORIAL
+            => _eranelDoor.enabled = true;
+
         // CHARACTERS
         private EtahniaDialogue _etahnia = new EtahniaDialogue(); public EtahniaDialogue GetEtahnia() => _etahnia;
         private AnaelDialogue _anael = new AnaelDialogue();
         private SalenaeDialogue _salenae = new SalenaeDialogue();
         private UnarDialogue _unar = new UnarDialogue();
         private NachiDialogue _nachi = new NachiDialogue();
+        private EranelDialogue _eranel = new EranelDialogue();
 
         // TUTORIAL
         private TutorialLook _tutorial = new TutorialLook();
@@ -35,6 +42,7 @@ namespace Event
 
         // MAP
         private InvocationHouseLook _invocationHouse = new InvocationHouseLook();
+        private EranelHouseLook _eranelHouse = new EranelHouseLook();
 
         // GAME OVER
         private GameOverDialogue _gameOver = new GameOverDialogue();
@@ -51,16 +59,18 @@ namespace Event
             _salenae.Clear();
             _nachi.Clear();
             _unar.Clear();
+            _eranel.Clear();
 
             _tutorial.Clear();
             _tutorialD.Clear();
 
             _invocationHouse.Clear();
+            _eranelHouse.Clear();
         }
 
-        public void DisplayNewItem(EventDiscussion e, ItemID id)
+        public void DisplayNewItem(ItemID id)
         {
-            GameObject go = Instantiate(_reaction.newItem, e.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
+            GameObject go = Instantiate(_reaction.newItem, PlayerController.S.transform.position + (Vector3)(Vector2.one * .2f), Quaternion.identity);
             ItemManager.S.GetItem(id).InitItemPopup(go.GetComponent<NewItem>());
             PlayerController.S.Inventory.AddItem(id);
         }
@@ -150,6 +160,8 @@ namespace Event
                 string result;
                 if (eLook.Zone == Zone.INVOCATION_HOUSE)
                     result = _invocationHouse.GetText(eLook.ObjectId);
+                else if (eLook.Zone == Zone.ERANEL_HOUSE)
+                    result = _eranelHouse.GetText(eLook.ObjectId);
                 else
                     throw new ArgumentException("Invalid zone " + eLook.Zone);
                 if (result == null)
@@ -232,6 +244,8 @@ namespace Event
                 result = _unar.GetDialogue(e, id);
             else if (c == Character.NACHI)
                 result = _nachi.GetDialogue(e, id);
+            else if (c == Character.ERANEL)
+                result = _eranel.GetDialogue(e, id);
             else
                 throw new ArgumentException("Invalid character " + c.ToString());
             if (result == null)

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ring: {fileID: 2758960017261175285, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   UI: {fileID: 1202984965197363600, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
-  Paper: {fileID: -8339312010096987609, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   Key: {fileID: 5666088037176977375, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  BookBlue: {fileID: 494424361104193481, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  BookBrown: {fileID: 377901513857718070, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  BookSpell: {fileID: -6750833894080825350, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  BookOldSpell: {fileID: 3581452293719351396, guid: a9331797a8939a841bae464f7ef0b160, type: 3}

@@ -41,3 +41,11 @@ MonoBehaviour:
     Neutral: {fileID: 21300000, guid: 587a09b9c88792d4e942f5b941a6b358, type: 3}
     Smile: {fileID: 21300000, guid: 28edf384872050c438a91b4a6319992b, type: 3}
     Mad: {fileID: 0}
+  Eranel:
+    Neutral: {fileID: 21300000, guid: d4308ab88c168394fa8e5f3006b2c689, type: 3}
+    Smile: {fileID: 21300000, guid: a0b79543a725e5341a1c6349019f6b13, type: 3}
+    Mad: {fileID: 0}
+  Huriane:
+    Neutral: {fileID: 21300000, guid: ed30ab2051b66b544be1a66d9f1dce0e, type: 3}
+    Smile: {fileID: 21300000, guid: 07e6c44ae5423a347ba9ebc6edbd4981, type: 3}
+    Mad: {fileID: 0}

@@ -20,7 +20,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 1) return new NormalDialogue(true, "Oh but I can lend you this instead, may it protect you.", FacialExpression.SMILE, _knownName);
             _current = IntroEnd2;
             _currProgress = 0;
-            EventManager.S.DisplayNewItem(e, ItemID.SALENAE_RING);
+            EventManager.S.DisplayNewItem(ItemID.SALENAE_RING);
             return IntroEnd2(e, lastChoiceId);
         }
 

@@ -3,6 +3,7 @@
     public enum Zone
     {
         ETAHNIA_WORLD,
-        INVOCATION_HOUSE
+        INVOCATION_HOUSE,
+        ERANEL_HOUSE
     }
 }

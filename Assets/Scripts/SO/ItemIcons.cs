@@ -8,5 +8,6 @@ namespace SO
         public Sprite Ring;
         public Sprite UI;
         public Sprite Key;
+        public Sprite BookBlue, BookBrown, BookSpell, BookOldSpell;
     }
 }

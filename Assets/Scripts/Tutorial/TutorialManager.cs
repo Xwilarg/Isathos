@@ -46,5 +46,12 @@ namespace Tutorial
             if (_progression == Progression.ETAHNIA_KILL_INTRO)
                 _progression = Progression.ETAHNIA_DECIDE_NEXT_STEP;
         }
+
+        public void IntroduceMeetEranel()
+
+        {
+            if (_progression == Progression.ETAHNIA_DECIDE_NEXT_STEP)
+                _progression = Progression.MEET_ERANEL;
+        }
     }
 }

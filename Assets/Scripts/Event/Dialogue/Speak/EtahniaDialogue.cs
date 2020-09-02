@@ -352,7 +352,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 1) return new NormalDialogue(false, "I don't know, I found it in my pocket.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "You would better keep it for now then.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 3) return new NormalDialogue(true, "But if it opens some treasure room bring me what you find inside!", FacialExpression.SMILE, _knownName);
-            EventManager.S.DisplayNewItem(e, ItemID.HOUSE_KEY);
+            EventManager.S.DisplayNewItem(ItemID.HOUSE_KEY);
 
             PlayerController.S.SetIsCinematic(false);
             _current = ShowDialogueMenu;
