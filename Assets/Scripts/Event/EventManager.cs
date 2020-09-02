@@ -43,6 +43,7 @@ namespace Event
         // MAP
         private InvocationHouseLook _invocationHouse = new InvocationHouseLook();
         private EranelHouseLook _eranelHouse = new EranelHouseLook();
+        private DoorLook _door = new DoorLook();
 
         // GAME OVER
         private GameOverDialogue _gameOver = new GameOverDialogue();
@@ -66,6 +67,7 @@ namespace Event
 
             _invocationHouse.Clear();
             _eranelHouse.Clear();
+            _door.Clear();
         }
 
         public void DisplayNewItem(ItemID id)
@@ -153,6 +155,17 @@ namespace Event
                         case Progression.ETAHNIA_DECIDE_NEXT_STEP:
                             break;
                     }
+                }
+                else if (eDoor.FailureType == DoorFailureType.LOCKED)
+                {
+                    var result = _door.GetText(null);
+                    if (result == null)
+                    {
+                        Clear();
+                        DialoguePopup.S.Close();
+                        return;
+                    }
+                    StartPopup(result);
                 }
             }
             else if (e.Event is EventLook eLook)

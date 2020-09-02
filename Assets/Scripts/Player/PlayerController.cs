@@ -142,6 +142,7 @@ namespace Player
                 else if (_rb.velocity.y < 0)
                     _dir = Direction.DOWN;
             }
+            _sr.sortingOrder = -(int)(transform.position.y * 100f);
 
             // Set sprite direction
             switch (_dir)
