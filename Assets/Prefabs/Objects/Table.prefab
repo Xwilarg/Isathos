@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8013939189093394263}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7470550994397202392
 SpriteRenderer:
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5822759115141200323, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,8 +150,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6391175291146932630, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,8 +232,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 936897705114896408, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -314,8 +314,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -257231217754357793, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -357,7 +357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8013939189093394263}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8253567617303573819
 SpriteRenderer:
@@ -396,8 +396,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -7907730905782331695, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -478,8 +478,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -3161929182603173829, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -560,8 +560,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -579842571958030449, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -603,7 +603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8013939189093394263}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4420798428566095460
 SpriteRenderer:
@@ -642,8 +642,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3575834986122220283, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -724,8 +724,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1403181737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2547897475346282714, guid: 7765e65abb45d3d40a48a945e20981c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -768,9 +768,9 @@ Transform:
   m_Children:
   - {fileID: 5813211669324147505}
   - {fileID: 4001458460281685976}
-  - {fileID: 2742956314964517395}
   - {fileID: 906919625608582931}
   - {fileID: 4725640746256801503}
+  - {fileID: 2742956314964517395}
   - {fileID: 973759118305538348}
   - {fileID: 1037473049404359584}
   - {fileID: 7070879651642361073}
