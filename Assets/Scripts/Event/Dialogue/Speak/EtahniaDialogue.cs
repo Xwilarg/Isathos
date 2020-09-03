@@ -367,8 +367,11 @@ namespace Event.Dialogue.Speak
             {
                 if (_currProgress == 0)
                 {
+                    EventManager.S.RemoveItem(e, ItemID.BOOK_CHILDREN_1);
                     return new NormalDialogue(true, "Such a touching book...", FacialExpression.SMILE, _knownName);
                 }
+                EventManager.S.DisplayNewItem(ItemID.BOOK_CHILDREN_1);
+                _current = ShowDialogueMenu;
                 return null;
             }
             else
