@@ -9,6 +9,7 @@
         BOOK_HUMAN_CREATION,
         BOOK_HUMAN_GODS,
         BOOK_SPELL_SUMMON,
-        CANDY
+        CANDY,
+        FOLDED_PAPER
     }
 }

@@ -22,6 +22,10 @@ namespace Event.Dialogue.Speak
                 _knownName = "Huriane";
                 return new NormalDialogue(true, "I guess you are here from my husband? How can I help you?", FacialExpression.SMILE, _knownName);
             }
+            if (_currProgress == 2)
+                return new NormalDialogue(false, "A friend of your husband was sealed away and we are trying to free her.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3)
+                return new NormalDialogue(false, "To sum up I need to find information about the god Sae.", FacialExpression.NEUTRAL, _knownName);
 
             return null;
         }

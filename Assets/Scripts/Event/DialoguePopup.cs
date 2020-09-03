@@ -61,12 +61,20 @@ public class DialoguePopup : MonoBehaviour
         foreach (var choice in _choices)
             choice.gameObject.SetActive(false);
 
-        _imageSpeakerOne.sprite = GetSprite(speakerOne, speakerOneExpression);
-        _imageSpeakerTwo.sprite = GetSprite(speakerTwo, speakerTwoExpression);
+        if (speakerOne != Character.NARRATOR && speakerTwo != Character.NARRATOR)
+        {
+            _imageSpeakerOne.sprite = GetSprite(speakerOne, speakerOneExpression);
+            _imageSpeakerTwo.sprite = GetSprite(speakerTwo, speakerTwoExpression);
 
-        // We reduce the alpha of the sprite of the character who isn't speaking by 0.5
-        _imageSpeakerOne.color = isCharacterOneSpeaking ? Color.white : new Color(0f, 0f, 0f, .5f);
-        _imageSpeakerTwo.color = isCharacterOneSpeaking ? new Color(0f, 0f, 0f, .5f) : Color.white;
+            // We reduce the alpha of the sprite of the character who isn't speaking by 0.5
+            _imageSpeakerOne.color = isCharacterOneSpeaking ? Color.white : new Color(0f, 0f, 0f, .5f);
+            _imageSpeakerTwo.color = isCharacterOneSpeaking ? new Color(0f, 0f, 0f, .5f) : Color.white;
+        }
+        else
+        {
+            _imageSpeakerOne.sprite = null;
+            _imageSpeakerTwo.sprite = null;
+        }
 
         // Name is value of enum to lower with first character upper
         string name = (speakerNameOverride == null ? (isCharacterOneSpeaking ? speakerOne : speakerTwo).ToString().ToLower() : speakerNameOverride);

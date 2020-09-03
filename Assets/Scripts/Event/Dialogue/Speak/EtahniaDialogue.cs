@@ -361,6 +361,115 @@ namespace Event.Dialogue.Speak
             return null;
         }
 
+        private IDialogueResult GiveChildrenBook(EventDiscussion e, int lastChoiceId)
+        {
+            if (InformationManager.S.DidReadGoblinBook)
+            {
+                if (_currProgress == 0)
+                {
+                    return new NormalDialogue(true, "Suck a touching book...", FacialExpression.NEUTRAL, _knownName);
+                }
+                return null;
+            }
+            else
+            {
+                if (_currProgress == 0)
+                {
+                    EventManager.S.RemoveItem(e, ItemID.BOOK_CHILDREN_1);
+                    return new NormalDialogue(true, "A book? It's in elven though so I can't read it...", FacialExpression.NEUTRAL, _knownName);
+                }
+
+                if (lastChoiceId == -1) return new ChoiceDialogue(_childrenBookReadChoice.Select(x => x.Value).ToArray());
+
+                return AskQuestion(_childrenBookReadChoice, e, lastChoiceId);
+            }
+        }
+
+        private IDialogueResult DontReadChildrenBook(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0) return new NormalDialogue(true, "Yeah...", FacialExpression.NEUTRAL, _knownName);
+
+            EventManager.S.DisplayNewItem(ItemID.BOOK_CHILDREN_1);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult ReadChildrenBook(EventDiscussion e, int lastChoiceId)
+        {
+            if (_currProgress == 0)
+            {
+                IncreaseRelation(e);
+                return new NormalDialogue(true, "Really? Thanks!", FacialExpression.SMILE, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(Character.NARRATOR, true, "You took some time to read the children book to Etahnia", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(Character.NARRATOR, true, "...", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(false, "... The end", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(true, "That was such a great book but the end is so sad! Thanks a lot for the read!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 5) return new NormalDialogue(true, "Would you... Mind if I were to keep it?", FacialExpression.NEUTRAL, _knownName);
+
+            if (lastChoiceId == -1) return new ChoiceDialogue(_childrenBookGiveChoice.Select(x => x.Value).ToArray());
+
+            return AskQuestion(_childrenBookGiveChoice, e, lastChoiceId);
+        }
+
+        private IDialogueResult RefuseGiveChildrenBook(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+                return new NormalDialogue(true, "Ah, okay...", FacialExpression.NEUTRAL, _knownName);
+
+            EventManager.S.DisplayNewItem(ItemID.BOOK_CHILDREN_1);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult AcceptGiveChildrenBook(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                IncreaseRelation(e);
+                return new NormalDialogue(true, "Thanks!", FacialExpression.SMILE, _knownName);
+            }
+
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveFoldedPaper(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.FOLDED_PAPER);
+                return new NormalDialogue(true, "...Looks like a portal circle, basically you throw magic on it and as long as you keep infusing it, a portal will stay open to another plan.", FacialExpression.NEUTRAL, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(false, "Where is this one leading?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "No idea, but since it's on paper we can't really open it, it would shred it right away.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "If you can manage to copy it we will be able to try opening it.", FacialExpression.SMILE, _knownName);
+
+            EventManager.S.DisplayNewItem(ItemID.FOLDED_PAPER);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveRandomSummonBook(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.BOOK_SPELL_SUMMON);
+                return new NormalDialogue(true, "A spell that summon random strangers? That sounds terrific and amazing at the same time.", FacialExpression.SMILE, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(true, "I wish we could try it here but there is nothing to draw the magic circle.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "But if you try it be sure to tell me who you meet!", FacialExpression.SMILE , _knownName);
+
+            EventManager.S.DisplayNewItem(ItemID.BOOK_SPELL_SUMMON);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
         private void GetItem(ItemID id)
         {
             InventoryPopup.S.ForceCloseInventory();
@@ -380,6 +489,18 @@ namespace Event.Dialogue.Speak
 
                 case ItemID.HOUSE_KEY:
                     _current = GiveHomeKey;
+                    break;
+
+                case ItemID.BOOK_CHILDREN_1:
+                    _current = GiveChildrenBook;
+                    break;
+
+                case ItemID.FOLDED_PAPER:
+                    _current = GiveFoldedPaper;
+                    break;
+
+                case ItemID.BOOK_SPELL_SUMMON:
+                    _current = GiveFoldedPaper;
                     break;
 
                 default:
@@ -413,6 +534,8 @@ namespace Event.Dialogue.Speak
         private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _dialogueChoice;
         private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _introChoice;
         private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _backChoice;
+        private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _childrenBookReadChoice;
+        private Dictionary<Func<EventDiscussion, int, IDialogueResult>, string> _childrenBookGiveChoice;
         private List<Func<EventDiscussion, int, IDialogueResult>> _randomConversations;
         private bool _didReceiveThanks = false; // Were RandomConversationThanks already called
 
@@ -420,24 +543,42 @@ namespace Event.Dialogue.Speak
         {
             _current = Intro;
 
-            _dialogueChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
-            _dialogueChoice.Add(GiveItem, "Give");
-            _dialogueChoice.Add(RandomConversationEnd, "Speak");
+            _dialogueChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
+            {
+                { GiveItem, "Give" },
+                { RandomConversationEnd, "Speak" }
+            };
 
-            _introChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
-            _introChoice.Add(WhoAreYou, "Who are you?");
-            _introChoice.Add(WhereAmI, "Where am I?");
-            _introChoice.Add(WhoAmI, "Who am I?");
-            _introChoice.Add(NoQuestion, "That's okay for now");
+            _introChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
+            {
+                { WhoAreYou, "Who are you?" },
+                { WhereAmI, "Where am I?" },
+                { WhoAmI, "Who am I?" },
+                { NoQuestion, "That's okay for now" }
+            };
 
-            _backChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>();
-            _backChoice.Add(ScenarioBackKill, "I came to kill you");
-            _backChoice.Add(ScenarioBackHelp, "I came to help you");
+            _backChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
+            {
+                { ScenarioBackKill, "I came to kill you" },
+                { ScenarioBackHelp, "I came to help you" }
+            };
+
+            _childrenBookReadChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
+            {
+                { ReadChildrenBook, "I can read it to you" },
+                { DontReadChildrenBook, "That sucks" }
+            };
+
+            _childrenBookGiveChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
+            {
+                { AcceptGiveChildrenBook, "Sure" },
+                { RefuseGiveChildrenBook, "I can't give it to you" }
+            };
 
             _randomConversations = new List<Func<EventDiscussion, int, IDialogueResult>>
-        {
-            RandomConversation1, RandomConversation2, RandomConversation3, RandomConversation4, RandomConversation5
-        };
+            {
+                RandomConversation1, RandomConversation2, RandomConversation3, RandomConversation4, RandomConversation5
+            };
         }
     }
 }

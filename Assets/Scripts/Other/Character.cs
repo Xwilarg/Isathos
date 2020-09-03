@@ -3,6 +3,7 @@
     public enum Character
     {
         NONE,
+        NARRATOR,
         MC, // Main character
         ETAHNIA, // Fallen angel
         ANAEL, // Angel captain

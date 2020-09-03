@@ -20,3 +20,4 @@ MonoBehaviour:
   BookSpell: {fileID: -6750833894080825350, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   BookOldSpell: {fileID: 3581452293719351396, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
   Candy: {fileID: 569668400994966534, guid: a9331797a8939a841bae464f7ef0b160, type: 3}
+  Paper: {fileID: -8339312010096987609, guid: a9331797a8939a841bae464f7ef0b160, type: 3}

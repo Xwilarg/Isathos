@@ -11,7 +11,8 @@ namespace Event
             S = this;
         }
 
-        public bool HaveSealedPlanInfo { set; get; } = false;
-        public bool HaveBanInfo { set; get; } = false;
+        public bool HaveSealedPlanInfo { set; get; } = false; // Do you know that Etahnia was sealed away
+        public bool HaveBanInfo { set; get; } = false; // Do you know that Etahnia was banned
+        public bool DidReadGoblinBook { set; get; } = false; // Did you took the time to read the elven children story to Etahnia
     }
 }
