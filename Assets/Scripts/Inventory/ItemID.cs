@@ -10,6 +10,7 @@
         BOOK_HUMAN_GODS,
         BOOK_SPELL_SUMMON,
         CANDY,
-        FOLDED_PAPER
+        FOLDED_PAPER,
+        CELLPHONE
     }
 }

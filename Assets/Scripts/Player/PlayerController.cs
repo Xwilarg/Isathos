@@ -103,6 +103,7 @@ namespace Player
             Inventory.AddItem(ItemID.HUD);
             Inventory.AddItem(ItemID.HOUSE_KEY);
             Inventory.AddItem(ItemID.FOLDED_PAPER);
+            Inventory.AddItem(ItemID.CELLPHONE);
         }
 
         private void Update()

@@ -26,6 +26,7 @@ namespace Inventory
                 { ItemID.BOOK_SPELL_SUMMON, new Item("How to invite stangers in your world", "A spell book that explains how to invite random strangers in your world.", _icons.BookOldSpell) },
                 { ItemID.CANDY, new Item("Strawberry candy", "A strawberry candy wrapped inside a cute red paper.", _icons.Candy) },
                 { ItemID.FOLDED_PAPER, new Item("Folded paper", "A paper containing a magic circle with weird symbols.", _icons.Paper) },
+                { ItemID.CELLPHONE, new Item("Cellphone", "A cellphone, I don't think I'll be able to contact anyone from here...", _icons.UI) },
             };
         }
 
