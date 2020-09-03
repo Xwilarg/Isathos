@@ -2,6 +2,7 @@
 using Event.Trigger;
 using Inventory;
 using Other;
+using Phone;
 using SO;
 using UnityEngine;
 
@@ -139,6 +140,8 @@ namespace Player
                 {
                     if (Input.GetKeyDown(KeyCode.I))
                         InventoryPopup.S.ToggleInventory();
+                    if (Input.GetKeyDown(KeyCode.P))
+                        PhoneManager.S.TogglePhone();
                     if (Input.GetMouseButtonDown(0) && _reloadTimer < 0f)
                     {
                         var dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
