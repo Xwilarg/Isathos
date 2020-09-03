@@ -528,7 +528,6 @@ namespace Event.Dialogue.Speak
             EventManager.S.DisplayDiscution((EventDiscussion)PlayerController.S.GetEventTrigger().Event, -1, Character.ETAHNIA); // Force the display of next Etahnia dialogue
         }
 
-
         private IDialogueResult GiveItem(EventDiscussion e, int lastChoiceId)
         {
             PlayerController.S.SetIsCinematic(true);

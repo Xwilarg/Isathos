@@ -20,7 +20,7 @@ namespace Event
         private SO.Reaction _reaction;
 
         [SerializeField]
-        private GameObject _forestEntrance;
+        private GameObject _forestEntrance, _eranelHouseWarp;
 
         [SerializeField]
         private BoxCollider2D _eranelDoor;
@@ -128,6 +128,8 @@ namespace Event
                 }
                 else if (eDoor.FailureType == DoorFailureType.NONE)
                 {
+                    if (eDoor.DisableOnExit)
+                        eDoor.gameObject.SetActive(false);
                     player.position = eDoor.Destination.transform.position;
                     if (!eDoor.IsWarp)
                     {
@@ -154,7 +156,9 @@ namespace Event
                             _etahnia.UpdateTutorial();
                             break;
 
-                        case Progression.ETAHNIA_DECIDE_NEXT_STEP:
+                        case Progression.MEET_ERANEL:
+                            eDoor.OutputScale = 1.2f;
+                            eDoor.Destination = _eranelHouseWarp;
                             break;
                     }
                 }

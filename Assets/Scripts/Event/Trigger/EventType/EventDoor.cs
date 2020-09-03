@@ -24,6 +24,9 @@ namespace Event.Trigger.EventType
 
         [Tooltip("Output scale")]
         public float OutputScale = 1.2f;
+
+        [Tooltip("Disable gameObject after use")]
+        public bool DisableOnExit = false;
     }
 
 }
