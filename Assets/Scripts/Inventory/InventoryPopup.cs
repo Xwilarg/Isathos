@@ -16,6 +16,9 @@ namespace Inventory
         [SerializeField]
         private GameObject _inventoryPopup;
 
+        [SerializeField]
+        private RectTransform _scrollTransform;
+
         private List<GameObject> _instanciatedItems;
 
         public void Awake()
@@ -64,7 +67,7 @@ namespace Inventory
         {
             foreach (var item in Player.PlayerController.S.Inventory.GetItems())
             {
-                GameObject go = Instantiate(_itemPrefab.gameObject, _inventoryPopup.transform);
+                GameObject go = Instantiate(_itemPrefab.gameObject, _scrollTransform.transform);
                 var rTransform = (RectTransform)go.transform;
                 rTransform.anchoredPosition = new Vector2(0f, -30 - (_instanciatedItems.Count * 60f));
                 _instanciatedItems.Add(go);
@@ -74,11 +77,19 @@ namespace Inventory
             }
             if (callback != null) // This happens when we display the menu the give items to Etahnia
             {
-                GameObject go = Instantiate(_itemPrefab.gameObject, _inventoryPopup.transform);
+                GameObject go = Instantiate(_itemPrefab.gameObject, _scrollTransform.transform);
                 var rTransform = (RectTransform)go.transform;
                 rTransform.anchoredPosition = new Vector2(0f, -30 - (_instanciatedItems.Count * 60f));
                 _instanciatedItems.Add(go);
+
+                // Set scrollbar size
+                _scrollTransform.sizeDelta = new Vector2(0f, (Player.PlayerController.S.Inventory.GetItems().Count + 2) * 60f);
+
                 go.GetComponentInChildren<Button>().onClick.AddListener(new UnityAction(() => { callback((ItemID)(-1)); }));
+            }
+            else
+            {
+                _scrollTransform.sizeDelta = new Vector2(0f, (Player.PlayerController.S.Inventory.GetItems().Count + 1) * 60f);
             }
         }
 

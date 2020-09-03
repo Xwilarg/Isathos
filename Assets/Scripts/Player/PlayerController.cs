@@ -102,6 +102,11 @@ namespace Player
             Inventory.AddItem(ItemID.HUD);
             Inventory.AddItem(ItemID.HOUSE_KEY);
             Inventory.AddItem(ItemID.FOLDED_PAPER);
+            Inventory.AddItem(ItemID.BOOK_CHILDREN_1);
+            Inventory.AddItem(ItemID.BOOK_HUMAN_CREATION);
+            Inventory.AddItem(ItemID.BOOK_HUMAN_GODS);
+            Inventory.AddItem(ItemID.SALENAE_RING);
+            Inventory.AddItem(ItemID.CANDY);
         }
 
         private void Update()
