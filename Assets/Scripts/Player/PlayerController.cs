@@ -101,6 +101,7 @@ namespace Player
             Inventory = new Bag();
             Inventory.AddItem(ItemID.HUD);
             Inventory.AddItem(ItemID.HOUSE_KEY);
+            Inventory.AddItem(ItemID.FOLDED_PAPER);
         }
 
         private void Update()

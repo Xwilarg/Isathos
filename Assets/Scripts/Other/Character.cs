@@ -3,7 +3,6 @@
     public enum Character
     {
         NONE,
-        NARRATOR,
         MC, // Main character
         ETAHNIA, // Fallen angel
         ANAEL, // Angel captain
@@ -12,6 +11,8 @@
         UNAR, // Util 2
         EXPL_GOD,
         ERANEL, // Etahnia's friend
-        HURIANE // Eranel's wife
+        HURIANE, // Eranel's wife
+
+        NARRATOR,
     }
 }

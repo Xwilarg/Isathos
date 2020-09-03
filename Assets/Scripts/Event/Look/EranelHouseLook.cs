@@ -48,11 +48,11 @@ namespace Event.Look
                 {
                     if (name == "LIBRARY8")
                     {
-                        EventManager.S.DisplayNewItem(ItemID.BOOK_HUMAN_CREATION);
+                        //EventManager.S.DisplayNewItem(ItemID.BOOK_HUMAN_CREATION);
                     }
                     if (name == "LIBRARY9")
                     {
-                        EventManager.S.DisplayNewItem(ItemID.BOOK_HUMAN_GODS);
+                        //EventManager.S.DisplayNewItem(ItemID.BOOK_HUMAN_GODS);
                     }
                     if (name == "LIBRARY10")
                     {

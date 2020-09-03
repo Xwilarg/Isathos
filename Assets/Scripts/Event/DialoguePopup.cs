@@ -72,8 +72,8 @@ public class DialoguePopup : MonoBehaviour
         }
         else
         {
-            _imageSpeakerOne.sprite = null;
-            _imageSpeakerTwo.sprite = null;
+            _imageSpeakerOne.sprite = _sprites.Empty;
+            _imageSpeakerTwo.sprite = _sprites.Empty;
         }
 
         // Name is value of enum to lower with first character upper

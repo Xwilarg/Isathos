@@ -367,7 +367,7 @@ namespace Event.Dialogue.Speak
             {
                 if (_currProgress == 0)
                 {
-                    return new NormalDialogue(true, "Suck a touching book...", FacialExpression.NEUTRAL, _knownName);
+                    return new NormalDialogue(true, "Such a touching book...", FacialExpression.SMILE, _knownName);
                 }
                 return null;
             }
@@ -399,12 +399,13 @@ namespace Event.Dialogue.Speak
         {
             if (_currProgress == 0)
             {
+                InformationManager.S.DidReadGoblinBook = true;
                 IncreaseRelation(e);
                 return new NormalDialogue(true, "Really? Thanks!", FacialExpression.SMILE, _knownName);
             }
             if (_currProgress == 1) return new NormalDialogue(Character.NARRATOR, true, "You took some time to read the children book to Etahnia", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(Character.NARRATOR, true, "...", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(false, "... The end", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(false, "... The end", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "That was such a great book but the end is so sad! Thanks a lot for the read!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 5) return new NormalDialogue(true, "Would you... Mind if I were to keep it?", FacialExpression.NEUTRAL, _knownName);
 
@@ -442,11 +443,11 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0)
             {
                 EventManager.S.RemoveItem(e, ItemID.FOLDED_PAPER);
-                return new NormalDialogue(true, "...Looks like a portal circle, basically you throw magic on it and as long as you keep infusing it, a portal will stay open to another plan.", FacialExpression.NEUTRAL, _knownName);
+                return new NormalDialogue(true, "...Looks like a portal circle is drawn, basically you throw magic on it and as long as you keep infusing it, a portal will stay open to another plan.", FacialExpression.NEUTRAL, _knownName);
             }
             if (_currProgress == 1) return new NormalDialogue(false, "Where is this one leading?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 2) return new NormalDialogue(true, "No idea, but since it's on paper we can't really open it, it would shred it right away.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "If you can manage to copy it we will be able to try opening it.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "No idea, but since it's on paper we can't really open it since magic would shred it right away.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "If you manage to copy it, we will be able to try opening it.", FacialExpression.SMILE, _knownName);
 
             EventManager.S.DisplayNewItem(ItemID.FOLDED_PAPER);
             PlayerController.S.SetIsCinematic(false);
@@ -465,6 +466,20 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 2) return new NormalDialogue(true, "But if you try it be sure to tell me who you meet!", FacialExpression.SMILE , _knownName);
 
             EventManager.S.DisplayNewItem(ItemID.BOOK_SPELL_SUMMON);
+            PlayerController.S.SetIsCinematic(false);
+            _current = ShowDialogueMenu;
+            return null;
+        }
+
+        private IDialogueResult GiveCandy(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.CANDY);
+                return new NormalDialogue(true, "Strawberry, my favorite! Thanks!", FacialExpression.SMILE, _knownName);
+            }
+
+            IncreaseRelation(e);
             PlayerController.S.SetIsCinematic(false);
             _current = ShowDialogueMenu;
             return null;
@@ -500,7 +515,11 @@ namespace Event.Dialogue.Speak
                     break;
 
                 case ItemID.BOOK_SPELL_SUMMON:
-                    _current = GiveFoldedPaper;
+                    _current = GiveRandomSummonBook;
+                    break;
+
+                case ItemID.CANDY:
+                    _current = GiveCandy;
                     break;
 
                 default:
