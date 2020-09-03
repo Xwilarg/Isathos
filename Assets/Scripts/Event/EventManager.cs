@@ -158,7 +158,7 @@ namespace Event
                                 _etahnia.UpdateTutorial();
                                 break;
 
-                            case Progression.MEET_ERANEL:
+                            case Progression.ETAHNIA_DECIDE_NEXT_STEP:
                                 eDoor.OutputScale = 1.2f;
                                 eDoor.Destination = _eranelHouseWarp;
                                 break;
