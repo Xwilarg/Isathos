@@ -126,7 +126,7 @@ namespace Event
                     }
                     StartPopup(result);
                 }
-                else if (eDoor.FailureType == DoorFailureType.NONE)
+                else if (eDoor.FailureType != DoorFailureType.LOCKED)
                 {
                     if (eDoor.DisableOnExit)
                         eDoor.gameObject.SetActive(false);
@@ -141,25 +141,28 @@ namespace Event
                     player.localScale = new Vector3(eDoor.OutputScale, eDoor.OutputScale, 1f);
                     eDoor.transform.parent.gameObject.SetActive(false);
                     eDoor.Destination.transform.parent.gameObject.SetActive(true);
-                    switch (TutorialManager.S.GetProgression())
+                    if (eDoor.FailureType == DoorFailureType.TUTORIAL)
                     {
-                        case Progression.ETAHNIA_INTRO: // The player go back to the human world for the first time
-                            PlayerController.S.SetCanMove(false);
-                            Clear();
-                            StartTutorialDiscution();
-                            eDoor.Destination = _forestEntrance;
-                            eDoor.RequiredPhase = Progression.ETAHNIA_DECIDE_NEXT_STEP;
-                            eDoor.OutputScale = 0.8f;
-                            break;
+                        switch (TutorialManager.S.GetProgression())
+                        {
+                            case Progression.ETAHNIA_INTRO: // The player go back to the human world for the first time
+                                PlayerController.S.SetCanMove(false);
+                                Clear();
+                                StartTutorialDiscution();
+                                eDoor.Destination = _forestEntrance;
+                                eDoor.RequiredPhase = Progression.ETAHNIA_DECIDE_NEXT_STEP;
+                                eDoor.OutputScale = 0.8f;
+                                break;
 
-                        case Progression.ETAHNIA_KILL_INTRO:
-                            _etahnia.UpdateTutorial();
-                            break;
+                            case Progression.ETAHNIA_KILL_INTRO:
+                                _etahnia.UpdateTutorial();
+                                break;
 
-                        case Progression.MEET_ERANEL:
-                            eDoor.OutputScale = 1.2f;
-                            eDoor.Destination = _eranelHouseWarp;
-                            break;
+                            case Progression.MEET_ERANEL:
+                                eDoor.OutputScale = 1.2f;
+                                eDoor.Destination = _eranelHouseWarp;
+                                break;
+                        }
                     }
                 }
                 else if (eDoor.FailureType == DoorFailureType.LOCKED)

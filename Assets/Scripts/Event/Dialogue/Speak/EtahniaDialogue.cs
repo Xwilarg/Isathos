@@ -492,7 +492,7 @@ namespace Event.Dialogue.Speak
                 EventManager.S.RemoveItem(e, ItemID.CELLPHONE);
                 return new NormalDialogue(true, "Oh nice phone, I used to have one too!", FacialExpression.SMILE, _knownName);
             }
-            if (_currProgress == 1) return new NormalDialogue(true, "If you find another one, give it to me I can add you.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "If you find another one, give it to me so I can add you.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "...But I wouldn't be able to call you, wouldn't I?", FacialExpression.NEUTRAL, _knownName);
 
             EventManager.S.DisplayNewItem(ItemID.CELLPHONE);

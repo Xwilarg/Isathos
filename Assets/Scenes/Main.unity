@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b085144b7e4914590f3bfad5173930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FailureType: 0
+  FailureType: 1
   IsWarp: 1
   Destination: {fileID: 2099805342}
   RequiredPhase: 1
@@ -61172,7 +61172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b085144b7e4914590f3bfad5173930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FailureType: 0
+  FailureType: 1
   IsWarp: 1
   Destination: {fileID: 493931520}
   RequiredPhase: 1

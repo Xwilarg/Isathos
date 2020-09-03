@@ -143,6 +143,8 @@ namespace Player
                         InventoryPopup.S.ToggleInventory();
                     if (Input.GetKeyDown(KeyCode.P))
                         PhoneManager.S.TogglePhone();
+                    if (Input.GetKeyDown(KeyCode.KeypadPlus))
+                        transform.position = Vector3.zero;
                     if (Input.GetMouseButtonDown(0) && _reloadTimer < 0f)
                     {
                         var dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

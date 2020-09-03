@@ -133,7 +133,7 @@ namespace Event.Dialogue.Speak
         {
             if (_currProgress == 0)
             {
-                EventManager.S.RemoveItem(e, ItemID.BOOK_SPELL_SUMMON);
+                EventManager.S.RemoveItem(e, ItemID.FOLDED_PAPER);
                 _unlockedGates.Add(CreatePortalEtahnia, "???");
                 return new NormalDialogue(true, "This one is quite complicated, must be going to a quite far away place!", FacialExpression.SMILE, _knownName);
             }
