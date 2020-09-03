@@ -130,7 +130,6 @@ namespace Event
                 {
                     if (eDoor.DisableOnExit)
                         eDoor.gameObject.SetActive(false);
-                    player.position = eDoor.Destination.transform.position;
                     if (!eDoor.IsWarp)
                     {
                         if (player.position.y > eDoor.transform.position.y)
@@ -138,6 +137,7 @@ namespace Event
                         else
                             player.position += Vector3.up * .5f;
                     }
+                    player.position = eDoor.Destination.transform.position;
                     player.localScale = new Vector3(eDoor.OutputScale, eDoor.OutputScale, 1f);
                     eDoor.transform.parent.gameObject.SetActive(false);
                     eDoor.Destination.transform.parent.gameObject.SetActive(true);

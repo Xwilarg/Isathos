@@ -53,6 +53,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wall Top
+    uniqueID: 3770509973
+    locked: 0
   - name: Effect
     uniqueID: 310169693
     locked: 0
