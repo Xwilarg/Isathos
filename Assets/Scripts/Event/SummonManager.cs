@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Event.Trigger;
+using Event.Trigger.EventType;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Event
@@ -13,7 +15,7 @@ namespace Event
         }
 
         [SerializeField]
-        private GameObject _yumena;
+        private GameObject _yumena, _yumenaDoor;
 
         [SerializeField]
         private Transform _summonPos;
@@ -22,13 +24,13 @@ namespace Event
         private GameObject _preventSummon, _gateExit;
 
         private bool _canSummon = true;
-        private List<GameObject> _summons;
+        private List<(GameObject, GameObject)> _summons;
 
         private void Start()
         {
-            _summons = new List<GameObject>
+            _summons = new List<(GameObject, GameObject)>
             {
-                _yumena
+                (_yumena, _yumenaDoor)
             };
         }
 
@@ -48,7 +50,14 @@ namespace Event
                 return false;
             _canSummon = false;
             var rand = Random.Range(0, _summons.Count);
-            var go = Instantiate(_summons[rand], _summonPos.transform.parent);
+            var go = Instantiate(_summons[rand].Item1, _summonPos.transform.parent);
+            var doorGo = _summons[rand].Item2;
+
+            // Speaking with the door now speak with the person inside
+            doorGo.GetComponent<EventDoor>().enabled = false;
+            doorGo.GetComponent<EventDiscussion>().enabled = true;
+            doorGo.GetComponent<EventTrigger>().enabled = doorGo.GetComponent<EventDiscussion>();
+
             go.transform.position = _summonPos.transform.position;
             _summons.RemoveAt(rand);
             _preventSummon.SetActive(true);

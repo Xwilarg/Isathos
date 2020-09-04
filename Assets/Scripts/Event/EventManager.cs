@@ -138,7 +138,7 @@ namespace Event
                     if (!eDoor.IsWarp)
                     {
                         if (player.position.y > eDoor.transform.position.y)
-                            player.position = eDoor.Destination.transform.position + (Vector3.down *.5f);
+                            player.position = eDoor.Destination.transform.position + (Vector3.down * .5f);
                         else
                             player.position = eDoor.Destination.transform.position + (Vector3.up * .5f);
                     }
@@ -173,21 +173,14 @@ namespace Event
                 }
                 else if (eDoor.FailureType == DoorFailureType.LOCKED)
                 {
-                    if (eDoor.LockReason == "Yumena" && InformationManager.S.DidSummonYumena) // Yumena was summoned and is in her room
+                    var result = _door.GetText(eDoor.LockReason);
+                    if (result == null)
                     {
-                        EventManager.S.DisplayDiscution(null, -1, Character.YUMENA);
+                        Clear();
+                        DialoguePopup.S.Close();
+                        return;
                     }
-                    else
-                    {
-                        var result = _door.GetText(eDoor.LockReason);
-                        if (result == null)
-                        {
-                            Clear();
-                            DialoguePopup.S.Close();
-                            return;
-                        }
-                        StartPopup(result);
-                    }
+                    StartPopup(result);
                 }
             }
             else if (e.Event is EventLook eLook)

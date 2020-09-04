@@ -180,6 +180,29 @@ namespace Event.Dialogue.Speak
             return null;
         }
 
+        private IDialogueResult GiveCandy(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.CANDY);
+                return new NormalDialogue(true, "Yay candy! Thanks!", FacialExpression.SMILE, _knownName);
+            }
+
+            IncreaseRelation(e);
+            PlayerController.S.SetIsCinematic(false);
+            _current = Main;
+            return null;
+        }
+
+        private IDialogueResult GiveNothing(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0) return new NormalDialogue(false, "Nevermind", FacialExpression.NEUTRAL, _knownName);
+
+            PlayerController.S.SetIsCinematic(false);
+            _current = Main;
+            return null;
+        }
+
         private IDialogueResult SummonStranger(EventDiscussion e, int _)
         {
             if (_currProgress == 0)
@@ -198,8 +221,16 @@ namespace Event.Dialogue.Speak
             InventoryPopup.S.ForceCloseInventory();
             switch (id)
             {
+                case (ItemID)(-1):
+                    _current = GiveNothing;
+                    break;
+
                 case ItemID.FOLDED_PAPER:
                     _current = GiveEtahnia;
+                    break;
+
+                case ItemID.CANDY:
+                    _current = GiveCandy;
                     break;
 
                 case ItemID.BOOK_SPELL_SUMMON:

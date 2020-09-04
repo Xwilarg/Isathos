@@ -5,7 +5,7 @@ namespace Event.Trigger.EventType
     [RequireComponent(typeof(EventTrigger))]
     public class EventDoor : MonoBehaviour, IEvent
     {
-        private void Awake()
+        private void Start()
         {
             GetComponent<EventTrigger>().Event = this;
         }
