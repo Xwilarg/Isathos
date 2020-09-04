@@ -60,15 +60,29 @@ namespace Event.Dialogue.Speak
         private IDialogueResult RandomConversation1(EventDiscussion e, int lastChoiceId)
         {
             if (_currProgress == 0) return new NormalDialogue(false, "Aren't you a bit too young to be with someone like Eranel?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 1) return new NormalDialogue(true, "Eheh, I may not looks like it but I'm actually around 90 years old but Eranel is only around 80!", FacialExpression.SMILE, _knownName);
-            if (_currProgress == 2) return new NormalDialogue(false, "That surprisinly alike... How much is it in human age?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "Human age...? How much time does human live already?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 4) return new NormalDialogue(false, "Around 80 years.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 5) return new NormalDialogue(true, "80? So celestian lifetime is around 150 years so Eranel must be around 50 or 60?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 6) return new NormalDialogue(true, "About me... fairy lifetime like around 500 so I guess I'm like... 15? Mental math aren't really my thing...", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 7) return new NormalDialogue(false, "...", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 8) return new NormalDialogue(true, "But it's kinda weird to think of things that way since all races don't mature at the same speed, you know.", FacialExpression.SMILE, _knownName);
-            if (_currProgress == 9) return new NormalDialogue(false, "(I guess... but that still sounds weird for me)", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "Comparing ages are a bit weird since Anael have a way bigger life expectancy than me, you know.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(false, "What do you mean?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "Well Anael is a celestian and he is already around 1100 years old but his race live like 1500 years so it's okay.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(true, "As for me, I'm a fairy so I can only expect to live around 40 years, and I'm only 8!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 5) return new NormalDialogue(false, "...Isn't it a bit too young to already be married?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 6) return new NormalDialogue(true, "Why that? I'm only have 30 years in front of me so I would rather be with the ones I love for as much as I can!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 7) return new NormalDialogue(true, "Fairies mature really quickly compared to the others races so it's normal for us to already in couple at that age.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 8) return new NormalDialogue(true, "But most of us are rather polygamist so I guess I'm pretty much an exception on that point!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 9) return new NormalDialogue(false, "(I guess I'll still need a bit of time to be used to it...)", FacialExpression.NEUTRAL, _knownName);
+
+            _current = Main;
+            return null;
+        }
+
+        private IDialogueResult RandomConversation2(EventDiscussion e, int lastChoiceId)
+        {
+            if (_currProgress == 0) return new NormalDialogue(false, "So both you and Arael learnt to speak human language?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "It wasn't that hard for Arael, he told me that celestians learn human language as part as their curiculum.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "But for me, it was soo hard. But since Arael can't speak fairy language I had to work really hard for him!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "Us, fairies, don't usually learn any other language than fairy dialect, and maybe elven language so finding resources to learn human language was really tough.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(false, "Why didn't you learn celestian instead?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 5) return new NormalDialogue(true, "Celestian is super hard to learn, like using these weird symbols everywhere and since Arael already speak human language I just went with that.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 6) return new NormalDialogue(false, "(I'm pretty sure that fairy dialect also use lot of \"weird symbols\"...)", FacialExpression.NEUTRAL, _knownName);
 
             _current = Main;
             return null;
@@ -153,6 +167,7 @@ namespace Event.Dialogue.Speak
             }
             if (_currProgress == 1) return new NormalDialogue(true, "I guess it can be risky but I guess I'm just curious of who will come out.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "If you want to try it, speak to me again but you'll have to deal with who comes out since there is no way to send them back.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "But that's not a problem, we have a second house that work as a guest house but since nobody come anymore it's rather empty.", FacialExpression.SMILE, _knownName);
 
             _dialogueChoice.Add(SummonStranger, "Summon stranger");
             PlayerController.S.SetIsCinematic(false);
@@ -162,8 +177,14 @@ namespace Event.Dialogue.Speak
 
         private IDialogueResult SummonStranger(EventDiscussion e, int _)
         {
-            if (_currProgress == 0) return new NormalDialogue(true, "...Looks like nobody is coming.", FacialExpression.NEUTRAL, _knownName);
-
+            if (_currProgress == 0)
+            {
+                PlayerController.S.SetIsCinematic(true);
+                if (!SummonManager.S.CanSummon()) return new NormalDialogue(true, "You should speak with the newcomer before trying to summon someone else.", FacialExpression.NEUTRAL, _knownName);
+                if (!SummonManager.S.Summon()) return new NormalDialogue(true, "...Looks like nobody is coming.", FacialExpression.NEUTRAL, _knownName);
+                return new NormalDialogue(true, "It worked! You should go speak with her now.", FacialExpression.SMILE, _knownName);
+            }
+            PlayerController.S.SetIsCinematic(false);
             _current = Main;
             return null;
         }
@@ -204,7 +225,7 @@ namespace Event.Dialogue.Speak
 
             _randomConversations = new List<Func<EventDiscussion, int, IDialogueResult>>
             {
-                RandomConversation1
+                RandomConversation1, RandomConversation2
             };
 
             _unlockedGates = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>

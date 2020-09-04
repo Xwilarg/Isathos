@@ -105,6 +105,7 @@ public class DialoguePopup : MonoBehaviour
         else if (c == Character.EXPL_GOD) charac = _sprites.ExplGod;
         else if (c == Character.ERANEL) charac = _sprites.Eranel;
         else if (c == Character.HURIANE) charac = _sprites.Huriane;
+        else if (c == Character.YUMENA) charac = _sprites.Yumena;
         if (charac == null)
             return _sprites.Empty;
         if (fe == FacialExpression.NEUTRAL)

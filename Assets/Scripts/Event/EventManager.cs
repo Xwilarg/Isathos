@@ -170,7 +170,7 @@ namespace Event
                 }
                 else if (eDoor.FailureType == DoorFailureType.LOCKED)
                 {
-                    var result = _door.GetText(null);
+                    var result = _door.GetText(eDoor.LockReason);
                     if (result == null)
                     {
                         Clear();
@@ -273,6 +273,8 @@ namespace Event
                 result = _eranel.GetDialogue(e, id);
             else if (c == Character.HURIANE)
                 result = _huriane.GetDialogue(e, id);
+            else if (c == Character.YUMENA)
+                result = _yumena.GetDialogue(e, id);
             else
                 throw new ArgumentException("Invalid character " + c.ToString());
             if (result == null)

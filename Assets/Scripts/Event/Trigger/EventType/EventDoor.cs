@@ -27,6 +27,9 @@ namespace Event.Trigger.EventType
 
         [Tooltip("Disable gameObject after use")]
         public bool DisableOnExit = false;
+
+        [Tooltip("Justification of why the door is locked, used for events")]
+        public string LockReason;
     }
 
 }
