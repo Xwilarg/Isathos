@@ -294,7 +294,7 @@ namespace Event
                     _speakerTwoLastExpression = nDial.Expression;
                 else
                     _speakerOneLastExpression = nDial.Expression;
-                DialoguePopup.S.Display(Character.MC, nDial.Speaker == Character.NONE ? c : nDial.Speaker, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, nDial.NameOverride);
+                DialoguePopup.S.Display(Character.MC, nDial.Speaker == Character.NONE ? c : nDial.Speaker, _speakerOneLastExpression, _speakerTwoLastExpression, nDial.Text, !nDial.IsSpeaking, !nDial.IsSpeaking ? "Me" : nDial.NameOverride); // If IsSpeaking is false, that means the MC is the one speaking
             }
             else if (result is ChoiceDialogue cDial)
             {

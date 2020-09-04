@@ -70,7 +70,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 3) return new NormalDialogue(true, "Well Anael is a celestian and he is already around 1100 years old but his race live like 1500 years so it's okay.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "As for me, I'm a fairy so I can only expect to live around 40 years, and I'm only 8!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 5) return new NormalDialogue(false, "...Isn't it a bit too young to already be married?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 6) return new NormalDialogue(true, "Why that? I'm only have 30 years in front of me so I would rather be with the ones I love for as much as I can!", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 6) return new NormalDialogue(true, "Why that? I'm only have 30 years in front of me so I would rather be with the one I love for as much as I can!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 7) return new NormalDialogue(true, "Fairies mature really quickly compared to the others races so it's normal for us to already in couple at that age.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 8) return new NormalDialogue(true, "But most of us are rather polygamist so I guess I'm pretty much an exception on that point!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 9) return new NormalDialogue(false, "(I guess I'll still need a bit of time to be used to it...)", FacialExpression.NEUTRAL, _knownName);
@@ -84,7 +84,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0) return new NormalDialogue(false, "So both you and Arael learnt to speak human language?", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 1) return new NormalDialogue(true, "It wasn't that hard for Arael, he told me that celestians learn human language as part as their curiculum.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "But for me, it was soo hard. But since Arael can't speak fairy language I had to work really hard for him!", FacialExpression.SMILE, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "Us, fairies, don't usually learn any other language than fairy dialect, and maybe elven language so finding resources to learn human language was really tough.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "Us, fairies, don't usually learn any other than fairy dialect and maybe elven language, so finding resources to learn the human one was really tough.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 4) return new NormalDialogue(false, "Why didn't you learn celestian instead?", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 5) return new NormalDialogue(true, "Celestian is super hard to learn, like using these weird symbols everywhere and since Arael already speak human language I just went with that.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 6) return new NormalDialogue(false, "(I'm pretty sure that fairy dialect also use lot of \"weird symbols\"...)", FacialExpression.NEUTRAL, _knownName);
@@ -115,7 +115,7 @@ namespace Event.Dialogue.Speak
             {
                 _unlockedGates[CreatePortalEtahnia] = "Etahnia's world"; // TODO: Probably should move that once we go in the gate
                 GateManager.S.EnableGateEtahnia();
-                return new NormalDialogue(true, "Here it is!", FacialExpression.SMILE, _knownName);
+                return new NormalDialogue(true, "Here it is!", FacialExpression.SMILE, _knownName); // TODO: Weird behavior if you just leave without pressing E
             }
 
             _current = Main;

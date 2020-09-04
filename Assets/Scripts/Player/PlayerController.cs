@@ -57,6 +57,7 @@ namespace Player
         public void SetIsCinematic(bool value)
         {
             _isCinematic = value;
+            InventoryPopup.S.ForceCloseInventory();
         }
 
         public void Loose()

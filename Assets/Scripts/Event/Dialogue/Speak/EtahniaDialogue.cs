@@ -92,13 +92,13 @@ namespace Event.Dialogue.Speak
                 _knownName = "Etahnia";
                 return new NormalDialogue(false, "A celestial? What is it?", FacialExpression.NEUTRAL, "Me");
             }
-            if (_currProgress == 3) return new NormalDialogue(true, "I guess that make sence that a human never heard of us... I think you call us \"angel\" or something?", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "I guess that make sense that a human never heard of us... I think you call us \"angels\" or something?", FacialExpression.SMILE, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "We helped your race against demons during the Great War and because of how we looks, the name sticked in.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 5) return new NormalDialogue(true, "Aa~ But that was like 6000 years ago so I don't expect you to know much about it, I wasn't even born anyway!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 6) return new NormalDialogue(false, "Aren't \"angels\" supposed to have wings or something?", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 7) return new NormalDialogue(true, "Going straight where its hurt, uh?", FacialExpression.SMILE, _knownName);
-            if (_currProgress == 8) return new NormalDialogue(true, "Well that's a long story, but to summarize I wanted to become a god since... well, celestian society have lot of issues but let's not speak of that right now.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 9) return new NormalDialogue(true, "Anyway, when the council heard of it they were like, really angry and they decided to banish me to an empty plan as a punishment and as I sign of this, they tearred off my wings and removed my halo.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 8) return new NormalDialogue(true, "Well that's a long story, but to summarize, I wanted to become a god since... well, celestian society have lot of issues but let's not speak of that right now.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 9) return new NormalDialogue(true, "Anyway, when the council heard of it they were like, really angry and they decided to banish me to an empty plan as a punishment and as a sign of this, they tearred off my wings and removed my halo.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 10) return new NormalDialogue(false, "Celestial society are pretty rough, uh?", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 11) return new NormalDialogue(true, "You don't say, all behaving mightly like \"Etahnia, respect your elders\", \"Etahnia you shall not gather power\", \"Etahnia your room is such a mess\", like, come on!", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 12) return new NormalDialogue(false, "...", FacialExpression.NEUTRAL, "Me");
@@ -117,7 +117,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 1) return new NormalDialogue(true, "You're asking me? You know, I met you less than one minute ago.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "But from your clothes, you're probably a mage or something... You probably crossed through the plans to come here, but isn't this one supposed to be sealed?", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 3) return new NormalDialogue(true, "Well I'm not sure to understand either, but if you managed to come here you must be hella strong!", FacialExpression.SMILE, _knownName);
-            if (_currProgress == 4) return new NormalDialogue(false, "I can't remember anything about that or why I came here", FacialExpression.NEUTRAL, "Me");
+            if (_currProgress == 4) return new NormalDialogue(false, "I can't remember anything about that or why I came here.", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 5) return new NormalDialogue(true, "Well if you don't remember there's no use digging on it! I'm sure it'll come back in due time. Anything else you would like to know?", FacialExpression.SMILE, _knownName);
 
             InformationManager.S.HaveSealedPlanInfo = true;
@@ -130,14 +130,14 @@ namespace Event.Dialogue.Speak
         private IDialogueResult WhereAmI(EventDiscussion e, int lastChoiceId)
         {
             if (_currProgress == 0) return new NormalDialogue(false, "Where am I? Everything is white here.", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 1) return new NormalDialogue(true, "Well explaining everything in detail would be far too complicated but like, the world contains alternative plans, it's like you just went to another planet.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "Well, explaining everything in detail would be far too complicated but like, the world contains alternative plans, it's like you just went to another planet.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "Some of them are material, like the one where you come, probably Hβ or Hγ and some are immaterials like the divine plan, Σ0.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 3) return new NormalDialogue(true, "Most of the plans follow their world rules but some of them have additional ones, that's the role of the god Yrr.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "But like, anyone can travel through the plans, you just need to find a place where the gates flow is weaker and use the spirit one, along with the elemental one if you want to keep your carnal envelope.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 5) return new NormalDialogue(true, "And... Wait... Maybe I shouldn't tell that much to a mere human, uh?", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 6) return new NormalDialogue(true, "Well just think of this place of a material world overwritten by rules to make it subsist with nothing.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 6) return new NormalDialogue(true, "Well just think of this place as a material world overwritten by rules to make it subsist with nothing.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 7) return new NormalDialogue(false, "(I didn't understand anything... But I'm not sure I want to hear the whole thing again.)", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 8) return new NormalDialogue(true, "Anyway enough with all that theorical stuff, do you have any others questions?", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 8) return new NormalDialogue(true, "Anyway, enough with all that theorical stuff, do you have any others questions?", FacialExpression.SMILE, _knownName);
 
             _introChoice.Remove(WhereAmI);
             if (lastChoiceId == -1) return new ChoiceDialogue(_introChoice.Select(x => x.Value).ToArray());
@@ -148,9 +148,9 @@ namespace Event.Dialogue.Speak
         private IDialogueResult NoQuestion(EventDiscussion e, int lastChoiceId)
         {
             if (_currProgress == 0) return new NormalDialogue(false, "I think I'm okay for now.", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 1) return new NormalDialogue(true, "So what are you planning to do now?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "So what are you planning to do?", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(false, "I don't know, maybe going back in my world or something...", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 3) return new NormalDialogue(true, "Since you have nothing to do, why don't you help me going out of here?", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "Since you have nothing to do, why won't you help me going out of here?", FacialExpression.SMILE, _knownName);
             if (_currProgress == 4) return new NormalDialogue(false, "How could I do that?", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 5) return new NormalDialogue(true, "Um... Celestian dimentional magic is way too strong so as a human, even if you managed to come here, helping me going out really is something else, like you would need nearly godly powers...", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 6) return new NormalDialogue(true, "That's it! You just have to become a god!", FacialExpression.SMILE, _knownName);
@@ -161,8 +161,8 @@ namespace Event.Dialogue.Speak
             }
             if (_currProgress == 8) return new NormalDialogue(true, "It took me 200 years to gather knowledge and understand everything, but with my help I'm sure you can do it in 2 times less!", FacialExpression.SMILE, _knownName);
             if (_currProgress == 9) return new NormalDialogue(false, "Humans don't live that long you know.", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 10) return new NormalDialogue(true, "Ah, I forgot about that part... One quicker step to become a god would be acknowledged by another one, I don't know much about human gods but as far as I can remember, there are 4 of them.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 11) return new NormalDialogue(true, "There is Ela, the primal human deity, Nyr and Sar who took over Hβ and Sae, who is pretty much useless... Maybe we should go with this one?", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 10) return new NormalDialogue(true, "Ah, I forgot about that part... One quicker step to become a god would be to be acknowledged by another one, I don't know much about human gods but as far as I can remember, there are 4 of them.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 11) return new NormalDialogue(true, "There is Ela, the primal human deity, Nyr and Sar who took over Hβ and the last one, Sae, who is pretty much useless... Maybe we should go with this one?", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 12)
             {
                 QuestManager.S.UpdateQuestDescription("Become a god\n- Be acknowledged by Sae");
@@ -190,10 +190,10 @@ namespace Event.Dialogue.Speak
         private IDialogueResult RandomConversation1(EventDiscussion e, int _)
         {
             if (_currProgress == 0) return new NormalDialogue(false, "How did you survive all this time without food?", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating, but it's tasteless so most of us would rather eat real food instead.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "Celestials can consume magic energy instead of eating, but it's tasteless so most of us would rather eat real food.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "But man, it's been so long since I tasted something good, if you ever find something, bring it back to me!", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 3) return new NormalDialogue(false, "Yeah sure, anything you would rather eat?", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 4) return new NormalDialogue(true, "I really like sweat things but because of how our world is made we mostly product artificial sugar so it's not as good.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(true, "I really like sweet things but because of how our world is made we mostly product artificial sugar so it's not as good.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 5) return new NormalDialogue(false, "How is your world even like?", FacialExpression.NEUTRAL, "Me");
             if (_currProgress == 6) return new NormalDialogue(true, "It's mostly made of floating islands, making our wings rather useful, but because of that we use the little land we have to grow cereals.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 7) return new NormalDialogue(false, "(Sounds like a lot of hardship for people who could just eat magic energy...)", FacialExpression.NEUTRAL, "Me");
@@ -218,9 +218,9 @@ namespace Event.Dialogue.Speak
         private IDialogueResult RandomConversation3(EventDiscussion e, int _)
         {
             if (_currProgress == 0) return new NormalDialogue(false, "For how much time have you been here?", FacialExpression.NEUTRAL, "Me");
-            if (_currProgress == 1) return new NormalDialogue(true, "Well since there is no notion of day and night it's a bit hard to keep track of time but it's sure been a long time.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 2) return new NormalDialogue(true, "At the beginning it was really hard but then I realized that there was a high amount of magic in the air, probably used to keep the worlds of this rule alive.", FacialExpression.NEUTRAL, _knownName);
-            if (_currProgress == 3) return new NormalDialogue(true, "So to pass time I trained myself but since I have nothing to draw magic circles on, I could barely move the flow of magic without doing being able to do anything with it.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 1) return new NormalDialogue(true, "Well since there is no notion of day and night it's a bit hard to keep track of time but it's sure been a while.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "At the beginning it was really hard but then I realized that there was a high amount of magic in the air, probably used to keep the rules of this world alive.", FacialExpression.NEUTRAL, _knownName);
+            if (_currProgress == 3) return new NormalDialogue(true, "So to pass time I trained myself but since I have nothing to draw magic circles on, I could barely move the flow of magic without being able to do anything with it.", FacialExpression.NEUTRAL, _knownName);
             if (_currProgress == 4) return new NormalDialogue(true, "But after some time I began to be more perceptive about that kind of stuff, so it was kinda motivating to see my efforts paying off.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 5) return new NormalDialogue(false, "It's nice that you found something, despite the lack of activity to do", FacialExpression.NEUTRAL, "Me");
 
@@ -479,7 +479,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0)
             {
                 EventManager.S.RemoveItem(e, ItemID.CANDY);
-                return new NormalDialogue(true, "Strawberry, my favorite! Thanks!", FacialExpression.SMILE, _knownName);
+                return new NormalDialogue(true, "Strawberry, my favorite! Thanks!", FacialExpression.SMILE, _knownName); // TODO: Improve
             }
 
             IncreaseRelation(e);
