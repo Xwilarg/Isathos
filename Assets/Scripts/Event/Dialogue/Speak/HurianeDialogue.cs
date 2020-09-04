@@ -144,6 +144,30 @@ namespace Event.Dialogue.Speak
             return null;
         }
 
+        private IDialogueResult GiveRandomSummon(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0)
+            {
+                EventManager.S.RemoveItem(e, ItemID.BOOK_SPELL_SUMMON);
+                return new NormalDialogue(true, "Oh this one seems interesting!", FacialExpression.SMILE, _knownName);
+            }
+            if (_currProgress == 1) return new NormalDialogue(true, "I guess it can be risky but I guess I'm just curious of who will come out.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 2) return new NormalDialogue(true, "If you want to try it, speak to me again but you'll have to deal with who comes out since there is no way to send them back.", FacialExpression.SMILE, _knownName);
+
+            _dialogueChoice.Add(SummonStranger, "Summon stranger");
+            PlayerController.S.SetIsCinematic(false);
+            _current = Main;
+            return null;
+        }
+
+        private IDialogueResult SummonStranger(EventDiscussion e, int _)
+        {
+            if (_currProgress == 0) return new NormalDialogue(true, "...Looks like nobody is coming.", FacialExpression.NEUTRAL, _knownName);
+
+            _current = Main;
+            return null;
+        }
+
         private void GetItem(ItemID id)
         {
             InventoryPopup.S.ForceCloseInventory();
@@ -151,6 +175,10 @@ namespace Event.Dialogue.Speak
             {
                 case ItemID.FOLDED_PAPER:
                     _current = GiveEtahnia;
+                    break;
+
+                case ItemID.BOOK_SPELL_SUMMON:
+                    _current = GiveRandomSummon;
                     break;
 
                 default:
