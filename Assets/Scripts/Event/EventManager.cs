@@ -36,6 +36,7 @@ namespace Event
         private NachiDialogue _nachi = new NachiDialogue();
         private EranelDialogue _eranel = new EranelDialogue();
         private HurianeDialogue _huriane = new HurianeDialogue();
+        private YumenaDialogue _yumena = new YumenaDialogue();
 
         // TUTORIAL
         private TutorialLook _tutorial = new TutorialLook();
@@ -63,6 +64,7 @@ namespace Event
             _unar.Clear();
             _eranel.Clear();
             _huriane.Clear();
+            _yumena.Clear();
 
             _tutorial.Clear();
             _tutorialD.Clear();
@@ -133,11 +135,12 @@ namespace Event
                     if (!eDoor.IsWarp)
                     {
                         if (player.position.y > eDoor.transform.position.y)
-                            player.position += Vector3.down * .5f;
+                            player.position = eDoor.Destination.transform.position + (Vector3.down *.5f);
                         else
-                            player.position += Vector3.up * .5f;
+                            player.position = eDoor.Destination.transform.position + (Vector3.up * .5f);
                     }
-                    player.position = eDoor.Destination.transform.position;
+                    else
+                        player.position = eDoor.Destination.transform.position;
                     player.localScale = new Vector3(eDoor.OutputScale, eDoor.OutputScale, 1f);
                     eDoor.transform.parent.gameObject.SetActive(false);
                     eDoor.Destination.transform.parent.gameObject.SetActive(true);

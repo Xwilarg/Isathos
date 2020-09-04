@@ -12,6 +12,7 @@
         EXPL_GOD,
         ERANEL, // Etahnia's friend
         HURIANE, // Eranel's wife
+        YUMENA,
 
         NARRATOR,
     }

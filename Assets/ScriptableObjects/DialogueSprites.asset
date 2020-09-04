@@ -49,3 +49,7 @@ MonoBehaviour:
     Neutral: {fileID: 21300000, guid: ed30ab2051b66b544be1a66d9f1dce0e, type: 3}
     Smile: {fileID: 21300000, guid: 07e6c44ae5423a347ba9ebc6edbd4981, type: 3}
     Mad: {fileID: 0}
+  Yumena:
+    Neutral: {fileID: 21300000, guid: e6a974d02629e9443877b7c3067679bc, type: 3}
+    Smile: {fileID: 21300000, guid: 67e9495a5f8e33a4eb292070f361e0e4, type: 3}
+    Mad: {fileID: 0}

@@ -15,5 +15,6 @@ namespace SO
         public DialogueSpritesCharacter ExplGod;
         public DialogueSpritesCharacter Eranel;
         public DialogueSpritesCharacter Huriane;
+        public DialogueSpritesCharacter Yumena;
     }
 }
