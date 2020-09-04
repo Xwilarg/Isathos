@@ -14,6 +14,7 @@
         HURIANE, // Eranel's wife
         YUMENA,
 
+        SUMMON, // Special values used by PreventLeaveSummonDialogue.cs
         NARRATOR,
     }
 }

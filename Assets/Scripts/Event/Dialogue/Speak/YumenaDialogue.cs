@@ -26,6 +26,14 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 4) return new NormalDialogue(false, "T-thanks...", FacialExpression.NEUTRAL, _knownName);
             e.gameObject.SetActive(false);
             InformationManager.S.DidSummonYumena = true;
+            SummonManager.S.ClearSummon();
+            _current = IntroRoom;
+            return null;
+        }
+
+        private IDialogueResult IntroRoom(EventDiscussion e, int lastChoiceId)
+        {
+            if (_currProgress == 0) return new NormalDialogue(false, "Yumena, are you okay?", FacialExpression.NEUTRAL, _knownName);
             return null;
         }
 

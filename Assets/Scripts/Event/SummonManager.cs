@@ -18,6 +18,9 @@ namespace Event
         [SerializeField]
         private Transform _summonPos;
 
+        [SerializeField]
+        private GameObject _preventSummon, _gateExit;
+
         private bool _canSummon = true;
         private List<GameObject> _summons;
 
@@ -33,6 +36,7 @@ namespace Event
         public void ClearSummon()
         {
             _canSummon = true;
+            _preventSummon.SetActive(false);
         }
 
         public bool CanSummon()
@@ -47,6 +51,8 @@ namespace Event
             var go = Instantiate(_summons[rand], _summonPos.transform.parent);
             go.transform.position = _summonPos.transform.position;
             _summons.RemoveAt(rand);
+            _preventSummon.SetActive(true);
+            _gateExit.SetActive(false); // Make sure the gate to leave the player is closed
             return true;
         }
     }

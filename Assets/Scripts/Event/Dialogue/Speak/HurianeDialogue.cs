@@ -38,6 +38,11 @@ namespace Event.Dialogue.Speak
 
         private IDialogueResult Main(EventDiscussion e, int lastChoiceId)
         {
+            if (!SummonManager.S.CanSummon()) // If someone was summoned and we didn't speak with her yet
+            {
+                if (_currProgress == 0) return new NormalDialogue(true, "You should speak with the newcomer first.", FacialExpression.NEUTRAL, _knownName);
+                return null;
+            }
             if (_currProgress == 0) return new NormalDialogue(true, "How can I help?", FacialExpression.SMILE, _knownName);
 
             if (lastChoiceId == -1) return new ChoiceDialogue(_dialogueChoice.Select(x => x.Value).ToArray());
@@ -180,7 +185,6 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0)
             {
                 PlayerController.S.SetIsCinematic(true);
-                if (!SummonManager.S.CanSummon()) return new NormalDialogue(true, "You should speak with the newcomer before trying to summon someone else.", FacialExpression.NEUTRAL, _knownName);
                 if (!SummonManager.S.Summon()) return new NormalDialogue(true, "...Looks like nobody is coming.", FacialExpression.NEUTRAL, _knownName);
                 return new NormalDialogue(true, "It worked! You should go speak with her now.", FacialExpression.SMILE, _knownName);
             }
@@ -219,7 +223,7 @@ namespace Event.Dialogue.Speak
             _dialogueChoice = new Dictionary<Func<EventDiscussion, int, IDialogueResult>, string>
             {
                 { CreatePortal, "Create portal" },
-                { GiveItem, "Discover portal" },
+                { GiveItem, "Discover spell" },
                 { StartRandomConversation, "Speak" }
             };
 

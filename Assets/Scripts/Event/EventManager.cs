@@ -37,6 +37,7 @@ namespace Event
         private EranelDialogue _eranel = new EranelDialogue();
         private HurianeDialogue _huriane = new HurianeDialogue();
         private YumenaDialogue _yumena = new YumenaDialogue();
+        private PreventLeaveSummonDialogue _summon = new PreventLeaveSummonDialogue();
 
         // TUTORIAL
         private TutorialLook _tutorial = new TutorialLook();
@@ -65,6 +66,8 @@ namespace Event
             _eranel.Clear();
             _huriane.Clear();
             _yumena.Clear();
+
+            _summon.Clear();
 
             _tutorial.Clear();
             _tutorialD.Clear();
@@ -170,14 +173,21 @@ namespace Event
                 }
                 else if (eDoor.FailureType == DoorFailureType.LOCKED)
                 {
-                    var result = _door.GetText(eDoor.LockReason);
-                    if (result == null)
+                    if (eDoor.LockReason == "Yumena" && InformationManager.S.DidSummonYumena) // Yumena was summoned and is in her room
                     {
-                        Clear();
-                        DialoguePopup.S.Close();
-                        return;
+                        EventManager.S.DisplayDiscution(null, -1, Character.YUMENA);
                     }
-                    StartPopup(result);
+                    else
+                    {
+                        var result = _door.GetText(eDoor.LockReason);
+                        if (result == null)
+                        {
+                            Clear();
+                            DialoguePopup.S.Close();
+                            return;
+                        }
+                        StartPopup(result);
+                    }
                 }
             }
             else if (e.Event is EventLook eLook)
@@ -275,6 +285,8 @@ namespace Event
                 result = _huriane.GetDialogue(e, id);
             else if (c == Character.YUMENA)
                 result = _yumena.GetDialogue(e, id);
+            else if (c == Character.SUMMON)
+                result = _summon.GetDialogue(e, id);
             else
                 throw new ArgumentException("Invalid character " + c.ToString());
             if (result == null)
