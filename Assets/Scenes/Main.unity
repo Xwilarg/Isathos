@@ -11622,7 +11622,7 @@ GameObject:
   - component: {fileID: 1058087300}
   - component: {fileID: 1058087299}
   m_Layer: 0
-  m_Name: Door Room Salenae
+  m_Name: Door Room Nachi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11660,7 +11660,7 @@ MonoBehaviour:
   RequiredPhase: 0
   OutputScale: 1.2
   DisableOnExit: 0
-  LockReason: Salenae
+  LockReason: Nachi
 --- !u!114 &1058087300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79536,6 +79536,10 @@ PrefabInstance:
     - target: {fileID: 7051824664901226611, guid: 5c58401ed4895ac4f8c5ecf017bf9e3f, type: 3}
       propertyPath: m_Name
       value: Shelf
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051824664901226611, guid: 5c58401ed4895ac4f8c5ecf017bf9e3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8341940283291458354, guid: 5c58401ed4895ac4f8c5ecf017bf9e3f, type: 3}
       propertyPath: m_LocalPosition.x

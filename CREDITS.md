@@ -14,7 +14,8 @@ Characters:
 Icons:
  - [Shikashi's Fantasy Icons Pack](https://cheekyinkling.itch.io/shikashis-fantasy-icons-pack) by Shikashi and game-icons.net under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
  - By [srip](https://www.flaticon.com/authors/srip) from [Flaticon](https://www.flaticon.com/)
- - By [srip](https://www.flaticon.com/authors/pixel-perfect) from [Flaticon](https://www.flaticon.com/)
+ - By [pixel-perfect](https://www.flaticon.com/authors/pixel-perfect) from [Flaticon](https://www.flaticon.com/)
+ - By [good-ware](https://www.flaticon.com/authors/good-ware) from [Flaticon](https://www.flaticon.com/)
  - By [janjf](https://pixabay.com/users/janjf93-3084263/) under [Simplified Pixabay License](https://pixabay.com/service/license/)
 
 Tiles:

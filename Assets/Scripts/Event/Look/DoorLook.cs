@@ -6,6 +6,7 @@
         {
             if (lockReason == "Etahnia") return "The door is locked. \"Etahnia Alltunirya\" is written on the doorplate";
             if (lockReason == "Salenae") return "The door is locked. \"Salenae Ydrahill\" is written on the doorplate";
+            if (lockReason == "Nachi") return "The door is locked. \"Nachi Shaenn\" is written on the doorplate";
             if (lockReason == "Yumena")
             {
                 if (InformationManager.S.DidSummonYumena)

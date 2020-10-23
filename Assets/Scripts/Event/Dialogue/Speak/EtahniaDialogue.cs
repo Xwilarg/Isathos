@@ -479,8 +479,10 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0)
             {
                 EventManager.S.RemoveItem(e, ItemID.CANDY);
-                return new NormalDialogue(true, "Strawberry, my favorite! Thanks!", FacialExpression.SMILE, _knownName); // TODO: Improve
+                return new NormalDialogue(true, "It's been so long since I was able to eat something sweat!", FacialExpression.SMILE, _knownName); // TODO: Improve
             }
+            else if (_currProgress == 1)
+                return new NormalDialogue(true, "It's so good~", FacialExpression.SMILE, _knownName); // TODO: Improve
 
             IncreaseRelation(e);
             PlayerController.S.SetIsCinematic(false);
