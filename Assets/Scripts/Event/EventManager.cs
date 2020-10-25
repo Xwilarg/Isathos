@@ -260,7 +260,6 @@ namespace Event
 
         public void DisplayDiscution(EventDiscussion e, int id, Character c)
         {
-
             IDialogueResult result;
             if (c == Character.ETAHNIA)
                 result = _etahnia.GetDialogue(e, id);

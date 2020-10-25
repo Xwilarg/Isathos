@@ -173,6 +173,7 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 1) return new NormalDialogue(true, "I guess it can be risky but I guess I'm just curious of who will come out.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 2) return new NormalDialogue(true, "If you want to try it, speak to me again but you'll have to deal with who comes out since there is no way to send them back.", FacialExpression.SMILE, _knownName);
             if (_currProgress == 3) return new NormalDialogue(true, "But that's not a problem, we have a second house that work as a guest house but since nobody come anymore it's rather empty.", FacialExpression.SMILE, _knownName);
+            if (_currProgress == 4) return new NormalDialogue(true, "I also would need a transport gem for that to work, they looks like a white gem", FacialExpression.SMILE, _knownName);
 
             _dialogueChoice.Add(SummonStranger, "Summon stranger");
             PlayerController.S.SetIsCinematic(false);
@@ -208,7 +209,8 @@ namespace Event.Dialogue.Speak
             if (_currProgress == 0)
             {
                 PlayerController.S.SetIsCinematic(true);
-                if (!SummonManager.S.Summon()) return new NormalDialogue(true, "...Looks like nobody is coming.", FacialExpression.NEUTRAL, _knownName);
+                if (!SummonManager.S.Summon()) return new NormalDialogue(false, "(I don't have any transport gem.)", FacialExpression.NEUTRAL, _knownName);
+                EventManager.S.RemoveItem(e, ItemID.TRANSPORT_GEM);
                 return new NormalDialogue(true, "It worked! You should go speak with her now.", FacialExpression.SMILE, _knownName);
             }
             PlayerController.S.SetIsCinematic(false);

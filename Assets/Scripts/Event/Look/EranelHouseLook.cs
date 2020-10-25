@@ -109,7 +109,17 @@ namespace Event.Look
             else if (name == "CUPBOARDLR")
             {
                 if (_currProgress == 0)
-                    res = "The cupboard is filled with decorations.";
+                {
+                    if (_books.Contains("gem"))
+                        res = "The cupboard is filled with decorations...";
+                    else
+                        res = "The cupboard is filled with decorations... Wait, what is that gem?";
+                    if (!_books.Contains("gem"))
+                    {
+                        EventManager.S.DisplayNewItem(ItemID.TRANSPORT_GEM);
+                        _books.Add("gem");
+                    }
+                }
             }
             else if (name == "CAKE")
             {

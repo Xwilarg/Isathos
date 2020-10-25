@@ -46,7 +46,7 @@ namespace Event
 
         public bool Summon()
         {
-            if (_summons.Count == 0)
+            if (!Player.PlayerController.S.Inventory.ContainsItem(Inventory.ItemID.TRANSPORT_GEM))
                 return false;
             _canSummon = false;
             var rand = Random.Range(0, _summons.Count);

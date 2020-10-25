@@ -27,6 +27,7 @@ namespace Inventory
                 { ItemID.CANDY, new Item("Strawberry candy", "A strawberry candy wrapped inside a cute red paper.", _icons.Candy) },
                 { ItemID.FOLDED_PAPER, new Item("Folded paper", "A paper containing a magic circle with weird symbols.", _icons.Paper) },
                 { ItemID.CELLPHONE, new Item("Cellphone", "A cellphone, I don't think I'll be able to contact anyone from here...", _icons.UI) },
+                { ItemID.TRANSPORT_GEM, new Item("Transport Gem", "A gem to attract people from other plans", _icons.Gem) }
             };
         }
 

@@ -15,6 +15,7 @@ namespace Event.Dialogue.Speak
         public override IDialogueResult GetDialogue(EventDiscussion e, int lastChoiceId)
         {
             IDialogueResult result;
+
             result = _current(e, lastChoiceId);
             IncreaseProgress();
             return result;

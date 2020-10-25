@@ -10,6 +10,11 @@ namespace Inventory
             _items = new Dictionary<ItemID, int>();
         }
 
+        public bool ContainsItem(ItemID id)
+        {
+            return _items.ContainsKey(id);
+        }
+
         public void AddItem(ItemID id)
         {
             if (_items.ContainsKey(id))

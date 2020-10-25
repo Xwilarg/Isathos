@@ -2523,7 +2523,7 @@ GameObject:
   - component: {fileID: 389453693}
   - component: {fileID: 389453692}
   m_Layer: 0
-  m_Name: World 32*32
+  m_Name: Worlds 32*32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

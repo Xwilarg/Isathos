@@ -11,5 +11,6 @@ namespace SO
         public Sprite BookBlue, BookBrown, BookSpell, BookOldSpell;
         public Sprite Candy;
         public Sprite Paper;
+        public Sprite Gem;
     }
 }

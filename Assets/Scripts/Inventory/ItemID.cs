@@ -11,6 +11,7 @@
         BOOK_SPELL_SUMMON,
         CANDY,
         FOLDED_PAPER,
-        CELLPHONE
+        CELLPHONE,
+        TRANSPORT_GEM
     }
 }
